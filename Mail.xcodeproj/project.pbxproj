@@ -3,11 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19AF9238CCDE7DD2CA106C6D /* Pods_Mail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CF6D2A0E9E03EBA2989B8F /* Pods_Mail.framework */; };
 		8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B7026035176002DE9B1 /* MuseoSans_500.otf */; };
+		8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */; };
+		8A164B882603CEB1002DE9B1 /* ThreadDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B872603CEB1002DE9B1 /* ThreadDB.swift */; };
+		8A164B8B2603CEEE002DE9B1 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B8A2603CEEE002DE9B1 /* UserDB.swift */; };
+		8A164B8E2603CF0B002DE9B1 /* MailDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B8D2603CF0B002DE9B1 /* MailDB.swift */; };
 		8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28125FB69CE006480BB /* AppDelegate.swift */; };
 		8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28325FB69CE006480BB /* SceneDelegate.swift */; };
 		8A94A28625FB69CE006480BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28525FB69CE006480BB /* ViewController.swift */; };
@@ -36,7 +41,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1106BC3B570ABD1653F00DE4 /* Pods-Mail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.debug.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.debug.xcconfig"; sourceTree = "<group>"; };
+		23CF14623FE32664C22104AA /* Pods-Mail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.release.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.release.xcconfig"; sourceTree = "<group>"; };
+		85CF6D2A0E9E03EBA2989B8F /* Pods_Mail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A164B7026035176002DE9B1 /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
+		8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8A164B872603CEB1002DE9B1 /* ThreadDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadDB.swift; sourceTree = "<group>"; };
+		8A164B8A2603CEEE002DE9B1 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
+		8A164B8D2603CF0B002DE9B1 /* MailDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailDB.swift; sourceTree = "<group>"; };
 		8A94A27E25FB69CE006480BB /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A94A28125FB69CE006480BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A94A28325FB69CE006480BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,17 +83,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19AF9238CCDE7DD2CA106C6D /* Pods_Mail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AD6CF9ED9F4C4C81A0BD7E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1106BC3B570ABD1653F00DE4 /* Pods-Mail.debug.xcconfig */,
+				23CF14623FE32664C22104AA /* Pods-Mail.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8A164B832603CDA4002DE9B1 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */,
+				8A94A28A25FB69D1006480BB /* Assets.xcassets */,
+				8A94A28F25FB69D1006480BB /* Info.plist */,
+				8A164B842603CDB1002DE9B1 /* Font */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		8A164B842603CDB1002DE9B1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8A164B7026035176002DE9B1 /* MuseoSans_500.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		8A164B862603CE77002DE9B1 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8A164B872603CEB1002DE9B1 /* ThreadDB.swift */,
+				8A164B8A2603CEEE002DE9B1 /* UserDB.swift */,
+				8A164B8D2603CF0B002DE9B1 /* MailDB.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		8A94A27525FB69CE006480BB = {
 			isa = PBXGroup;
 			children = (
 				8A94A28025FB69CE006480BB /* Mail */,
 				8A94A27F25FB69CE006480BB /* Products */,
+				5AD6CF9ED9F4C4C81A0BD7E9 /* Pods */,
+				EB28E47F4390B7ECBB568200 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,16 +149,13 @@
 		8A94A28025FB69CE006480BB /* Mail */ = {
 			isa = PBXGroup;
 			children = (
+				8A164B862603CE77002DE9B1 /* Database */,
+				8A164B832603CDA4002DE9B1 /* Ressources */,
 				8A94A2B025FE4753006480BB /* Utilities */,
 				8A94A2AD25FD3EC7006480BB /* System */,
 				8A94A2AC25FD3E8F006480BB /* Controller */,
 				8A94A2AB25FD3E8C006480BB /* View */,
 				8A94A2A925FD3E7C006480BB /* Model */,
-				8A94A28725FB69CE006480BB /* Main.storyboard */,
-				8A164B7026035176002DE9B1 /* MuseoSans_500.otf */,
-				8A94A28A25FB69D1006480BB /* Assets.xcassets */,
-				8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */,
-				8A94A28F25FB69D1006480BB /* Info.plist */,
 			);
 			path = Mail;
 			sourceTree = "<group>";
@@ -113,11 +163,11 @@
 		8A94A2A925FD3E7C006480BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8A94A2A625FD38BD006480BB /* MockedData.swift */,
-				8A94A29625FB6DE7006480BB /* Mailboxes.swift */,
 				8A94A29C25FB76A4006480BB /* Thread.swift */,
 				8A94A2B825FE55A2006480BB /* User.swift */,
 				8A94A2C925FF45B7006480BB /* Mail.swift */,
+				8A94A2A625FD38BD006480BB /* MockedData.swift */,
+				8A94A29625FB6DE7006480BB /* Mailboxes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +175,8 @@
 		8A94A2AB25FD3E8C006480BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A94A28725FB69CE006480BB /* Main.storyboard */,
+				8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */,
 				8A94A2A125FB7AEF006480BB /* ThreadPresentationCell.swift */,
 				8A94A2A225FB7AEF006480BB /* ThreadPresentationCell.xib */,
 				8A94A2BB25FE5926006480BB /* ThreadsNavigationItem.xib */,
@@ -167,6 +219,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		EB28E47F4390B7ECBB568200 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85CF6D2A0E9E03EBA2989B8F /* Pods_Mail.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A94A29225FB69D1006480BB /* Build configuration list for PBXNativeTarget "Mail" */;
 			buildPhases = (
+				CBA0246164FDB32CABA691EE /* [CP] Check Pods Manifest.lock */,
 				8A94A27A25FB69CE006480BB /* Sources */,
 				8A94A27B25FB69CE006480BB /* Frameworks */,
 				8A94A27C25FB69CE006480BB /* Resources */,
+				C86A1CA94902853BD0B1FDFA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,12 +293,55 @@
 				8A94A28925FB69CE006480BB /* Main.storyboard in Resources */,
 				8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */,
 				8A94A2BC25FE5926006480BB /* ThreadsNavigationItem.xib in Resources */,
+				8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */,
 				8A94A2DB25FFD811006480BB /* ThreadHeaderCollectionViewCell.xib in Resources */,
 				8A94A2A425FB7AEF006480BB /* ThreadPresentationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C86A1CA94902853BD0B1FDFA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBA0246164FDB32CABA691EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mail-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A94A27A25FB69CE006480BB /* Sources */ = {
@@ -250,9 +355,12 @@
 				8A94A2A325FB7AEF006480BB /* ThreadPresentationCell.swift in Sources */,
 				8A94A2B625FE5022006480BB /* ThreadsViewController.swift in Sources */,
 				8A94A2BF25FE5B60006480BB /* ThreadsNavigationItemView.swift in Sources */,
+				8A164B882603CEB1002DE9B1 /* ThreadDB.swift in Sources */,
+				8A164B8E2603CF0B002DE9B1 /* MailDB.swift in Sources */,
 				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
 				8A94A28625FB69CE006480BB /* ViewController.swift in Sources */,
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
+				8A164B8B2603CEEE002DE9B1 /* UserDB.swift in Sources */,
 				8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */,
 				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
 				8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */,
@@ -403,12 +511,13 @@
 		};
 		8A94A29325FB69D1006480BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1106BC3B570ABD1653F00DE4 /* Pods-Mail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WY266AH6T6;
-				INFOPLIST_FILE = Mail/Info.plist;
+				INFOPLIST_FILE = Mail/Ressources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,12 +531,13 @@
 		};
 		8A94A29425FB69D1006480BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23CF14623FE32664C22104AA /* Pods-Mail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WY266AH6T6;
-				INFOPLIST_FILE = Mail/Info.plist;
+				INFOPLIST_FILE = Mail/Ressources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
