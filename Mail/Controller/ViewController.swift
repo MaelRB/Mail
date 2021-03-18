@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     // Collection view
     @IBOutlet weak var collectionView: UICollectionView!
-    private var collectionViewController: MailCollectionViewController!
+    private var collectionViewController: NewMailCollectionViewController!
     
     
     // MARK: - Object life cycle
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         addButtonMenu()
-        collectionViewController = MailCollectionViewController(collectionView: collectionView)
+        collectionViewController = NewMailCollectionViewController(collectionView: collectionView)
         collectionView.delegate = self
     }
     
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! ThreadsViewController
+        let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! UserThreadViewController
         threadVC.user = Thread.mockedDataArray[indexPath.row].user
         self.navigationController!.pushViewController(threadVC, animated: true)
     }

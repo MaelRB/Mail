@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThreadsNavigationItemView: UIView {
+class UserThreadNavigationItem: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var imageView: UIImageView!

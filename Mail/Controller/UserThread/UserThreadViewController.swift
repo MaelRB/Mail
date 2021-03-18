@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThreadsViewController: UIViewController {
+class UserThreadViewController: UIViewController {
     
     // User
     var user: User!
@@ -41,7 +41,7 @@ class ThreadsViewController: UIViewController {
     
     fileprivate func navItemSetup() {
         self.title = user.name
-        let navigationItemView = ThreadsNavigationItemView()
+        let navigationItemView = UserThreadNavigationItem()
         navigationItemView.imageView.image = user.profilePicture
         navigationItemView.name.text = user.name
         navigationItemView.info.text = "3 threads"
@@ -78,7 +78,7 @@ class ThreadsViewController: UIViewController {
 }
 
 // MARK: - Table view data source methods
-extension ThreadsViewController: UITableViewDataSource {
+extension UserThreadViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Thread.mockedDataArray[section].mailList.count
@@ -97,7 +97,7 @@ extension ThreadsViewController: UITableViewDataSource {
 }
 
 // MARK: - Tbale view delegate methods
-extension ThreadsViewController: UITableViewDelegate {
+extension UserThreadViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
