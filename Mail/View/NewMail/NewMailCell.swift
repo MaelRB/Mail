@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThreadPresentationCell: UICollectionViewCell {
+class NewMailCell: UICollectionViewCell {
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var title: UILabel!
