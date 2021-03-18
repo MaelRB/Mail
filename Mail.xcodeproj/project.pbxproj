@@ -7,15 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B7026035176002DE9B1 /* MuseoSans_500.otf */; };
 		8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28125FB69CE006480BB /* AppDelegate.swift */; };
 		8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28325FB69CE006480BB /* SceneDelegate.swift */; };
 		8A94A28625FB69CE006480BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28525FB69CE006480BB /* ViewController.swift */; };
 		8A94A28925FB69CE006480BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28725FB69CE006480BB /* Main.storyboard */; };
 		8A94A28B25FB69D1006480BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28A25FB69D1006480BB /* Assets.xcassets */; };
 		8A94A28E25FB69D1006480BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */; };
+		8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29625FB6DE7006480BB /* Mailboxes.swift */; };
+		8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29925FB761C006480BB /* MailCollectionViewController.swift */; };
+		8A94A29D25FB76A4006480BB /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29C25FB76A4006480BB /* Thread.swift */; };
+		8A94A2A325FB7AEF006480BB /* ThreadPresentationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A125FB7AEF006480BB /* ThreadPresentationCell.swift */; };
+		8A94A2A425FB7AEF006480BB /* ThreadPresentationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2A225FB7AEF006480BB /* ThreadPresentationCell.xib */; };
+		8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A625FD38BD006480BB /* MockedData.swift */; };
+		8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B125FE4763006480BB /* DateExtension.swift */; };
+		8A94A2B625FE5022006480BB /* ThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B525FE5022006480BB /* ThreadsViewController.swift */; };
+		8A94A2B925FE55A2006480BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B825FE55A2006480BB /* User.swift */; };
+		8A94A2BC25FE5926006480BB /* ThreadsNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2BB25FE5926006480BB /* ThreadsNavigationItem.xib */; };
+		8A94A2BF25FE5B60006480BB /* ThreadsNavigationItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2BE25FE5B60006480BB /* ThreadsNavigationItemView.swift */; };
+		8A94A2C325FF449D006480BB /* ThreadsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2C225FF449D006480BB /* ThreadsCollectionViewController.swift */; };
+		8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2C925FF45B7006480BB /* Mail.swift */; };
+		8A94A2D525FFCB71006480BB /* MailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2D325FFCB71006480BB /* MailCollectionViewCell.swift */; };
+		8A94A2D625FFCB71006480BB /* MailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2D425FFCB71006480BB /* MailCollectionViewCell.xib */; };
+		8A94A2DA25FFD811006480BB /* ThreadHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2D825FFD811006480BB /* ThreadHeaderCollectionViewCell.swift */; };
+		8A94A2DB25FFD811006480BB /* ThreadHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2D925FFD811006480BB /* ThreadHeaderCollectionViewCell.xib */; };
+		8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2DE260215C2006480BB /* MailTableViewCell.swift */; };
+		8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2DF260215C3006480BB /* MailTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A164B7026035176002DE9B1 /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
 		8A94A27E25FB69CE006480BB /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A94A28125FB69CE006480BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A94A28325FB69CE006480BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +45,25 @@
 		8A94A28A25FB69D1006480BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A94A28D25FB69D1006480BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A94A28F25FB69D1006480BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A94A29625FB6DE7006480BB /* Mailboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mailboxes.swift; sourceTree = "<group>"; };
+		8A94A29925FB761C006480BB /* MailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailCollectionViewController.swift; sourceTree = "<group>"; };
+		8A94A29C25FB76A4006480BB /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		8A94A2A125FB7AEF006480BB /* ThreadPresentationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadPresentationCell.swift; sourceTree = "<group>"; };
+		8A94A2A225FB7AEF006480BB /* ThreadPresentationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadPresentationCell.xib; sourceTree = "<group>"; };
+		8A94A2A625FD38BD006480BB /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
+		8A94A2B125FE4763006480BB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		8A94A2B525FE5022006480BB /* ThreadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsViewController.swift; sourceTree = "<group>"; };
+		8A94A2B825FE55A2006480BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8A94A2BB25FE5926006480BB /* ThreadsNavigationItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadsNavigationItem.xib; sourceTree = "<group>"; };
+		8A94A2BE25FE5B60006480BB /* ThreadsNavigationItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsNavigationItemView.swift; sourceTree = "<group>"; };
+		8A94A2C225FF449D006480BB /* ThreadsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsCollectionViewController.swift; sourceTree = "<group>"; };
+		8A94A2C925FF45B7006480BB /* Mail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
+		8A94A2D325FFCB71006480BB /* MailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A94A2D425FFCB71006480BB /* MailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MailCollectionViewCell.xib; sourceTree = "<group>"; };
+		8A94A2D825FFD811006480BB /* ThreadHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A94A2D925FFD811006480BB /* ThreadHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		8A94A2DE260215C2006480BB /* MailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailTableViewCell.swift; sourceTree = "<group>"; };
+		8A94A2DF260215C3006480BB /* MailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MailTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +96,75 @@
 		8A94A28025FB69CE006480BB /* Mail */ = {
 			isa = PBXGroup;
 			children = (
-				8A94A28125FB69CE006480BB /* AppDelegate.swift */,
-				8A94A28325FB69CE006480BB /* SceneDelegate.swift */,
-				8A94A28525FB69CE006480BB /* ViewController.swift */,
+				8A94A2B025FE4753006480BB /* Utilities */,
+				8A94A2AD25FD3EC7006480BB /* System */,
+				8A94A2AC25FD3E8F006480BB /* Controller */,
+				8A94A2AB25FD3E8C006480BB /* View */,
+				8A94A2A925FD3E7C006480BB /* Model */,
 				8A94A28725FB69CE006480BB /* Main.storyboard */,
+				8A164B7026035176002DE9B1 /* MuseoSans_500.otf */,
 				8A94A28A25FB69D1006480BB /* Assets.xcassets */,
 				8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */,
 				8A94A28F25FB69D1006480BB /* Info.plist */,
 			);
 			path = Mail;
+			sourceTree = "<group>";
+		};
+		8A94A2A925FD3E7C006480BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A94A2A625FD38BD006480BB /* MockedData.swift */,
+				8A94A29625FB6DE7006480BB /* Mailboxes.swift */,
+				8A94A29C25FB76A4006480BB /* Thread.swift */,
+				8A94A2B825FE55A2006480BB /* User.swift */,
+				8A94A2C925FF45B7006480BB /* Mail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A94A2AB25FD3E8C006480BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A94A2A125FB7AEF006480BB /* ThreadPresentationCell.swift */,
+				8A94A2A225FB7AEF006480BB /* ThreadPresentationCell.xib */,
+				8A94A2BB25FE5926006480BB /* ThreadsNavigationItem.xib */,
+				8A94A2BE25FE5B60006480BB /* ThreadsNavigationItemView.swift */,
+				8A94A2D825FFD811006480BB /* ThreadHeaderCollectionViewCell.swift */,
+				8A94A2D925FFD811006480BB /* ThreadHeaderCollectionViewCell.xib */,
+				8A94A2D325FFCB71006480BB /* MailCollectionViewCell.swift */,
+				8A94A2D425FFCB71006480BB /* MailCollectionViewCell.xib */,
+				8A94A2DE260215C2006480BB /* MailTableViewCell.swift */,
+				8A94A2DF260215C3006480BB /* MailTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A94A2AC25FD3E8F006480BB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A94A29925FB761C006480BB /* MailCollectionViewController.swift */,
+				8A94A28525FB69CE006480BB /* ViewController.swift */,
+				8A94A2B525FE5022006480BB /* ThreadsViewController.swift */,
+				8A94A2C225FF449D006480BB /* ThreadsCollectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A94A2AD25FD3EC7006480BB /* System */ = {
+			isa = PBXGroup;
+			children = (
+				8A94A28125FB69CE006480BB /* AppDelegate.swift */,
+				8A94A28325FB69CE006480BB /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		8A94A2B025FE4753006480BB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8A94A2B125FE4763006480BB /* DateExtension.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +225,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A94A28E25FB69D1006480BB /* LaunchScreen.storyboard in Resources */,
+				8A94A2D625FFCB71006480BB /* MailCollectionViewCell.xib in Resources */,
 				8A94A28B25FB69D1006480BB /* Assets.xcassets in Resources */,
+				8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */,
 				8A94A28925FB69CE006480BB /* Main.storyboard in Resources */,
+				8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */,
+				8A94A2BC25FE5926006480BB /* ThreadsNavigationItem.xib in Resources */,
+				8A94A2DB25FFD811006480BB /* ThreadHeaderCollectionViewCell.xib in Resources */,
+				8A94A2A425FB7AEF006480BB /* ThreadPresentationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +243,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A94A2DA25FFD811006480BB /* ThreadHeaderCollectionViewCell.swift in Sources */,
+				8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */,
+				8A94A2D525FFCB71006480BB /* MailCollectionViewCell.swift in Sources */,
+				8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */,
+				8A94A2A325FB7AEF006480BB /* ThreadPresentationCell.swift in Sources */,
+				8A94A2B625FE5022006480BB /* ThreadsViewController.swift in Sources */,
+				8A94A2BF25FE5B60006480BB /* ThreadsNavigationItemView.swift in Sources */,
+				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
 				8A94A28625FB69CE006480BB /* ViewController.swift in Sources */,
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
+				8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */,
+				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
+				8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
+				8A94A29D25FB76A4006480BB /* Thread.swift in Sources */,
+				8A94A2B925FE55A2006480BB /* User.swift in Sources */,
+				8A94A2C325FF449D006480BB /* ThreadsCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
