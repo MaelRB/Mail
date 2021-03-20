@@ -11,27 +11,27 @@ class UserThreadViewController: UIViewController {
     
     // User
     var user: User!
+    
+    var threadList = Thread.mockedDataArray // TODO: - Replaced by Firestore data
 
     // Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var reply: UITextField!
     
-    @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var replyView: ReplyView!
+    @IBOutlet weak var replyViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Object life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navItemSetup()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        tableView.register(UINib.init(nibName: "MailTableViewCell", bundle: nil), forCellReuseIdentifier: "MailCell")
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 400
-        tableView.sectionHeaderHeight = 60
+        navItemSetup()
+        tableViewSetup()
+        replyViewSetup()
         
     }
     
@@ -48,6 +48,19 @@ class UserThreadViewController: UIViewController {
         navigationItem.titleView = navigationItemView
     }
     
+    fileprivate func tableViewSetup() {
+        tableView.register(UINib.init(nibName: "MailTableViewCell", bundle: nil), forCellReuseIdentifier: "MailCell")
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 400
+        tableView.sectionHeaderHeight = 70
+    }
+    
+    fileprivate func replyViewSetup() {
+        replyView.delegate = self
+        replyView.threadList = threadList
+    }
+    
     @objc func keyboardNotification(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         
@@ -59,9 +72,14 @@ class UserThreadViewController: UIViewController {
         let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
         
         if endFrameY >= UIScreen.main.bounds.size.height {
-            self.keyboardHeightLayoutConstraint?.constant = 20
+            self.keyboardHeightConstraint?.constant = 0
         } else {
-            self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 20
+            if endFrame != nil {
+                self.keyboardHeightConstraint?.constant = endFrame!.size.height - 20
+            } else {
+                self.keyboardHeightConstraint?.constant = 0
+            }
+            
         }
         
         UIView.animate(
@@ -81,16 +99,16 @@ class UserThreadViewController: UIViewController {
 extension UserThreadViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Thread.mockedDataArray[section].mailList.count
+        return threadList[section].mailList.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Thread.mockedDataArray.count
+        return threadList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MailCell", for: indexPath) as! MailTableViewCell
-        cell.configure(with: Thread.mockedDataArray[indexPath.section].mailList[indexPath.row])
+        cell.configure(with: threadList[indexPath.section].mailList[indexPath.row])
         return cell
     }
     
@@ -105,14 +123,14 @@ extension UserThreadViewController: UITableViewDelegate {
         headerView.backgroundColor = .systemBackground
         
         let infoLabel = UILabel()
-        infoLabel.text = "\(Thread.mockedDataArray[section].mailList.count) messages"
+        infoLabel.text = "\(threadList[section].mailList.count) messages"
         infoLabel.font = .systemFont(ofSize: 14)
         infoLabel.textColor = .secondaryLabel
         headerView.addSubview(infoLabel)
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let titleLabel = UILabel()
-        titleLabel.text = "\(Thread.mockedDataArray[section].mailList.first!.object)"
+        titleLabel.text = "\(threadList[section].title)"
         titleLabel.font = .boldSystemFont(ofSize: 22)
         headerView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -131,5 +149,30 @@ extension UserThreadViewController: UITableViewDelegate {
         ])
         
         return headerView
+    }
+    
+}
+
+
+extension UserThreadViewController: ReplyViewDelegate {
+    
+    func replyDidTap() {
+        replyViewHeightConstraint.constant = 200
+        UIView.animate(
+            withDuration: 0.15,
+            delay: TimeInterval(0),
+            options: [.curveEaseOut],
+            animations: { self.view.layoutIfNeeded() },
+            completion: nil)
+    }
+    
+    func sendDidTap() {
+        replyViewHeightConstraint.constant = 38
+        UIView.animate(
+            withDuration: 0.15,
+            delay: TimeInterval(0),
+            options: [.curveEaseOut],
+            animations: { self.view.layoutIfNeeded() },
+            completion: nil)
     }
 }

@@ -8,7 +8,6 @@
 import Foundation
 
 struct Mail: Hashable {
-    var object: String
     var sender: User
     var to: User
     var message: String

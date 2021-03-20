@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReplyView" customModule="Mail" customModuleProvider="target">
+            <connections>
+                <outlet property="addPersonButton" destination="u8V-Ui-dbV" id="UzQ-1p-dAY"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="aie-fJ-goE"/>
+                <outlet property="documentCollectionView" destination="Dyw-qa-DCT" id="38R-EP-RDA"/>
+                <outlet property="downStackView" destination="kd3-nQ-HFq" id="1YM-C2-PUw"/>
+                <outlet property="forwardButton" destination="Xp4-GA-KGf" id="ceg-oj-M0q"/>
+                <outlet property="replyButton" destination="dvG-L3-Xnc" id="lsp-zd-idg"/>
+                <outlet property="sendButton" destination="wbR-1p-5x1" id="rlm-pz-uqR"/>
+                <outlet property="separator" destination="NgP-nM-FbN" id="Wqw-uL-wNQ"/>
+                <outlet property="seperatorHeightConstraint" destination="dzC-50-RuL" id="7cQ-kY-yQd"/>
+                <outlet property="textView" destination="ciN-S8-vmd" id="VJs-v0-GMT"/>
+                <outlet property="threadButton" destination="vVo-BP-NjQ" id="hbM-pe-xto"/>
+                <outlet property="upperStackView" destination="vUs-gK-1dN" id="npb-RG-Bbs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kd3-nQ-HFq">
+                    <rect key="frame" x="20" y="228" width="374" height="32"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zS0-LW-VU6">
+                            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="xgT-IV-quq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            <state key="normal">
+                                <imageReference key="image" image="paperclip" catalog="system" symbolScale="medium"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                            </state>
+                            <connections>
+                                <action selector="documentButtonTapped:" destination="-1" eventType="touchUpInside" id="uu5-xQ-Xbz"/>
+                                <action selector="sendButtonTapped:" destination="-1" eventType="touchUpInside" id="uc9-Dj-7NW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvG-L3-Xnc">
+                            <rect key="frame" x="37" y="0.0" width="69" height="32"/>
+                            <state key="normal" title="Your reply">
+                                <color key="titleColor" systemColor="secondaryLabelColor"/>
+                            </state>
+                            <connections>
+                                <action selector="replyButtonTapped:" destination="-1" eventType="touchUpInside" id="Zpd-xd-hwd"/>
+                            </connections>
+                        </button>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Dyw-qa-DCT">
+                            <rect key="frame" x="111" y="0.0" width="226" height="32"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OBI-wm-a1A">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbR-1p-5x1">
+                            <rect key="frame" x="342" y="0.0" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="pX5-km-9z5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <state key="normal">
+                                <imageReference key="image" image="arrow.up.circle.fill" catalog="system" symbolScale="large"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
+                            </state>
+                            <connections>
+                                <action selector="sendButtonTapped:" destination="-1" eventType="touchUpInside" id="99Y-zp-Edn"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="jvd-2k-Wlu"/>
+                    </constraints>
+                </stackView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ciN-S8-vmd">
+                    <rect key="frame" x="15" y="33" width="384" height="190"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-gK-1dN">
+                    <rect key="frame" x="20" y="11" width="374" height="22"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVo-BP-NjQ">
+                            <rect key="frame" x="0.0" y="0.0" width="290" height="22"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" systemColor="secondaryLabelColor"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8V-Ui-dbV">
+                            <rect key="frame" x="300" y="0.0" width="32" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="oeG-1M-hfq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            <state key="normal">
+                                <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                <imageReference key="image" image="person.fill.badge.plus" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="medium"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp4-GA-KGf">
+                            <rect key="frame" x="342" y="0.0" width="32" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="W26-tu-bCl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            <state key="normal">
+                                <imageReference key="image" image="arrowshape.turn.up.forward.fill" catalog="system" symbolScale="medium"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="DSL-8J-y5o"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgP-nM-FbN">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                    <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="dzC-50-RuL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="kd3-nQ-HFq" secondAttribute="bottom" id="2tW-h2-1ub"/>
+                <constraint firstItem="NgP-nM-FbN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6km-bb-iia"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vUs-gK-1dN" secondAttribute="trailing" constant="20" id="8Bm-ou-kwh"/>
+                <constraint firstItem="kd3-nQ-HFq" firstAttribute="top" secondItem="ciN-S8-vmd" secondAttribute="bottom" constant="5" id="AY9-9c-FDk"/>
+                <constraint firstItem="vUs-gK-1dN" firstAttribute="top" secondItem="NgP-nM-FbN" secondAttribute="bottom" constant="10" id="JNj-Yb-1y2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NgP-nM-FbN" secondAttribute="trailing" id="OYI-8J-eyz"/>
+                <constraint firstItem="vUs-gK-1dN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Vx7-OY-aJ0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ciN-S8-vmd" secondAttribute="trailing" constant="15" id="gAl-OD-fga"/>
+                <constraint firstItem="ciN-S8-vmd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="kMm-UI-vG0"/>
+                <constraint firstItem="kd3-nQ-HFq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="lUx-jC-ZNQ"/>
+                <constraint firstItem="ciN-S8-vmd" firstAttribute="top" secondItem="vUs-gK-1dN" secondAttribute="bottom" id="tCj-AH-VQ2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kd3-nQ-HFq" secondAttribute="trailing" constant="20" id="vH1-eR-C3b"/>
+                <constraint firstItem="NgP-nM-FbN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zg7-Ub-n0N"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="34.782608695652179" y="-126.5625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.forward.fill" catalog="system" width="128" height="106"/>
+        <image name="paperclip" catalog="system" width="121" height="128"/>
+        <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

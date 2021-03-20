@@ -24,7 +24,7 @@ class NewMailCell: UICollectionViewCell {
     
     func configure(with model: Thread) {
         imageView.image = model.user.profilePicture
-        title.text = model.mailList.first!.object
+        title.text = model.title
         mail.text = model.mailList.first!.message
         date.text = model.date.relativeDate()
         sender.text = model.user.name

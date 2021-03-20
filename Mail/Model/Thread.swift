@@ -9,6 +9,7 @@ import UIKit
 
 struct Thread: Hashable {
     
+    var title: String
     var user: User
     var date: Date
     var isNew: Bool

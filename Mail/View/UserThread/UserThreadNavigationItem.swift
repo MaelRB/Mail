@@ -26,7 +26,7 @@ class UserThreadNavigationItem: UIView {
     }
     
     private func setup() {
-        Bundle.main.loadNibNamed("ThreadsNavigationItem", owner: self, options: nil)
+        Bundle.main.loadNibNamed("UserThreadNavigationItem", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

@@ -113,69 +113,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dxz-QW-dKs">
-                                <rect key="frame" x="10" y="828" width="394" height="38"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7J-vD-Vd2">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="38"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="34" id="nzR-7G-zhh"/>
-                                        </constraints>
-                                        <state key="normal">
-                                            <color key="titleColor" systemColor="secondaryLabelColor"/>
-                                            <imageReference key="image" image="paperclip" catalog="system" renderingMode="original"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="paperclipTapped:" destination="Ya4-yY-oux" eventType="touchUpInside" id="4p1-PP-1eN"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your reply" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iM2-ji-K6J">
-                                        <rect key="frame" x="44" y="0.0" width="350" height="38"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-8E-VvE" customClass="ReplyView" customModule="Mail" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="824" width="414" height="38"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="pjK-Ui-TKE"/>
+                                    <constraint firstAttribute="height" constant="38" id="Utd-Wg-rRh"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3EI-by-73z">
-                                <rect key="frame" x="0.0" y="44" width="414" height="782"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="779"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Ya4-yY-oux" id="WYj-nD-7m0"/>
                                     <outlet property="delegate" destination="Ya4-yY-oux" id="hPa-cV-qPL"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXu-B0-7XV">
-                                <rect key="frame" x="0.0" y="827" width="414" height="1"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="9hg-92-DVh"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4lF-jZ-6Oe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3EI-by-73z" firstAttribute="top" secondItem="4lF-jZ-6Oe" secondAttribute="top" id="CBS-3h-qSo"/>
-                            <constraint firstItem="Dxz-QW-dKs" firstAttribute="top" secondItem="xXu-B0-7XV" secondAttribute="bottom" id="CUj-uF-kGS"/>
-                            <constraint firstItem="Dxz-QW-dKs" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="10" id="Qz2-yJ-LOs"/>
+                            <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="b7d-8E-VvE" secondAttribute="trailing" id="X6P-NJ-Lic"/>
                             <constraint firstItem="3EI-by-73z" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" id="YeR-od-lNO"/>
-                            <constraint firstItem="xXu-B0-7XV" firstAttribute="top" secondItem="3EI-by-73z" secondAttribute="bottom" constant="1" id="b0h-5z-7vl"/>
-                            <constraint firstAttribute="bottom" secondItem="Dxz-QW-dKs" secondAttribute="bottom" constant="30" id="cch-ZM-W9z"/>
-                            <constraint firstItem="xXu-B0-7XV" firstAttribute="leading" secondItem="6y9-T7-IUH" secondAttribute="leading" id="fbm-1M-aVQ"/>
-                            <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="Dxz-QW-dKs" secondAttribute="trailing" constant="10" id="hot-jJ-oFH"/>
-                            <constraint firstAttribute="trailing" secondItem="xXu-B0-7XV" secondAttribute="trailing" id="pnL-7a-LFn"/>
+                            <constraint firstItem="4lF-jZ-6Oe" firstAttribute="bottom" secondItem="b7d-8E-VvE" secondAttribute="bottom" id="l9K-kj-mAr"/>
                             <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="3EI-by-73z" secondAttribute="trailing" id="sh1-uZ-ZDK"/>
+                            <constraint firstItem="b7d-8E-VvE" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" id="y8l-g8-L7j"/>
+                            <constraint firstItem="b7d-8E-VvE" firstAttribute="top" secondItem="3EI-by-73z" secondAttribute="bottom" constant="1" id="zqs-aI-5z1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eH2-NK-d7h">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="pas-L9-tpB"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="keyboardHeightLayoutConstraint" destination="cch-ZM-W9z" id="E6p-1z-sy9"/>
-                        <outlet property="reply" destination="iM2-ji-K6J" id="WNc-eO-vY9"/>
+                        <outlet property="keyboardHeightConstraint" destination="l9K-kj-mAr" id="jun-RK-bbD"/>
+                        <outlet property="replyView" destination="b7d-8E-VvE" id="s6C-ng-m9m"/>
+                        <outlet property="replyViewHeightConstraint" destination="Utd-Wg-rRh" id="Ty5-Hp-qRg"/>
                         <outlet property="tableView" destination="3EI-by-73z" id="Ffm-wr-HNn"/>
                     </connections>
                 </viewController>
@@ -204,7 +176,6 @@
     </scenes>
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
-        <image name="paperclip" catalog="system" width="121" height="128"/>
         <image name="sidebar.left" catalog="system" width="128" height="93"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>
@@ -213,9 +184,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -32,6 +32,9 @@
 		8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2C925FF45B7006480BB /* Mail.swift */; };
 		8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2DE260215C2006480BB /* MailTableViewCell.swift */; };
 		8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2DF260215C3006480BB /* MailTableViewCell.xib */; };
+		8AB7FEF42604D848007343D1 /* MuseoSansRounded-700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */; };
+		8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FF02260511AB007343D1 /* ReplyView.xib */; };
+		8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7FF0526051770007343D1 /* ReplyView.swift */; };
 		9B9CC0E29E6DE83FDC0F5980 /* Pods_Mail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A9737FBFC64D65CE9FC658 /* Pods_Mail.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,9 @@
 		8A94A2C925FF45B7006480BB /* Mail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
 		8A94A2DE260215C2006480BB /* MailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailTableViewCell.swift; sourceTree = "<group>"; };
 		8A94A2DF260215C3006480BB /* MailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MailTableViewCell.xib; sourceTree = "<group>"; };
+		8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSansRounded-700.ttf"; sourceTree = "<group>"; };
+		8AB7FF02260511AB007343D1 /* ReplyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyView.xib; sourceTree = "<group>"; };
+		8AB7FF0526051770007343D1 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
 		92B222DED4CCF617CDC7A05B /* Pods-Mail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.debug.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.debug.xcconfig"; sourceTree = "<group>"; };
 		A6A9737FBFC64D65CE9FC658 /* Pods_Mail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +109,7 @@
 		8A164B842603CDB1002DE9B1 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */,
 				8A164B7026035176002DE9B1 /* MuseoSans_500.otf */,
 			);
 			path = Font;
@@ -134,6 +141,8 @@
 				8A94A2DF260215C3006480BB /* MailTableViewCell.xib */,
 				8A94A2BB25FE5926006480BB /* UserThreadNavigationItem.xib */,
 				8A94A2BE25FE5B60006480BB /* UserThreadNavigationItem.swift */,
+				8AB7FF02260511AB007343D1 /* ReplyView.xib */,
+				8AB7FF0526051770007343D1 /* ReplyView.swift */,
 			);
 			path = UserThread;
 			sourceTree = "<group>";
@@ -310,7 +319,9 @@
 				8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */,
 				8A94A2BC25FE5926006480BB /* UserThreadNavigationItem.xib in Resources */,
 				8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */,
+				8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */,
 				8A94A2A425FB7AEF006480BB /* NewMailCell.xib in Resources */,
+				8AB7FEF42604D848007343D1 /* MuseoSansRounded-700.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */,
+				8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */,
 				8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */,
 				8A94A2A325FB7AEF006480BB /* NewMailCell.swift in Sources */,
 				8A94A2B625FE5022006480BB /* UserThreadViewController.swift in Sources */,
