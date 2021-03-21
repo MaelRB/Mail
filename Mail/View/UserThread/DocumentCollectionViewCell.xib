@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DocumentCollectionViewCell" customModule="Mail" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="145"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="145"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Oe-he-wmX">
+                        <rect key="frame" x="4" y="4" width="172" height="137"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ceA-m1-IXe">
+                        <rect key="frame" x="127.5" y="0.5" width="52.5" height="56.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ceA-m1-IXe" secondAttribute="height" multiplier="1:1.1" id="EoZ-yA-f5k"/>
+                        </constraints>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="ultraLight"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ceA-m1-IXe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2dP-r9-TYV"/>
+                <constraint firstItem="ceA-m1-IXe" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.4" id="2pm-XJ-Kks"/>
+                <constraint firstAttribute="trailing" secondItem="0Oe-he-wmX" secondAttribute="trailing" constant="4" id="5b0-Dm-e7d"/>
+                <constraint firstAttribute="bottom" secondItem="0Oe-he-wmX" secondAttribute="bottom" constant="4" id="Pff-JV-pZj"/>
+                <constraint firstItem="0Oe-he-wmX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="T0y-5s-av9"/>
+                <constraint firstItem="0Oe-he-wmX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="gpx-2d-w0J"/>
+                <constraint firstAttribute="trailing" secondItem="ceA-m1-IXe" secondAttribute="trailing" id="w5q-91-ZEC"/>
+            </constraints>
+            <size key="customSize" width="180" height="145"/>
+            <connections>
+                <outlet property="deleteView" destination="ceA-m1-IXe" id="e7W-6z-0WB"/>
+                <outlet property="imageView" destination="0Oe-he-wmX" id="4oq-hT-voA"/>
+            </connections>
+            <point key="canvasLocation" x="-59.420289855072468" y="74.665178571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="cross.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
+</document>

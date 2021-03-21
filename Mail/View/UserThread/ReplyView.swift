@@ -10,6 +10,7 @@ import UIKit
 protocol ReplyViewDelegate {
     func replyDidTap()
     func sendDidTap()
+    func documentDitTap()
 }
 
 class ReplyView: UIView {
@@ -35,11 +36,14 @@ class ReplyView: UIView {
     @IBOutlet private weak var separator: UIView!
     @IBOutlet weak var seperatorHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var downStackViewHeightConstraint: NSLayoutConstraint!
     // MARK: - Properties
     
     var delegate: ReplyViewDelegate?
     
     private var lowStackViewTopConstraint: NSLayoutConstraint!
+    
+    private var documentCollectionViewController: DocumentCollectionViewController!
     
     var threadList = [Thread]() {
         didSet {
@@ -47,6 +51,10 @@ class ReplyView: UIView {
             addButtonMenu()
         }
     }
+    
+    private var isReplying = false
+    
+    private var documentImageList = [UIImage]()
     
     // MARK: - Init and setup methods
     
@@ -72,15 +80,24 @@ class ReplyView: UIView {
         let config = UIImage.SymbolConfiguration(pointSize: 22)
         sendButton.setImage(UIImage(systemName: "arrow.up.circle.fill", withConfiguration: config), for: .normal)
         
+        documentCollectionViewController = DocumentCollectionViewController(collectionView: documentCollectionView)
+        
         notReplyingState()
     }
     
     // MARK: - Action methods
     
     @IBAction func documentButtonTapped(_ sender: Any) {
+        delegate?.documentDitTap()
+        if isReplying == false {
+            isReplying = true
+            replyState()
+            delegate?.replyDidTap()
+        }
     }
     
     @IBAction func replyButtonTapped(_ sender: Any) {
+        isReplying = true
         textView.becomeFirstResponder()
         replyState()
         self.layoutIfNeeded()
@@ -88,6 +105,7 @@ class ReplyView: UIView {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
+        isReplying = false
         textView.resignFirstResponder()
         self.notReplyingState()
         self.layoutIfNeeded()
@@ -103,7 +121,7 @@ class ReplyView: UIView {
         documentCollectionView.isHidden = true
         replyButton.isHidden = false
         lowStackViewTopConstraint.isActive = true
-    
+        downStackViewHeightConstraint.constant = 32
     }
     
     private func replyState() {
@@ -113,6 +131,7 @@ class ReplyView: UIView {
         documentCollectionView.isHidden = false
         replyButton.isHidden = true
         lowStackViewTopConstraint.isActive = false
+        downStackViewHeightConstraint.constant = 42
     }
     
     private func addButtonMenu() {
@@ -130,6 +149,11 @@ class ReplyView: UIView {
         threadButton.role = .normal
         threadButton.menu = menu
         threadButton.showsMenuAsPrimaryAction = true
+    }
+    
+    func addImage(_ imageList: [UIImage]) {
+        documentImageList.append(contentsOf: imageList)
+        documentCollectionViewController.addImage(imageList)
     }
     
 }

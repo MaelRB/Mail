@@ -15,6 +15,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="aie-fJ-goE"/>
                 <outlet property="documentCollectionView" destination="Dyw-qa-DCT" id="38R-EP-RDA"/>
                 <outlet property="downStackView" destination="kd3-nQ-HFq" id="1YM-C2-PUw"/>
+                <outlet property="downStackViewHeightConstraint" destination="jvd-2k-Wlu" id="nkv-PK-ON5"/>
                 <outlet property="forwardButton" destination="Xp4-GA-KGf" id="ceg-oj-M0q"/>
                 <outlet property="replyButton" destination="dvG-L3-Xnc" id="lsp-zd-idg"/>
                 <outlet property="sendButton" destination="wbR-1p-5x1" id="rlm-pz-uqR"/>
@@ -46,7 +47,6 @@
                             </state>
                             <connections>
                                 <action selector="documentButtonTapped:" destination="-1" eventType="touchUpInside" id="uu5-xQ-Xbz"/>
-                                <action selector="sendButtonTapped:" destination="-1" eventType="touchUpInside" id="uc9-Dj-7NW"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvG-L3-Xnc">

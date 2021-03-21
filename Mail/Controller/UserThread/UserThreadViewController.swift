@@ -175,4 +175,21 @@ extension UserThreadViewController: ReplyViewDelegate {
             animations: { self.view.layoutIfNeeded() },
             completion: nil)
     }
+    
+    func documentDitTap() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+}
+
+// MARK : - Image picker methods
+extension UserThreadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        replyView.addImage([image])
+        dismiss(animated: true)
+    }
 }

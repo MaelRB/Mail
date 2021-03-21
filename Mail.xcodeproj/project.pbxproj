@@ -12,6 +12,9 @@
 		8A164B882603CEB1002DE9B1 /* ThreadDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B872603CEB1002DE9B1 /* ThreadDB.swift */; };
 		8A164B8B2603CEEE002DE9B1 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B8A2603CEEE002DE9B1 /* UserDB.swift */; };
 		8A164B8E2603CF0B002DE9B1 /* MailDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B8D2603CF0B002DE9B1 /* MailDB.swift */; };
+		8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */; };
+		8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */; };
+		8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */; };
 		8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28125FB69CE006480BB /* AppDelegate.swift */; };
 		8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28325FB69CE006480BB /* SceneDelegate.swift */; };
 		8A94A28625FB69CE006480BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28525FB69CE006480BB /* ViewController.swift */; };
@@ -45,6 +48,9 @@
 		8A164B872603CEB1002DE9B1 /* ThreadDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadDB.swift; sourceTree = "<group>"; };
 		8A164B8A2603CEEE002DE9B1 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
 		8A164B8D2603CF0B002DE9B1 /* MailDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailDB.swift; sourceTree = "<group>"; };
+		8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewController.swift; sourceTree = "<group>"; };
+		8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewCell.swift; sourceTree = "<group>"; };
+		8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCollectionViewCell.xib; sourceTree = "<group>"; };
 		8A94A27E25FB69CE006480BB /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A94A28125FB69CE006480BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A94A28325FB69CE006480BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,7 +148,10 @@
 				8A94A2BB25FE5926006480BB /* UserThreadNavigationItem.xib */,
 				8A94A2BE25FE5B60006480BB /* UserThreadNavigationItem.swift */,
 				8AB7FF02260511AB007343D1 /* ReplyView.xib */,
+				8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */,
 				8AB7FF0526051770007343D1 /* ReplyView.swift */,
+				8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */,
+				8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */,
 			);
 			path = UserThread;
 			sourceTree = "<group>";
@@ -319,6 +328,7 @@
 				8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */,
 				8A94A2BC25FE5926006480BB /* UserThreadNavigationItem.xib in Resources */,
 				8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */,
+				8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */,
 				8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */,
 				8A94A2A425FB7AEF006480BB /* NewMailCell.xib in Resources */,
 				8AB7FEF42604D848007343D1 /* MuseoSansRounded-700.ttf in Resources */,
@@ -376,6 +386,7 @@
 			files = (
 				8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */,
 				8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */,
+				8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */,
 				8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */,
 				8A94A2A325FB7AEF006480BB /* NewMailCell.swift in Sources */,
 				8A94A2B625FE5022006480BB /* UserThreadViewController.swift in Sources */,
@@ -383,6 +394,7 @@
 				8A164B882603CEB1002DE9B1 /* ThreadDB.swift in Sources */,
 				8A164B8E2603CF0B002DE9B1 /* MailDB.swift in Sources */,
 				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
+				8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */,
 				8A94A28625FB69CE006480BB /* ViewController.swift in Sources */,
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
 				8A164B8B2603CEEE002DE9B1 /* UserDB.swift in Sources */,
