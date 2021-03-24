@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         addButtonMenu()
         collectionViewController = NewMailCollectionViewController(collectionView: collectionView)
         collectionView.delegate = self
+    
     }
     
     // MARK: - Title view action

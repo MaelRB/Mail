@@ -19,14 +19,14 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Oe-he-wmX">
                         <rect key="frame" x="4" y="4" width="172" height="137"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ceA-m1-IXe">
-                        <rect key="frame" x="127.5" y="0.5" width="52.5" height="56.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ceA-m1-IXe">
+                        <rect key="frame" x="127.5" y="0.5" width="52.5" height="57"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ceA-m1-IXe" secondAttribute="height" multiplier="1:1.1" id="EoZ-yA-f5k"/>
                         </constraints>
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="ultraLight"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="regular"/>
                     </imageView>
                 </subviews>
             </view>
@@ -49,6 +49,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="cross.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

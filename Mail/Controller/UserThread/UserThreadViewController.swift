@@ -167,6 +167,10 @@ extension UserThreadViewController: ReplyViewDelegate {
     }
     
     func sendDidTap() {
+        
+    }
+    
+    func closeDidTap() {
         replyViewHeightConstraint.constant = 38
         UIView.animate(
             withDuration: 0.15,

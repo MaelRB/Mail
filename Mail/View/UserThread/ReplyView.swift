@@ -10,6 +10,7 @@ import UIKit
 protocol ReplyViewDelegate {
     func replyDidTap()
     func sendDidTap()
+    func closeDidTap()
     func documentDitTap()
 }
 
@@ -105,11 +106,15 @@ class ReplyView: UIView {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
+        textView.resignFirstResponder()
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
         isReplying = false
         textView.resignFirstResponder()
         self.notReplyingState()
         self.layoutIfNeeded()
-        delegate?.sendDidTap()
+        delegate?.closeDidTap()        
     }
     
     // MARK: - State transition methods

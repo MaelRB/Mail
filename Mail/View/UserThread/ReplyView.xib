@@ -94,19 +94,19 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-gK-1dN">
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-gK-1dN">
                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVo-BP-NjQ">
-                            <rect key="frame" x="0.0" y="0.0" width="290" height="22"/>
+                            <rect key="frame" x="0.0" y="0.0" width="281" height="22"/>
                             <state key="normal" title="Button">
                                 <color key="titleColor" systemColor="secondaryLabelColor"/>
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8V-Ui-dbV">
-                            <rect key="frame" x="300" y="0.0" width="32" height="22"/>
+                            <rect key="frame" x="286" y="0.0" width="26" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="32" id="oeG-1M-hfq"/>
+                                <constraint firstAttribute="width" constant="26" id="oeG-1M-hfq"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <color key="tintColor" systemColor="secondaryLabelColor"/>
@@ -117,9 +117,9 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp4-GA-KGf">
-                            <rect key="frame" x="342" y="0.0" width="32" height="22"/>
+                            <rect key="frame" x="317" y="0.0" width="26" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="32" id="W26-tu-bCl"/>
+                                <constraint firstAttribute="width" constant="26" id="W26-tu-bCl"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <color key="tintColor" systemColor="secondaryLabelColor"/>
@@ -127,6 +127,17 @@
                                 <imageReference key="image" image="arrowshape.turn.up.forward.fill" catalog="system" symbolScale="medium"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                             </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-Q2-hNB">
+                            <rect key="frame" x="348" y="0.0" width="26" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="26" id="qjW-yu-jrM"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            <state key="normal" image="xmark" catalog="system"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="bjn-tx-uKI"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -167,6 +178,7 @@
         <image name="arrowshape.turn.up.forward.fill" catalog="system" width="128" height="106"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
