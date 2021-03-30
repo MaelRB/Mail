@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 protocol FirestoreMailListControllerDelegate {
-    func newMailsRetrieved(_ threadList: [Thread], _ error: Error?)
+    func newMailsRetrieved(_ fetchThreadList: [Thread], _ error: Error?)
 }
 
 class FirestoreMailListController {
@@ -20,20 +20,30 @@ class FirestoreMailListController {
     
     var delegate: FirestoreMailListControllerDelegate?
     
+    private let bgQueue = DispatchQueue.init(label: "firestoreThreadList", qos: .userInitiated)
+    
     // MARK: - Public methods
     
     func fetchMail(for mailbox: Mailboxes) {
-        getLogUserThreadList { threadIdList in
-            self.fetchThreads(from: threadIdList) { (threadList) in
-                let sortedThreadList = threadList.sorted { (t1, t2) -> Bool in
-                    t1.modifiedDate < t2.modifiedDate
-                }
-                self.fetchThreadNewMails(for: sortedThreadList) { list in
-                    self.delegate?.newMailsRetrieved(list, nil)
+        bgQueue.async { [weak self] in
+            guard let self = self else { return }
+            self.getLogUserThreadList { threadIdList in
+                self.fetchThreads(from: threadIdList) { (threadList) in
+                    let sortedThreadList = threadList.sorted { (t1, t2) -> Bool in
+                        t1.modifiedDate < t2.modifiedDate
+                    }
+                    self.fetchThreadNewMails(for: sortedThreadList) { list in
+                        self.mailsRetrieved(list, with: nil)
+                    }
                 }
             }
         }
-        
+    }
+    
+    func mailsRetrieved(_ list: [Thread], with error: Error?) {
+        DispatchQueue.main.async {
+            self.delegate?.newMailsRetrieved(list, error)
+        }
     }
     
     // MARK: - Private methods
@@ -41,7 +51,7 @@ class FirestoreMailListController {
     private func getLogUserThreadList(completion: @escaping ([String]) -> Void) {
         db.collection(Constant.Firestore.userCollectionName).whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments { (querySnap, err) in
             if let error = err {
-                self.delegate?.newMailsRetrieved([], error)
+                self.mailsRetrieved([], with: error)
             } else {
                 completion(querySnap!.documents.first!.data()["threads"] as! [String])
             }
@@ -53,7 +63,7 @@ class FirestoreMailListController {
         for threadID in threadList {
             db.collection(Constant.Firestore.threadCollectionName).whereField("id", isEqualTo: threadID).getDocuments { (querySnap, err) in
                 if let error = err {
-                    self.delegate?.newMailsRetrieved([], error)
+                    self.mailsRetrieved([], with: error)
                 } else {
                     let dict = querySnap!.documents.first!.data()
                     let thread = Thread(dict)
@@ -74,13 +84,13 @@ class FirestoreMailListController {
         for index in 0..<threadList.count {
             db.collection(Constant.Firestore.mailCollectionName).whereField("id", isEqualTo: threadList[index].id).getDocuments { (querySnap, err) in
                 if let error = err {
-                    self.delegate?.newMailsRetrieved([], error)
+                    self.mailsRetrieved([], with: error)
                 } else {
                     let lastMailID = querySnap!.documents.first!.data()["lastMail"] as! String
                     let docPath = querySnap!.documents.first!.data()["id"] as! String
                     self.db.collection(Constant.Firestore.mailCollectionName).document(docPath).collection("mails").whereField("id", isEqualTo: lastMailID).getDocuments { (snap, err) in
                         if let error = err {
-                            self.delegate?.newMailsRetrieved([], error)
+                            self.mailsRetrieved([], with: error)
                         } else {
                             let mail = Mail(snap!.documents.first!.data())
                             newThreadList[index].mailList.append(mail)

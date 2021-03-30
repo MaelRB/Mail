@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B7026035176002DE9B1 /* MuseoSans_500.otf */; };
 		8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */; };
-		8A164B882603CEB1002DE9B1 /* ThreadDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B872603CEB1002DE9B1 /* ThreadDB.swift */; };
-		8A164B8B2603CEEE002DE9B1 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B8A2603CEEE002DE9B1 /* UserDB.swift */; };
-		8A164B8E2603CF0B002DE9B1 /* MailDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A164B8D2603CF0B002DE9B1 /* MailDB.swift */; };
 		8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */; };
 		8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */; };
 		8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */; };
@@ -42,6 +39,7 @@
 		8AB7FEF42604D848007343D1 /* MuseoSansRounded-700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */; };
 		8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FF02260511AB007343D1 /* ReplyView.xib */; };
 		8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7FF0526051770007343D1 /* ReplyView.swift */; };
+		8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCDF3526132647000C2E67 /* Loadable.swift */; };
 		DCFBE41C49228C0A3E90C290 /* Pods_Mail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FF0995482DE6810957DAC8 /* Pods_Mail.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,9 +47,6 @@
 		38FF0995482DE6810957DAC8 /* Pods_Mail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A164B7026035176002DE9B1 /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
 		8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8A164B872603CEB1002DE9B1 /* ThreadDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadDB.swift; sourceTree = "<group>"; };
-		8A164B8A2603CEEE002DE9B1 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
-		8A164B8D2603CF0B002DE9B1 /* MailDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailDB.swift; sourceTree = "<group>"; };
 		8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewController.swift; sourceTree = "<group>"; };
 		8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -84,6 +79,7 @@
 		8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSansRounded-700.ttf"; sourceTree = "<group>"; };
 		8AB7FF02260511AB007343D1 /* ReplyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyView.xib; sourceTree = "<group>"; };
 		8AB7FF0526051770007343D1 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
+		8ACCDF3526132647000C2E67 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		B981C761151B2C08DA9D7273 /* Pods-Mail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.release.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.release.xcconfig"; sourceTree = "<group>"; };
 		D853291E2BCA207BBA86AAEB /* Pods-Mail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.debug.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,16 +123,6 @@
 				8A164B7026035176002DE9B1 /* MuseoSans_500.otf */,
 			);
 			path = Font;
-			sourceTree = "<group>";
-		};
-		8A164B862603CE77002DE9B1 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				8A164B872603CEB1002DE9B1 /* ThreadDB.swift */,
-				8A164B8A2603CEEE002DE9B1 /* UserDB.swift */,
-				8A164B8D2603CF0B002DE9B1 /* MailDB.swift */,
-			);
-			path = Database;
 			sourceTree = "<group>";
 		};
 		8A164B902603CFA3002DE9B1 /* NewMail */ = {
@@ -203,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				8A94A2AC25FD3E8F006480BB /* Controller */,
-				8A164B862603CE77002DE9B1 /* Database */,
 				8A94A2A925FD3E7C006480BB /* Model */,
 				8A164B832603CDA4002DE9B1 /* Ressources */,
 				8A94A2AD25FD3EC7006480BB /* System */,
@@ -262,6 +247,7 @@
 				8A94A2B125FE4763006480BB /* DateExtension.swift */,
 				8A73193F260E75260098FEAA /* Constant.swift */,
 				8A73195A260E7FE10098FEAA /* AuthExtension.swift */,
+				8ACCDF3526132647000C2E67 /* Loadable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -404,13 +390,10 @@
 				8A94A2A325FB7AEF006480BB /* NewMailCell.swift in Sources */,
 				8A94A2B625FE5022006480BB /* UserThreadViewController.swift in Sources */,
 				8A94A2BF25FE5B60006480BB /* UserThreadNavigationItem.swift in Sources */,
-				8A164B882603CEB1002DE9B1 /* ThreadDB.swift in Sources */,
-				8A164B8E2603CF0B002DE9B1 /* MailDB.swift in Sources */,
 				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
 				8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */,
 				8A94A28625FB69CE006480BB /* ViewController.swift in Sources */,
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
-				8A164B8B2603CEEE002DE9B1 /* UserDB.swift in Sources */,
 				8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */,
 				8A731958260E7E640098FEAA /* ModelInit.swift in Sources */,
 				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
@@ -418,6 +401,7 @@
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
 				8A731940260E75260098FEAA /* Constant.swift in Sources */,
 				8A73195B260E7FE10098FEAA /* AuthExtension.swift in Sources */,
+				8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */,
 				8A94A29D25FB76A4006480BB /* Thread.swift in Sources */,
 				8A94A2B925FE55A2006480BB /* User.swift in Sources */,
 			);

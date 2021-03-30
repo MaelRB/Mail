@@ -78,16 +78,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-cV-oHZ">
+                                <rect key="frame" x="187" y="272.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1ZP-cb-sT8"/>
+                                    <constraint firstAttribute="height" constant="40" id="lKf-Ov-1fN"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Jyc-Fj-UOK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3Y5-69-GYX"/>
+                            <constraint firstItem="uBc-cV-oHZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6DN-Yz-ZFZ"/>
                             <constraint firstItem="V1i-QJ-kGH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FoU-OO-iX2"/>
                             <constraint firstItem="Jyc-Fj-UOK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GWX-dc-uDU"/>
                             <constraint firstAttribute="bottom" secondItem="Jyc-Fj-UOK" secondAttribute="bottom" id="T2B-iF-BCp"/>
                             <constraint firstItem="V1i-QJ-kGH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="s0v-mh-1Kz"/>
                             <constraint firstItem="Jyc-Fj-UOK" firstAttribute="top" secondItem="V1i-QJ-kGH" secondAttribute="bottom" constant="60" id="t3V-fn-WfT"/>
+                            <constraint firstItem="uBc-cV-oHZ" firstAttribute="top" secondItem="V1i-QJ-kGH" secondAttribute="bottom" constant="60" id="uJa-Z2-KNe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vdS-Vd-0sR">
@@ -95,6 +104,7 @@
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="FuS-Um-NWJ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="uBc-cV-oHZ" id="R4e-8H-8nP"/>
                         <outlet property="collectionView" destination="Jyc-Fj-UOK" id="Lnx-7n-XFM"/>
                         <outlet property="mailboxesButton" destination="u0o-Rs-Z1v" id="QdO-AK-pSX"/>
                         <outlet property="mailboxesInfo" destination="4P9-4S-hRJ" id="sl7-W9-Sd7"/>
