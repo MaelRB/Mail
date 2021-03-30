@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FirestoreMailListControllerDelegate {
     
     
     // MARK: - Properties
@@ -32,7 +32,27 @@ class ViewController: UIViewController {
         addButtonMenu()
         collectionViewController = NewMailCollectionViewController(collectionView: collectionView)
         collectionView.delegate = self
+        
+        let firestoreController = FirestoreMailListController()
+        firestoreController.delegate = self
+        
+        Auth.auth().signIn(withEmail: "0@1.com", password: "123456") { (result, err) in
+            if let error = err {
+                print(error)
+            } else {
+                firestoreController.fetchMail(for: Mailboxes.Inbox)
+            }
+        }
+        
+       
+    }
     
+    func newMailsRetrieved(_ threadList: [Thread], _ error: Error?) {
+        if let safeError = error {
+            print(safeError)
+        } else {
+            print(threadList)
+        }
     }
     
     // MARK: - Title view action
@@ -64,7 +84,7 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! UserThreadViewController
-        threadVC.user = Thread.mockedDataArray[indexPath.row].user
+//        threadVC.user = Thread.mockedDataArray[indexPath.row].user
         self.navigationController!.pushViewController(threadVC, animated: true)
     }
 }

@@ -23,11 +23,11 @@ class NewMailCell: UICollectionViewCell {
     }
     
     func configure(with model: Thread) {
-        imageView.image = model.user.profilePicture
+//        imageView.image = model.user.profilePicture
         title.text = model.title
         mail.text = model.mailList.first!.message
-        date.text = model.date.relativeDate()
-        sender.text = model.user.name
+        date.text = model.modifiedDate.relativeDate()
+//        sender.text = model.user.name
         
         // TODO: - Hide flag or new indicator
         newIndicator.isHidden = !model.isNew

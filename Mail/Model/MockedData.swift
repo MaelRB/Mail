@@ -8,12 +8,12 @@
 import UIKit
 
 extension Thread {
-    static var mockedData = Thread(title: "MVP docs", user: User.mockedData, date: Date(), isNew: false, isFlagged: false, mailList: Mail.mockedDataArray)
+    static var mockedData = Thread(id: "1", title: "MVP docs", userIdList: [], modifiedDate: Date(), isNew: false, isFlagged: false, mailList: Mail.mockedDataArray)
     
     static var mockedDataArray = [
-        Thread(title: "MVP docs", user: User.mockedDataArray[0], date: Date().addingTimeInterval(-10000), isNew: true, isFlagged: true, mailList: Mail.mockedDataArray),
-        Thread(title: "Meetings", user: User.mockedDataArray[1], date: Date(), isNew: false, isFlagged: true, mailList: Mail.mockedDataArray),
-        Thread(title: "2021 Goals", user: User.mockedDataArray[2], date: Date().addingTimeInterval(-3000), isNew: false, isFlagged: false, mailList: Mail.mockedDataArray)
+        Thread(id: "1", title: "MVP docs", userIdList: [], modifiedDate: Date().addingTimeInterval(-10000), isNew: true, isFlagged: true, mailList: Mail.mockedDataArray),
+        Thread(id: "2", title: "Meetings", userIdList: [], modifiedDate: Date(), isNew: false, isFlagged: true, mailList: Mail.mockedDataArray),
+        Thread(id: "3", title: "2021 Goals", userIdList: [], modifiedDate: Date().addingTimeInterval(-3000), isNew: false, isFlagged: false, mailList: Mail.mockedDataArray)
     ]
 }
 
@@ -28,11 +28,11 @@ extension User {
 }
 
 extension Mail {
-    static var mockedData = Mail(sender: User.mockedDataArray[0], to: User.mockedDataArray[1], message: "Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news.", content: nil, date: Date().addingTimeInterval(-45000))
+    static var mockedData = Mail(sender: User.mockedDataArray[0],message: "Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news.", content: nil, date: Date().addingTimeInterval(-45000), isRead: true, isFlagged: true)
     
     static var mockedDataArray = [
-        Mail(sender: User.mockedDataArray[0], to: User.mockedDataArray[1], message: "Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news.", content: nil, date: Date().addingTimeInterval(-45000)),
-        Mail(sender: User.mockedDataArray[1], to: User.mockedDataArray[2], message: "Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news. Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news.", content: nil, date: Date().addingTimeInterval(-56000)),
-        Mail(sender: User.mockedDataArray[2], to: User.mockedDataArray[0], message: "Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news.", content: nil, date: Date().addingTimeInterval(-5000))
+        Mail(sender: User.mockedDataArray[0], message: "Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news.", content: nil, date: Date().addingTimeInterval(-45000), isRead: true, isFlagged: true),
+        Mail(sender: User.mockedDataArray[1], message: "Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news. Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news.", content: nil, date: Date().addingTimeInterval(-56000), isRead: true, isFlagged: true),
+        Mail(sender: User.mockedDataArray[2], message: "Hey Anna, Thank uou for reaching out to me. I'm currently have a bad news.", content: nil, date: Date().addingTimeInterval(-5000), isRead: true, isFlagged: true)
     ]
 }

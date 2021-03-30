@@ -9,11 +9,11 @@ import UIKit
 
 struct Thread: Hashable {
     
+    var id: String
     var title: String
-    var user: User
-    var date: Date
+    var userIdList: [String]
+    var modifiedDate: Date
     var isNew: Bool
     var isFlagged: Bool
     var mailList: [Mail]
-    
 }

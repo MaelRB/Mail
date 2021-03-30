@@ -9,8 +9,9 @@ import Foundation
 
 struct Mail: Hashable {
     var sender: User
-    var to: User
     var message: String
     var content: Data?
     var date: Date
+    var isRead: Bool
+    var isFlagged: Bool
 }
