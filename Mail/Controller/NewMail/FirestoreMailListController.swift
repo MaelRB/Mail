@@ -48,31 +48,32 @@ class FirestoreMailListController {
     
     // MARK: - Private methods
     
-    private func getLogUserThreadList(completion: @escaping ([String]) -> Void) {
-        db.collection(Constant.Firestore.userCollectionName).whereField("uid", isEqualTo: Auth.auth().currentUser!.uid).getDocuments { (querySnap, err) in
+    private func fetchDatabase(for collection: String, where field: String, isEqualTo value: Any, completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
+        db.collection(collection).whereField(field, isEqualTo: value).getDocuments { (querySnap, err) in
             if let error = err {
                 self.mailsRetrieved([], with: error)
             } else {
-                completion(querySnap!.documents.first!.data()["threads"] as! [String])
+                completion(querySnap!.documents)
             }
+        }
+    }
+    
+    private func getLogUserThreadList(completion: @escaping ([String]) -> Void) {
+        fetchDatabase(for: Constant.Firestore.userCollectionName, where: "uid", isEqualTo: Auth.auth().currentUser!.uid) { (documentSnapshot) in
+            completion(documentSnapshot.first!.data()["threads"] as! [String])
         }
     }
     
     private func fetchThreads(from threadList: [String], completion: @escaping ([Thread]) -> Void) {
         var fetchThreadList = [Thread]()
         for threadID in threadList {
-            db.collection(Constant.Firestore.threadCollectionName).whereField("id", isEqualTo: threadID).getDocuments { (querySnap, err) in
-                if let error = err {
-                    self.mailsRetrieved([], with: error)
-                } else {
-                    let dict = querySnap!.documents.first!.data()
-                    let thread = Thread(dict)
-                    fetchThreadList.append(thread)
-                    
-                    // If last id it should return the list
-                    if thread.id == threadList[threadList.count - 1] {
-                        completion(fetchThreadList)
-                    }
+            fetchDatabase(for: Constant.Firestore.threadCollectionName, where: "id", isEqualTo: threadID) { (documentSnapshot) in
+                let thread = Thread(documentSnapshot.first!.data())
+                fetchThreadList.append(thread)
+                
+                // If last id it should return the list
+                if thread.id == threadList[threadList.count - 1] {
+                    completion(fetchThreadList)
                 }
             }
         }
@@ -82,26 +83,23 @@ class FirestoreMailListController {
         var newThreadList = threadList
         var threadFetch = 0
         for index in 0..<threadList.count {
-            db.collection(Constant.Firestore.mailCollectionName).whereField("id", isEqualTo: threadList[index].id).getDocuments { (querySnap, err) in
-                if let error = err {
-                    self.mailsRetrieved([], with: error)
-                } else {
-                    let lastMailID = querySnap!.documents.first!.data()["lastMail"] as! String
-                    let docPath = querySnap!.documents.first!.data()["id"] as! String
-                    self.db.collection(Constant.Firestore.mailCollectionName).document(docPath).collection("mails").whereField("id", isEqualTo: lastMailID).getDocuments { (snap, err) in
-                        if let error = err {
-                            self.mailsRetrieved([], with: error)
-                        } else {
-                            var mail = Mail(snap!.documents.first!.data())
-                            self.fetchUser(snap!.documents.first!.data()["sentBy"] as! String) { user in
-                                mail.sender = user
-                                newThreadList[index].mailList.append(mail)
-                                threadFetch += 1
-                                
-                                // If last id it should return the list
-                                if  threadFetch == threadList.count {
-                                    completion(newThreadList)
-                                }
+            
+            fetchDatabase(for: Constant.Firestore.mailCollectionName, where: "id", isEqualTo: threadList[index].id) { (documentSnapshot) in
+                let lastMailID = documentSnapshot.first!.data()["lastMail"] as! String
+                let docPath = documentSnapshot.first!.data()["id"] as! String
+                self.db.collection(Constant.Firestore.mailCollectionName).document(docPath).collection("mails").whereField("id", isEqualTo: lastMailID).getDocuments { (snap, err) in
+                    if let error = err {
+                        self.mailsRetrieved([], with: error)
+                    } else {
+                        var mail = Mail(snap!.documents.first!.data())
+                        self.fetchUser(snap!.documents.first!.data()["sentBy"] as! String) { user in
+                            mail.sender = user
+                            newThreadList[index].mailList.append(mail)
+                            threadFetch += 1
+                            
+                            // If last id it should return the list
+                            if  threadFetch == threadList.count {
+                                completion(newThreadList)
                             }
                         }
                     }
@@ -111,13 +109,9 @@ class FirestoreMailListController {
     }
     
     private func fetchUser(_ id: String, completion: @escaping (User) -> Void) {
-        db.collection(Constant.Firestore.userCollectionName).whereField("uid", isEqualTo: id).getDocuments { (querySnap, err) in
-            if let error = err {
-                self.mailsRetrieved([], with: error)
-            } else {
-                let user = User(querySnap!.documents.first!.data())
-                completion(user)
-            }
+        fetchDatabase(for: Constant.Firestore.userCollectionName, where: "uid", isEqualTo: id) { (documentSnapshot) in
+            let user = User(documentSnapshot.first!.data())
+            completion(user)
         }
     }
     
