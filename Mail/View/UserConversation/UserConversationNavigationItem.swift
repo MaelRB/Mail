@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserThreadNavigationItem: UIView {
+class UserConversationNavigationItem: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
@@ -26,7 +26,7 @@ class UserThreadNavigationItem: UIView {
     }
     
     private func setup() {
-        Bundle.main.loadNibNamed("UserThreadNavigationItem", owner: self, options: nil)
+        Bundle.main.loadNibNamed("UserConversationNavigationItem", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

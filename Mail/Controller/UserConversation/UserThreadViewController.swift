@@ -41,7 +41,7 @@ class UserThreadViewController: UIViewController {
     
     fileprivate func navItemSetup() {
         self.title = user.name
-        let navigationItemView = UserThreadNavigationItem()
+        let navigationItemView = UserConversationNavigationItem()
         navigationItemView.imageView.image = user.profilePicture
         navigationItemView.name.text = user.name
         navigationItemView.info.text = "3 threads"

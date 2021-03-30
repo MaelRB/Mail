@@ -20,12 +20,12 @@ class ViewController: UIViewController {
     
     // Collection view
     @IBOutlet weak var collectionView: UICollectionView!
-    private var collectionViewController: NewMailCollectionViewController!
+    private var collectionViewController: ThreadListCollectionViewController!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
-    private var firestoreController = FirestoreMailListController()
+    private var firestoreController = FirestoreThreadListController()
     private var threadList: Loadable<[Thread]> = .notRequested {
         didSet {
             updateViewState()
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         addButtonMenu()
-        collectionViewController = NewMailCollectionViewController(collectionView: collectionView)
+        collectionViewController = ThreadListCollectionViewController(collectionView: collectionView)
         collectionView.delegate = self
         
         firestoreController.delegate = self
@@ -123,7 +123,7 @@ extension ViewController: UICollectionViewDelegate {
 
 // MARK: - Firestore VC delegate methods
 
-extension ViewController: FirestoreMailListControllerDelegate {
+extension ViewController: FirestoreThreadListControllerDelegate {
     func newMailsRetrieved(_ fetchThreadList: [Thread], _ error: Error?) {
         if let safeError = error {
             threadList = .error(safeError)

@@ -8,17 +8,17 @@
 import Foundation
 import Firebase
 
-protocol FirestoreMailListControllerDelegate {
+protocol FirestoreThreadListControllerDelegate {
     func newMailsRetrieved(_ fetchThreadList: [Thread], _ error: Error?)
 }
 
-class FirestoreMailListController {
+class FirestoreThreadListController {
     
     // MARK: Properties
     
     private let db = Firestore.firestore()
     
-    var delegate: FirestoreMailListControllerDelegate?
+    var delegate: FirestoreThreadListControllerDelegate?
     
     private let bgQueue = DispatchQueue.init(label: "firestoreThreadList", qos: .userInitiated)
     

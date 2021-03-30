@@ -12,7 +12,7 @@
 		8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */; };
 		8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */; };
 		8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */; };
-		8A73193D260E74F50098FEAA /* FirestoreMailListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193C260E74F50098FEAA /* FirestoreMailListController.swift */; };
+		8A73193D260E74F50098FEAA /* FirestoreThreadListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */; };
 		8A731940260E75260098FEAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193F260E75260098FEAA /* Constant.swift */; };
 		8A731958260E7E640098FEAA /* ModelInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A731957260E7E640098FEAA /* ModelInit.swift */; };
 		8A73195B260E7FE10098FEAA /* AuthExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73195A260E7FE10098FEAA /* AuthExtension.swift */; };
@@ -23,16 +23,16 @@
 		8A94A28B25FB69D1006480BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28A25FB69D1006480BB /* Assets.xcassets */; };
 		8A94A28E25FB69D1006480BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */; };
 		8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29625FB6DE7006480BB /* Mailboxes.swift */; };
-		8A94A29A25FB761C006480BB /* NewMailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29925FB761C006480BB /* NewMailCollectionViewController.swift */; };
+		8A94A29A25FB761C006480BB /* ThreadListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29925FB761C006480BB /* ThreadListCollectionViewController.swift */; };
 		8A94A29D25FB76A4006480BB /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29C25FB76A4006480BB /* Thread.swift */; };
-		8A94A2A325FB7AEF006480BB /* NewMailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A125FB7AEF006480BB /* NewMailCell.swift */; };
-		8A94A2A425FB7AEF006480BB /* NewMailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2A225FB7AEF006480BB /* NewMailCell.xib */; };
+		8A94A2A325FB7AEF006480BB /* ThreadListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A125FB7AEF006480BB /* ThreadListCell.swift */; };
+		8A94A2A425FB7AEF006480BB /* ThreadListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2A225FB7AEF006480BB /* ThreadListCell.xib */; };
 		8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A625FD38BD006480BB /* MockedData.swift */; };
 		8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B125FE4763006480BB /* DateExtension.swift */; };
 		8A94A2B625FE5022006480BB /* UserThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B525FE5022006480BB /* UserThreadViewController.swift */; };
 		8A94A2B925FE55A2006480BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B825FE55A2006480BB /* User.swift */; };
-		8A94A2BC25FE5926006480BB /* UserThreadNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2BB25FE5926006480BB /* UserThreadNavigationItem.xib */; };
-		8A94A2BF25FE5B60006480BB /* UserThreadNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2BE25FE5B60006480BB /* UserThreadNavigationItem.swift */; };
+		8A94A2BC25FE5926006480BB /* UserConversationNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2BB25FE5926006480BB /* UserConversationNavigationItem.xib */; };
+		8A94A2BF25FE5B60006480BB /* UserConversationNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2BE25FE5B60006480BB /* UserConversationNavigationItem.swift */; };
 		8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2C925FF45B7006480BB /* Mail.swift */; };
 		8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2DE260215C2006480BB /* MailTableViewCell.swift */; };
 		8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2DF260215C3006480BB /* MailTableViewCell.xib */; };
@@ -50,7 +50,7 @@
 		8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewController.swift; sourceTree = "<group>"; };
 		8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCollectionViewCell.xib; sourceTree = "<group>"; };
-		8A73193C260E74F50098FEAA /* FirestoreMailListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreMailListController.swift; sourceTree = "<group>"; };
+		8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreThreadListController.swift; sourceTree = "<group>"; };
 		8A73193F260E75260098FEAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8A731957260E7E640098FEAA /* ModelInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInit.swift; sourceTree = "<group>"; };
 		8A73195A260E7FE10098FEAA /* AuthExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthExtension.swift; sourceTree = "<group>"; };
@@ -63,16 +63,16 @@
 		8A94A28D25FB69D1006480BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A94A28F25FB69D1006480BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A94A29625FB6DE7006480BB /* Mailboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mailboxes.swift; sourceTree = "<group>"; };
-		8A94A29925FB761C006480BB /* NewMailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMailCollectionViewController.swift; sourceTree = "<group>"; };
+		8A94A29925FB761C006480BB /* ThreadListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadListCollectionViewController.swift; sourceTree = "<group>"; };
 		8A94A29C25FB76A4006480BB /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
-		8A94A2A125FB7AEF006480BB /* NewMailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMailCell.swift; sourceTree = "<group>"; };
-		8A94A2A225FB7AEF006480BB /* NewMailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewMailCell.xib; sourceTree = "<group>"; };
+		8A94A2A125FB7AEF006480BB /* ThreadListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadListCell.swift; sourceTree = "<group>"; };
+		8A94A2A225FB7AEF006480BB /* ThreadListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadListCell.xib; sourceTree = "<group>"; };
 		8A94A2A625FD38BD006480BB /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		8A94A2B125FE4763006480BB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		8A94A2B525FE5022006480BB /* UserThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserThreadViewController.swift; sourceTree = "<group>"; };
 		8A94A2B825FE55A2006480BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8A94A2BB25FE5926006480BB /* UserThreadNavigationItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserThreadNavigationItem.xib; sourceTree = "<group>"; };
-		8A94A2BE25FE5B60006480BB /* UserThreadNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserThreadNavigationItem.swift; sourceTree = "<group>"; };
+		8A94A2BB25FE5926006480BB /* UserConversationNavigationItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserConversationNavigationItem.xib; sourceTree = "<group>"; };
+		8A94A2BE25FE5B60006480BB /* UserConversationNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConversationNavigationItem.swift; sourceTree = "<group>"; };
 		8A94A2C925FF45B7006480BB /* Mail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
 		8A94A2DE260215C2006480BB /* MailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailTableViewCell.swift; sourceTree = "<group>"; };
 		8A94A2DF260215C3006480BB /* MailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MailTableViewCell.xib; sourceTree = "<group>"; };
@@ -125,46 +125,46 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		8A164B902603CFA3002DE9B1 /* NewMail */ = {
+		8A164B902603CFA3002DE9B1 /* ThreadList */ = {
 			isa = PBXGroup;
 			children = (
-				8A94A2A125FB7AEF006480BB /* NewMailCell.swift */,
-				8A94A2A225FB7AEF006480BB /* NewMailCell.xib */,
+				8A94A2A125FB7AEF006480BB /* ThreadListCell.swift */,
+				8A94A2A225FB7AEF006480BB /* ThreadListCell.xib */,
 			);
-			path = NewMail;
+			path = ThreadList;
 			sourceTree = "<group>";
 		};
-		8A164B912603D022002DE9B1 /* UserThread */ = {
+		8A164B912603D022002DE9B1 /* UserConversation */ = {
 			isa = PBXGroup;
 			children = (
 				8A94A2DE260215C2006480BB /* MailTableViewCell.swift */,
 				8A94A2DF260215C3006480BB /* MailTableViewCell.xib */,
-				8A94A2BB25FE5926006480BB /* UserThreadNavigationItem.xib */,
-				8A94A2BE25FE5B60006480BB /* UserThreadNavigationItem.swift */,
+				8A94A2BB25FE5926006480BB /* UserConversationNavigationItem.xib */,
+				8A94A2BE25FE5B60006480BB /* UserConversationNavigationItem.swift */,
 				8AB7FF02260511AB007343D1 /* ReplyView.xib */,
 				8AB7FF0526051770007343D1 /* ReplyView.swift */,
 				8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */,
 				8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */,
 			);
-			path = UserThread;
+			path = UserConversation;
 			sourceTree = "<group>";
 		};
-		8A164B952603D0B3002DE9B1 /* NewMail */ = {
+		8A164B952603D0B3002DE9B1 /* ThreadList */ = {
 			isa = PBXGroup;
 			children = (
-				8A94A29925FB761C006480BB /* NewMailCollectionViewController.swift */,
-				8A73193C260E74F50098FEAA /* FirestoreMailListController.swift */,
+				8A94A29925FB761C006480BB /* ThreadListCollectionViewController.swift */,
+				8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */,
 			);
-			path = NewMail;
+			path = ThreadList;
 			sourceTree = "<group>";
 		};
-		8A164B962603D0C4002DE9B1 /* UserThread */ = {
+		8A164B962603D0C4002DE9B1 /* UserConversation */ = {
 			isa = PBXGroup;
 			children = (
 				8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */,
 				8A94A2B525FE5022006480BB /* UserThreadViewController.swift */,
 			);
-			path = UserThread;
+			path = UserConversation;
 			sourceTree = "<group>";
 		};
 		8A94A27525FB69CE006480BB = {
@@ -214,8 +214,8 @@
 		8A94A2AB25FD3E8C006480BB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8A164B912603D022002DE9B1 /* UserThread */,
-				8A164B902603CFA3002DE9B1 /* NewMail */,
+				8A164B912603D022002DE9B1 /* UserConversation */,
+				8A164B902603CFA3002DE9B1 /* ThreadList */,
 				8A94A28725FB69CE006480BB /* Main.storyboard */,
 				8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */,
 			);
@@ -225,8 +225,8 @@
 		8A94A2AC25FD3E8F006480BB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8A164B962603D0C4002DE9B1 /* UserThread */,
-				8A164B952603D0B3002DE9B1 /* NewMail */,
+				8A164B962603D0C4002DE9B1 /* UserConversation */,
+				8A164B952603D0B3002DE9B1 /* ThreadList */,
 				8A94A28525FB69CE006480BB /* ViewController.swift */,
 			);
 			path = Controller;
@@ -324,11 +324,11 @@
 				8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */,
 				8A94A28925FB69CE006480BB /* Main.storyboard in Resources */,
 				8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */,
-				8A94A2BC25FE5926006480BB /* UserThreadNavigationItem.xib in Resources */,
+				8A94A2BC25FE5926006480BB /* UserConversationNavigationItem.xib in Resources */,
 				8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */,
 				8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */,
 				8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */,
-				8A94A2A425FB7AEF006480BB /* NewMailCell.xib in Resources */,
+				8A94A2A425FB7AEF006480BB /* ThreadListCell.xib in Resources */,
 				8AB7FEF42604D848007343D1 /* MuseoSansRounded-700.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,13 +383,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */,
-				8A73193D260E74F50098FEAA /* FirestoreMailListController.swift in Sources */,
+				8A73193D260E74F50098FEAA /* FirestoreThreadListController.swift in Sources */,
 				8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */,
 				8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */,
 				8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */,
-				8A94A2A325FB7AEF006480BB /* NewMailCell.swift in Sources */,
+				8A94A2A325FB7AEF006480BB /* ThreadListCell.swift in Sources */,
 				8A94A2B625FE5022006480BB /* UserThreadViewController.swift in Sources */,
-				8A94A2BF25FE5B60006480BB /* UserThreadNavigationItem.swift in Sources */,
+				8A94A2BF25FE5B60006480BB /* UserConversationNavigationItem.swift in Sources */,
 				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
 				8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */,
 				8A94A28625FB69CE006480BB /* ViewController.swift in Sources */,
@@ -397,7 +397,7 @@
 				8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */,
 				8A731958260E7E640098FEAA /* ModelInit.swift in Sources */,
 				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
-				8A94A29A25FB761C006480BB /* NewMailCollectionViewController.swift in Sources */,
+				8A94A29A25FB761C006480BB /* ThreadListCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
 				8A731940260E75260098FEAA /* Constant.swift in Sources */,
 				8A73195B260E7FE10098FEAA /* AuthExtension.swift in Sources */,
