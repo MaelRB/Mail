@@ -92,18 +92,31 @@ class FirestoreMailListController {
                         if let error = err {
                             self.mailsRetrieved([], with: error)
                         } else {
-                            let mail = Mail(snap!.documents.first!.data())
-                            newThreadList[index].mailList.append(mail)
-                            
-                            threadFetch += 1
-                            
-                            // If last id it should return the list
-                            if  threadFetch == threadList.count {
-                                completion(newThreadList)
+                            var mail = Mail(snap!.documents.first!.data())
+                            self.fetchUser(snap!.documents.first!.data()["sentBy"] as! String) { user in
+                                mail.sender = user
+                                newThreadList[index].mailList.append(mail)
+                                threadFetch += 1
+                                
+                                // If last id it should return the list
+                                if  threadFetch == threadList.count {
+                                    completion(newThreadList)
+                                }
                             }
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    private func fetchUser(_ id: String, completion: @escaping (User) -> Void) {
+        db.collection(Constant.Firestore.userCollectionName).whereField("uid", isEqualTo: id).getDocuments { (querySnap, err) in
+            if let error = err {
+                self.mailsRetrieved([], with: error)
+            } else {
+                let user = User(querySnap!.documents.first!.data())
+                completion(user)
             }
         }
     }

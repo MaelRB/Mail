@@ -27,6 +27,16 @@ extension Mail {
         self.isFlagged = dict["isFlagged"] as! Bool
         self.message = dict["messageText"] as! String
         self.date = (dict["sentAt"] as! Timestamp).dateValue()
-        self.sender = User(name: "", mail: "", profilePicture: UIImage()) // TODO: - Fetch sender info
+        self.sender = User(uid: "1", name: "", mail: "", profilePicture: UIImage(), threadIdList: []) // TODO: - Fetch sender info
+    }
+}
+
+extension User {
+    init(_ dict: [String: Any]) {
+        self.name = dict["displayName"] as! String
+        self.mail = dict["email"] as! String
+        self.uid = dict["uid"] as! String
+        self.threadIdList = dict["threads"] as! [String]
+        self.profilePicture = UIImage()
     }
 }

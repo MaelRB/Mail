@@ -12,6 +12,6 @@ extension Auth {
     
     func logUser() -> User {
         let user = self.currentUser!
-        return User(name: user.displayName!, mail: user.email!, profilePicture: UIImage(named: "profile1")!)
+        return User(uid: user.uid, name: user.displayName!, mail: user.email!, profilePicture: UIImage(named: "profile1")!, threadIdList: [])
     }
 }

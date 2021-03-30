@@ -18,12 +18,12 @@ extension Thread {
 }
 
 extension User {
-    static var mockedData = User(name: "Maria watson", mail: "maria.watson@gmail.com", profilePicture: UIImage(named: "profile1")!)
+    static var mockedData = User(uid: "1", name: "Maria watson", mail: "maria.watson@gmail.com", profilePicture: UIImage(named: "profile1")!, threadIdList: [])
     
     static var mockedDataArray = [
-        User(name: "Maria watson", mail: "maria.watson@gmail.com", profilePicture: UIImage(named: "profile1")!),
-        User(name: "Anna Kong", mail: "anna.kong@outlook.com", profilePicture: UIImage(named: "profile2")!),
-        User(name: "Thierry Nones", mail: "thierry.nones@gmail.com", profilePicture: UIImage(named: "profile3")!)
+        User(uid: "1", name: "Maria watson", mail: "maria.watson@gmail.com", profilePicture: UIImage(named: "profile1")!, threadIdList: []),
+        User(uid: "2", name: "Anna Kong", mail: "anna.kong@outlook.com", profilePicture: UIImage(named: "profile2")!, threadIdList: []),
+        User(uid: "3", name: "Thierry Nones", mail: "thierry.nones@gmail.com", profilePicture: UIImage(named: "profile3")!, threadIdList: [])
     ]
 }
 
