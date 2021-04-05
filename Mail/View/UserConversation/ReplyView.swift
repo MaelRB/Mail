@@ -9,7 +9,7 @@ import UIKit
 
 protocol ReplyViewDelegate {
     func replyDidTap()
-    func sendDidTap()
+    func sendDidTap(_ mail: Mail, to thread: Thread)
     func closeDidTap()
     func documentDitTap()
 }
@@ -49,9 +49,12 @@ class ReplyView: UIView {
     var threadList = [Thread]() {
         didSet {
             threadButton.setTitle(threadList.first?.title ?? "No thread", for: .normal)
+            currentThread = threadList.first!
             addButtonMenu()
         }
     }
+    
+    private var currentThread: Thread!
     
     private var isReplying = false
     
@@ -106,14 +109,12 @@ class ReplyView: UIView {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
-        textView.resignFirstResponder()
+        delegate?.sendDidTap(getMail(), to: currentThread)
+        closeReplyView()
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        isReplying = false
-        textView.resignFirstResponder()
-        self.notReplyingState()
-        self.layoutIfNeeded()
+        closeReplyView()
         delegate?.closeDidTap()        
     }
     
@@ -145,6 +146,7 @@ class ReplyView: UIView {
         for thread in threadList {
             let action = UIAction(title: thread.title) { _ in
                 self.threadButton.setTitle(thread.title, for: .normal)
+                self.currentThread = thread
             }
             actionList.append(action)
         }
@@ -159,6 +161,18 @@ class ReplyView: UIView {
     func addImage(_ imageList: [UIImage]) {
         documentImageList.append(contentsOf: imageList)
         documentCollectionViewController.addImage(imageList)
+    }
+    
+    private func closeReplyView() {
+        isReplying = false
+        textView.resignFirstResponder()
+        self.notReplyingState()
+        self.layoutIfNeeded()
+        textView.text = ""
+    }
+    
+    private func getMail() -> Mail {
+        return Mail(sender: Constant.logUser!, message: textView.text, content: nil, date: Date(), isRead: false, isFlagged: false)
     }
     
 }

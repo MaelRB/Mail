@@ -206,7 +206,7 @@ extension UserConversationViewController: UITableViewDelegate {
 // MARK: - Reply view delegate methods
 
 extension UserConversationViewController: ReplyViewDelegate {
-    
+
     func replyDidTap() {
         replyViewHeightConstraint.constant = 200
         UIView.animate(
@@ -217,8 +217,15 @@ extension UserConversationViewController: ReplyViewDelegate {
             completion: nil)
     }
     
-    func sendDidTap() {
-        
+    func sendDidTap(_ mail: Mail, to thread: Thread) {
+        firestoreController.sendMail(mail, to: thread)
+        replyViewHeightConstraint.constant = 38
+        UIView.animate(
+            withDuration: 0.15,
+            delay: TimeInterval(0),
+            options: [.curveEaseOut],
+            animations: { self.view.layoutIfNeeded() },
+            completion: nil)
     }
     
     func closeDidTap() {

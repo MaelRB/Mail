@@ -37,6 +37,11 @@ class FirestoreConversationController {
         }
     }
     
+    func sendMail(_ mail: Mail, to thread: Thread) {
+        updateThread(thread)
+        updateMail(mail, thread)
+    }
+    
     // MARK: - Private methods
     
     private func threadListretrieved(_ list: [Thread], with error: Error?) {
@@ -101,6 +106,26 @@ class FirestoreConversationController {
                 }
             }
         }
+    }
+    
+    private func updateThread(_ thread: Thread) {
+        db.collection(Constant.Firestore.threadCollectionName).document(thread.id).setData(["modifiedAt":Timestamp(date: thread.modifiedDate)], merge: true)
+    }
+    
+    private func updateMail(_ mail: Mail, _ thread: Thread) {
+        let docRef = db.collection(Constant.Firestore.mailCollectionName).document(thread.id).collection("mails").addDocument(data:
+            [
+                "isFlagged": mail.isFlagged,
+                "isRead": mail.isRead,
+                "mailboxes": "inbox",
+                "messageText": mail.message,
+                "sentAt": Timestamp(date: mail.date),
+                "sentBy": mail.sender.uid
+            ])
+        
+        db.collection(Constant.Firestore.mailCollectionName).document(thread.id).collection("mails").document(docRef.documentID).setData(["id": docRef.documentID], merge: true)
+        
+        db.collection(Constant.Firestore.mailCollectionName).document(thread.id).setData(["lastMail":docRef.documentID], merge: true)
     }
     
 }
