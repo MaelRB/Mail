@@ -37,6 +37,6 @@ extension User {
         self.mail = dict["email"] as! String
         self.uid = dict["uid"] as! String
         self.threadIdList = dict["threads"] as! [String]
-        self.profilePicture = UIImage()
+        self.profilePicture = UIImage(named: dict["image"] as! String) ?? UIImage()
     }
 }

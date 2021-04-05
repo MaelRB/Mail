@@ -41,6 +41,7 @@ class UserConversationViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         self.title = user.name
+        firestoreController.delegate = self
         
     }
     
@@ -202,6 +203,7 @@ extension UserConversationViewController: UITableViewDelegate {
     
 }
 
+// MARK: - Reply view delegate methods
 
 extension UserConversationViewController: ReplyViewDelegate {
     
@@ -244,5 +246,17 @@ extension UserConversationViewController: UIImagePickerControllerDelegate, UINav
         guard let image = info[.originalImage] as? UIImage else { return }
         replyView.addImage([image])
         dismiss(animated: true)
+    }
+}
+
+// MARK: - Firestore conversation delegate methods
+
+extension UserConversationViewController: FirestoreConversationControllerDelegate {
+    func conversationDidLoad(_ fetchThreadList: [Thread], with error: Error?) {
+        if let safeError = error {
+            threadList = .error(safeError)
+        } else {
+            threadList = .loaded(fetchThreadList)
+        }
     }
 }

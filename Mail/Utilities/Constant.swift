@@ -14,4 +14,6 @@ struct Constant {
         static let threadCollectionName = "Thread"
         static let mailCollectionName = "Mail"
     }
+    
+    static var logUser: User?
 }

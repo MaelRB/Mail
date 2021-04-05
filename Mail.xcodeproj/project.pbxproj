@@ -16,7 +16,6 @@
 		8A73193D260E74F50098FEAA /* FirestoreThreadListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */; };
 		8A731940260E75260098FEAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193F260E75260098FEAA /* Constant.swift */; };
 		8A731958260E7E640098FEAA /* ModelInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A731957260E7E640098FEAA /* ModelInit.swift */; };
-		8A73195B260E7FE10098FEAA /* AuthExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73195A260E7FE10098FEAA /* AuthExtension.swift */; };
 		8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28125FB69CE006480BB /* AppDelegate.swift */; };
 		8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28325FB69CE006480BB /* SceneDelegate.swift */; };
 		8A94A28625FB69CE006480BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28525FB69CE006480BB /* ViewController.swift */; };
@@ -55,7 +54,6 @@
 		8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreThreadListController.swift; sourceTree = "<group>"; };
 		8A73193F260E75260098FEAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8A731957260E7E640098FEAA /* ModelInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInit.swift; sourceTree = "<group>"; };
-		8A73195A260E7FE10098FEAA /* AuthExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthExtension.swift; sourceTree = "<group>"; };
 		8A94A27E25FB69CE006480BB /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A94A28125FB69CE006480BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A94A28325FB69CE006480BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 			children = (
 				8A94A2B125FE4763006480BB /* DateExtension.swift */,
 				8A73193F260E75260098FEAA /* Constant.swift */,
-				8A73195A260E7FE10098FEAA /* AuthExtension.swift */,
 				8ACCDF3526132647000C2E67 /* Loadable.swift */,
 			);
 			path = Utilities;
@@ -404,7 +401,6 @@
 				8A94A29A25FB761C006480BB /* ThreadListCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
 				8A731940260E75260098FEAA /* Constant.swift in Sources */,
-				8A73195B260E7FE10098FEAA /* AuthExtension.swift in Sources */,
 				8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */,
 				8A94A29D25FB76A4006480BB /* Thread.swift in Sources */,
 				8A94A2B925FE55A2006480BB /* User.swift in Sources */,

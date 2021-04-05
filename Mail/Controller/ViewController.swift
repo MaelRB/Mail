@@ -49,6 +49,9 @@ class ViewController: UIViewController {
             if let error = err {
                 print(error)
             } else {
+                self.firestoreController.fetchUser(Auth.auth().currentUser!.uid) { user in
+                    Constant.logUser = user
+                }
                 self.updateViewState()
             }
         }

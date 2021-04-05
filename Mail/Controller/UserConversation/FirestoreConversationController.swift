@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 protocol FirestoreConversationControllerDelegate {
-    func conversationDidLoad(_ threadList: [Thread], with error: Error?)
+    func conversationDidLoad(_ fetchThreadList: [Thread], with error: Error?)
 }
 
 class FirestoreConversationController {
@@ -25,8 +25,15 @@ class FirestoreConversationController {
     // MARK: - Public methods
     
     func fetchThread(for user: User) {
-        bgQueue.async {
-            
+        bgQueue.async { [weak self] in
+            guard let self = self else { return }
+            self.getLogUserThreadList { threadIdList in
+                self.getThread(with: user, in: threadIdList) { threadList in
+                    self.fetchMail(for: threadList, user) { list in
+                        self.threadListretrieved(list, with: nil)
+                    }
+                }
+            }
         }
     }
     
@@ -55,14 +62,45 @@ class FirestoreConversationController {
     }
     
     private func getThread(with user: User, in threadList: [String], completion: @escaping ([Thread]) -> Void) {
+        var newThreadList = [Thread]()
         db.collection(Constant.Firestore.threadCollectionName).whereField("id", in: threadList).whereField("members", arrayContains: user.uid).getDocuments { (querySnap, err) in
             if let error = err {
                 self.threadListretrieved([], with: error)
             } else {
-                // Convert data to Thread
+                let documents = querySnap!.documents
+                for doc in documents {
+                    newThreadList.append(Thread(doc.data()))
+                }
+                completion(newThreadList)
             }
         }
     }
     
+    private func fetchMail(for threadList: [Thread], _ user: User, completion: @escaping ([Thread]) -> Void) {
+        var newThreadList = threadList
+        for index in 0..<newThreadList.count {
+            db.collection(Constant.Firestore.mailCollectionName).document(newThreadList[index].id).collection("mails").getDocuments { (querySnap, err) in
+                if let error = err {
+                    self.threadListretrieved([], with: error)
+                } else {
+                    let documents = querySnap!.documents
+                    for doc in documents {
+                        var mail = Mail(doc.data())
+                        if doc.data()["sentBy"] as! String == Constant.logUser!.uid {
+                            mail.sender = Constant.logUser!
+                        } else {
+                            mail.sender = user
+                        }
+                        newThreadList[0].mailList.append(mail)
+                    }
+                    
+                    // If last id it should return the list
+                    if  index == newThreadList.count - 1 {
+                        completion(newThreadList)
+                    }
+                }
+            }
+        }
+    }
     
 }

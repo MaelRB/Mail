@@ -40,6 +40,13 @@ class FirestoreThreadListController {
         }
     }
     
+    func fetchUser(_ id: String, completion: @escaping (User) -> Void) {
+        fetchDatabase(for: Constant.Firestore.userCollectionName, where: "uid", isEqualTo: id) { (documentSnapshot) in
+            let user = User(documentSnapshot.first!.data())
+            completion(user)
+        }
+    }
+    
     // MARK: - Private methods
     
     private func mailsRetrieved(_ list: [Thread], with error: Error?) {
@@ -105,13 +112,6 @@ class FirestoreThreadListController {
                     }
                 }
             }
-        }
-    }
-    
-    private func fetchUser(_ id: String, completion: @escaping (User) -> Void) {
-        fetchDatabase(for: Constant.Firestore.userCollectionName, where: "uid", isEqualTo: id) { (documentSnapshot) in
-            let user = User(documentSnapshot.first!.data())
-            completion(user)
         }
     }
     
