@@ -115,8 +115,8 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! UserThreadViewController
-//        threadVC.user = Thread.mockedDataArray[indexPath.row].user
+        let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! UserConversationViewController
+        threadVC.user = threadList.value![indexPath.row].mailList.first!.sender
         self.navigationController!.pushViewController(threadVC, animated: true)
     }
 }

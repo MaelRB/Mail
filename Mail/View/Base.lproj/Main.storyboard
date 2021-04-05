@@ -115,14 +115,22 @@
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="93.75"/>
         </scene>
-        <!--User Thread View Controller-->
+        <!--User Conversation View Controller-->
         <scene sceneID="HbL-HH-pb7">
             <objects>
-                <viewController storyboardIdentifier="ThreadVC" id="Ya4-yY-oux" customClass="UserThreadViewController" customModule="Mail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThreadVC" id="Ya4-yY-oux" customClass="UserConversationViewController" customModule="Mail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6y9-T7-IUH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="medium" id="RIm-C9-mRt">
+                                <rect key="frame" x="0.0" y="428" width="414" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GvD-Hr-2Bb"/>
+                                    <constraint firstAttribute="width" constant="40" id="VRC-e3-C6G"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-8E-VvE" customClass="ReplyView" customModule="Mail" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="824" width="414" height="38"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -155,6 +163,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="pas-L9-tpB"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="RIm-C9-mRt" id="tsD-bV-ses"/>
                         <outlet property="keyboardHeightConstraint" destination="l9K-kj-mAr" id="jun-RK-bbD"/>
                         <outlet property="replyView" destination="b7d-8E-VvE" id="s6C-ng-m9m"/>
                         <outlet property="replyViewHeightConstraint" destination="Utd-Wg-rRh" id="Ty5-Hp-qRg"/>

@@ -40,13 +40,13 @@ class FirestoreThreadListController {
         }
     }
     
-    func mailsRetrieved(_ list: [Thread], with error: Error?) {
+    // MARK: - Private methods
+    
+    private func mailsRetrieved(_ list: [Thread], with error: Error?) {
         DispatchQueue.main.async {
             self.delegate?.newMailsRetrieved(list, error)
         }
     }
-    
-    // MARK: - Private methods
     
     private func fetchDatabase(for collection: String, where field: String, isEqualTo value: Any, completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
         db.collection(collection).whereField(field, isEqualTo: value).getDocuments { (querySnap, err) in

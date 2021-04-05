@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B7026035176002DE9B1 /* MuseoSans_500.otf */; };
 		8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */; };
+		8A409F4D261AECDE007AC196 /* FirestoreConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A409F4C261AECDE007AC196 /* FirestoreConversationController.swift */; };
 		8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */; };
 		8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */; };
 		8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */; };
@@ -29,7 +30,7 @@
 		8A94A2A425FB7AEF006480BB /* ThreadListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2A225FB7AEF006480BB /* ThreadListCell.xib */; };
 		8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A625FD38BD006480BB /* MockedData.swift */; };
 		8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B125FE4763006480BB /* DateExtension.swift */; };
-		8A94A2B625FE5022006480BB /* UserThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B525FE5022006480BB /* UserThreadViewController.swift */; };
+		8A94A2B625FE5022006480BB /* UserConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B525FE5022006480BB /* UserConversationViewController.swift */; };
 		8A94A2B925FE55A2006480BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B825FE55A2006480BB /* User.swift */; };
 		8A94A2BC25FE5926006480BB /* UserConversationNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2BB25FE5926006480BB /* UserConversationNavigationItem.xib */; };
 		8A94A2BF25FE5B60006480BB /* UserConversationNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2BE25FE5B60006480BB /* UserConversationNavigationItem.swift */; };
@@ -47,6 +48,7 @@
 		38FF0995482DE6810957DAC8 /* Pods_Mail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A164B7026035176002DE9B1 /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
 		8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8A409F4C261AECDE007AC196 /* FirestoreConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreConversationController.swift; sourceTree = "<group>"; };
 		8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewController.swift; sourceTree = "<group>"; };
 		8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		8A94A2A225FB7AEF006480BB /* ThreadListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadListCell.xib; sourceTree = "<group>"; };
 		8A94A2A625FD38BD006480BB /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		8A94A2B125FE4763006480BB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		8A94A2B525FE5022006480BB /* UserThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserThreadViewController.swift; sourceTree = "<group>"; };
+		8A94A2B525FE5022006480BB /* UserConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConversationViewController.swift; sourceTree = "<group>"; };
 		8A94A2B825FE55A2006480BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A94A2BB25FE5926006480BB /* UserConversationNavigationItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserConversationNavigationItem.xib; sourceTree = "<group>"; };
 		8A94A2BE25FE5B60006480BB /* UserConversationNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConversationNavigationItem.swift; sourceTree = "<group>"; };
@@ -162,7 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */,
-				8A94A2B525FE5022006480BB /* UserThreadViewController.swift */,
+				8A94A2B525FE5022006480BB /* UserConversationViewController.swift */,
+				8A409F4C261AECDE007AC196 /* FirestoreConversationController.swift */,
 			);
 			path = UserConversation;
 			sourceTree = "<group>";
@@ -388,9 +391,10 @@
 				8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */,
 				8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */,
 				8A94A2A325FB7AEF006480BB /* ThreadListCell.swift in Sources */,
-				8A94A2B625FE5022006480BB /* UserThreadViewController.swift in Sources */,
+				8A94A2B625FE5022006480BB /* UserConversationViewController.swift in Sources */,
 				8A94A2BF25FE5B60006480BB /* UserConversationNavigationItem.swift in Sources */,
 				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
+				8A409F4D261AECDE007AC196 /* FirestoreConversationController.swift in Sources */,
 				8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */,
 				8A94A28625FB69CE006480BB /* ViewController.swift in Sources */,
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,

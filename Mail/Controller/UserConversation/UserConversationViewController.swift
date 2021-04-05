@@ -7,31 +7,40 @@
 
 import UIKit
 
-class UserThreadViewController: UIViewController {
+class UserConversationViewController: UIViewController {
     
     // User
     var user: User!
     
-    var threadList = Thread.mockedDataArray // TODO: - Replaced by Firestore data
+    var threadList: Loadable<[Thread]> = .notRequested {
+        didSet {
+            updateViewState()
+        }
+    }
+    
+    var firestoreController = FirestoreConversationController()
 
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var replyView: ReplyView!
     @IBOutlet weak var replyViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Object life cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateViewState()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
-        navItemSetup()
-        tableViewSetup()
-        replyViewSetup()
+        self.title = user.name
         
     }
     
@@ -39,12 +48,52 @@ class UserThreadViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    // MARK: - View state
+    
+    private func updateViewState() {
+        switch threadList {
+            case .notRequested:
+                threadList = .loading
+            case .loading:
+                loadingView()
+                firestoreController.fetchThread(for: user)
+            case .loaded(let value):
+                presentationView(with: value)
+            case .error(let err):
+                // TODO: - Handle error
+                print(err)
+                break
+        }
+    }
+    
+    private func loadingView() {
+        tableView.isHidden = true
+        replyView.isHidden = true
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    private func presentationView(with value: [Thread]) {
+        activityIndicator.stopAnimating()
+        setup()
+        tableView.isHidden = false
+        tableView.reloadData()
+        replyView.isHidden = false
+    }
+    
+    // MARK: - Setup methods
+    
+    private func setup() {
+        navItemSetup()
+        tableViewSetup()
+        replyViewSetup()
+    }
+    
     fileprivate func navItemSetup() {
-        self.title = user.name
         let navigationItemView = UserConversationNavigationItem()
         navigationItemView.imageView.image = user.profilePicture
         navigationItemView.name.text = user.name
-        navigationItemView.info.text = "3 threads"
+        navigationItemView.info.text = "\(threadList.value!.count) threads"
         navigationItem.titleView = navigationItemView
     }
     
@@ -58,7 +107,7 @@ class UserThreadViewController: UIViewController {
     
     fileprivate func replyViewSetup() {
         replyView.delegate = self
-        replyView.threadList = threadList
+        replyView.threadList = threadList.value!
     }
     
     @objc func keyboardNotification(notification: NSNotification) {
@@ -96,26 +145,26 @@ class UserThreadViewController: UIViewController {
 }
 
 // MARK: - Table view data source methods
-extension UserThreadViewController: UITableViewDataSource {
+extension UserConversationViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return threadList[section].mailList.count
+        return threadList.value![section].mailList.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return threadList.count
+        return threadList.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MailCell", for: indexPath) as! MailTableViewCell
-        cell.configure(with: threadList[indexPath.section].mailList[indexPath.row])
+        cell.configure(with: threadList.value![indexPath.section].mailList[indexPath.row])
         return cell
     }
     
 }
 
 // MARK: - Tbale view delegate methods
-extension UserThreadViewController: UITableViewDelegate {
+extension UserConversationViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -123,14 +172,14 @@ extension UserThreadViewController: UITableViewDelegate {
         headerView.backgroundColor = .systemBackground
         
         let infoLabel = UILabel()
-        infoLabel.text = "\(threadList[section].mailList.count) messages"
+        infoLabel.text = "\(threadList.value![section].mailList.count) messages"
         infoLabel.font = .systemFont(ofSize: 14)
         infoLabel.textColor = .secondaryLabel
         headerView.addSubview(infoLabel)
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let titleLabel = UILabel()
-        titleLabel.text = "\(threadList[section].title)"
+        titleLabel.text = "\(threadList.value![section].title)"
         titleLabel.font = .boldSystemFont(ofSize: 22)
         headerView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -154,7 +203,7 @@ extension UserThreadViewController: UITableViewDelegate {
 }
 
 
-extension UserThreadViewController: ReplyViewDelegate {
+extension UserConversationViewController: ReplyViewDelegate {
     
     func replyDidTap() {
         replyViewHeightConstraint.constant = 200
@@ -189,7 +238,7 @@ extension UserThreadViewController: ReplyViewDelegate {
 }
 
 // MARK : - Image picker methods
-extension UserThreadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension UserConversationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
