@@ -85,6 +85,7 @@ class ViewController: UIViewController {
         activityIndicator.stopAnimating()
         collectionView.isHidden = false
         collectionViewController.addThread(value)
+        mailboxesInfo.text = "\(value.count) new messages"
     }
     
     
