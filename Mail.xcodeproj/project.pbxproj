@@ -3,20 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B7026035176002DE9B1 /* MuseoSans_500.otf */; };
-		8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */; };
-		8A409F4D261AECDE007AC196 /* FirestoreConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A409F4C261AECDE007AC196 /* FirestoreConversationController.swift */; };
 		8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */; };
 		8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */; };
 		8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */; };
-		8A73193D260E74F50098FEAA /* FirestoreThreadListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */; };
 		8A731940260E75260098FEAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193F260E75260098FEAA /* Constant.swift */; };
 		8A731958260E7E640098FEAA /* ModelInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A731957260E7E640098FEAA /* ModelInit.swift */; };
-		8A7742C2261CBF5D0015966B /* FirestoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7742C1261CBF5D0015966B /* FirestoreController.swift */; };
 		8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28125FB69CE006480BB /* AppDelegate.swift */; };
 		8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28325FB69CE006480BB /* SceneDelegate.swift */; };
 		8A94A28625FB69CE006480BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28525FB69CE006480BB /* ViewController.swift */; };
@@ -41,21 +37,15 @@
 		8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FF02260511AB007343D1 /* ReplyView.xib */; };
 		8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7FF0526051770007343D1 /* ReplyView.swift */; };
 		8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCDF3526132647000C2E67 /* Loadable.swift */; };
-		DCFBE41C49228C0A3E90C290 /* Pods_Mail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FF0995482DE6810957DAC8 /* Pods_Mail.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38FF0995482DE6810957DAC8 /* Pods_Mail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A164B7026035176002DE9B1 /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
-		8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8A409F4C261AECDE007AC196 /* FirestoreConversationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreConversationController.swift; sourceTree = "<group>"; };
 		8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewController.swift; sourceTree = "<group>"; };
 		8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCollectionViewCell.xib; sourceTree = "<group>"; };
-		8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreThreadListController.swift; sourceTree = "<group>"; };
 		8A73193F260E75260098FEAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8A731957260E7E640098FEAA /* ModelInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInit.swift; sourceTree = "<group>"; };
-		8A7742C1261CBF5D0015966B /* FirestoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreController.swift; sourceTree = "<group>"; };
 		8A94A27E25FB69CE006480BB /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A94A28125FB69CE006480BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A94A28325FB69CE006480BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCFBE41C49228C0A3E90C290 /* Pods_Mail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +88,6 @@
 		8A164B832603CDA4002DE9B1 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				8A164B732603C8B1002DE9B1 /* GoogleService-Info.plist */,
 				8A94A28A25FB69D1006480BB /* Assets.xcassets */,
 				8A94A28F25FB69D1006480BB /* Info.plist */,
 				8A164B842603CDB1002DE9B1 /* Font */,
@@ -144,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				8A94A29925FB761C006480BB /* ThreadListCollectionViewController.swift */,
-				8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */,
 			);
 			path = ThreadList;
 			sourceTree = "<group>";
@@ -154,7 +141,6 @@
 			children = (
 				8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */,
 				8A94A2B525FE5022006480BB /* UserConversationViewController.swift */,
-				8A409F4C261AECDE007AC196 /* FirestoreConversationController.swift */,
 			);
 			path = UserConversation;
 			sourceTree = "<group>";
@@ -164,7 +150,6 @@
 			children = (
 				8A94A28025FB69CE006480BB /* Mail */,
 				8A94A27F25FB69CE006480BB /* Products */,
-				D703F71CB0E59E5951B5BCE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,17 +223,8 @@
 				8A94A2B125FE4763006480BB /* DateExtension.swift */,
 				8A73193F260E75260098FEAA /* Constant.swift */,
 				8ACCDF3526132647000C2E67 /* Loadable.swift */,
-				8A7742C1261CBF5D0015966B /* FirestoreController.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		D703F71CB0E59E5951B5BCE7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				38FF0995482DE6810957DAC8 /* Pods_Mail.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,11 +234,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A94A29225FB69D1006480BB /* Build configuration list for PBXNativeTarget "Mail" */;
 			buildPhases = (
-				42A6F77EA75ED36EAEABF890 /* [CP] Check Pods Manifest.lock */,
 				8A94A27A25FB69CE006480BB /* Sources */,
 				8A94A27B25FB69CE006480BB /* Frameworks */,
 				8A94A27C25FB69CE006480BB /* Resources */,
-				75F32FFA97DD5C20375AFF4F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,7 +290,6 @@
 				8A94A28925FB69CE006480BB /* Main.storyboard in Resources */,
 				8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */,
 				8A94A2BC25FE5926006480BB /* UserConversationNavigationItem.xib in Resources */,
-				8A164B742603C8B1002DE9B1 /* GoogleService-Info.plist in Resources */,
 				8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */,
 				8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */,
 				8A94A2A425FB7AEF006480BB /* ThreadListCell.xib in Resources */,
@@ -326,55 +299,12 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		42A6F77EA75ED36EAEABF890 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Mail-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		75F32FFA97DD5C20375AFF4F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8A94A27A25FB69CE006480BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */,
-				8A73193D260E74F50098FEAA /* FirestoreThreadListController.swift in Sources */,
 				8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */,
 				8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */,
 				8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */,
@@ -382,7 +312,6 @@
 				8A94A2B625FE5022006480BB /* UserConversationViewController.swift in Sources */,
 				8A94A2BF25FE5B60006480BB /* UserConversationNavigationItem.swift in Sources */,
 				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
-				8A409F4D261AECDE007AC196 /* FirestoreConversationController.swift in Sources */,
 				8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */,
 				8A94A28625FB69CE006480BB /* ViewController.swift in Sources */,
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
@@ -391,7 +320,6 @@
 				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
 				8A94A29A25FB761C006480BB /* ThreadListCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
-				8A7742C2261CBF5D0015966B /* FirestoreController.swift in Sources */,
 				8A731940260E75260098FEAA /* Constant.swift in Sources */,
 				8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */,
 				8A94A29D25FB76A4006480BB /* Thread.swift in Sources */,

@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import Firebase
+import UIKit
 
 extension Thread {
     init(_ dict: [String: Any]) {
         self.id = dict["id"] as! String
         self.title = dict["title"] as! String
-        self.modifiedDate = (dict["modifiedAt"] as! Timestamp).dateValue()
+        self.modifiedDate = Date()
         self.mailList = []
         self.userIdList = dict["members"] as! [String]
     }
@@ -21,7 +21,7 @@ extension Thread {
 extension Mail {
     init(_ dict: [String: Any]) {
         self.message = dict["messageText"] as! String
-        self.date = (dict["sentAt"] as! Timestamp).dateValue()
+        self.date = Date()
         self.sender = User(uid: "1", name: "", mail: "", profilePicture: UIImage(), threadIdList: []) 
         self.isFlagged = false
         for id in dict["flagBy"] as! [String] {

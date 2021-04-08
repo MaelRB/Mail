@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class ViewController: UIViewController {
     
@@ -25,7 +24,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
-    private var firestoreController = FirestoreThreadListController()
     private var threadList: Loadable<[Thread]> = .notRequested {
         didSet {
             updateViewState()
@@ -41,20 +39,6 @@ class ViewController: UIViewController {
         addButtonMenu()
         collectionViewController = ThreadListCollectionViewController(collectionView: collectionView)
         collectionView.delegate = self
-        
-        firestoreController.delegate = self
-        
-        // TODO: - Implement log screen and get of rid of the following lines
-        Auth.auth().signIn(withEmail: "0@1.com", password: "123456") { (result, err) in
-            if let error = err {
-                print(error)
-            } else {
-                self.firestoreController.fetchUser(Auth.auth().currentUser!.uid) { user in
-                    Constant.logUser = user
-                }
-                self.updateViewState()
-            }
-        }
     }
     
     // MARK: - View state
@@ -65,7 +49,7 @@ class ViewController: UIViewController {
                 threadList = .loading
             case .loading:
                 loadingView()
-                firestoreController.fetchMail(for: .Inbox)
+                
             case .loaded(let value):
                 presentationView(with: value)
             case .error(let err):
@@ -125,14 +109,3 @@ extension ViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - Firestore VC delegate methods
-
-extension ViewController: FirestoreThreadListControllerDelegate {
-    func newMailsRetrieved(_ fetchThreadList: [Thread], _ error: Error?) {
-        if let safeError = error {
-            threadList = .error(safeError)
-        } else {
-            threadList = .loaded(fetchThreadList)
-        }
-    }
-}

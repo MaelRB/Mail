@@ -17,8 +17,6 @@ class UserConversationViewController: UIViewController {
             updateViewState()
         }
     }
-    
-    var firestoreController = FirestoreConversationController()
 
     // Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -41,7 +39,6 @@ class UserConversationViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         self.title = user.name
-        firestoreController.delegate = self
         
     }
     
@@ -57,7 +54,7 @@ class UserConversationViewController: UIViewController {
                 threadList = .loading
             case .loading:
                 loadingView()
-                firestoreController.fetchThread(for: user)
+                
             case .loaded(let value):
                 presentationView(with: value)
             case .error(let err):
@@ -218,7 +215,7 @@ extension UserConversationViewController: ReplyViewDelegate {
     }
     
     func sendDidTap(_ mail: Mail, to thread: Thread) {
-        firestoreController.sendMail(mail, to: thread)
+        
         replyViewHeightConstraint.constant = 38
         UIView.animate(
             withDuration: 0.15,
@@ -256,14 +253,3 @@ extension UserConversationViewController: UIImagePickerControllerDelegate, UINav
     }
 }
 
-// MARK: - Firestore conversation delegate methods
-
-extension UserConversationViewController: FirestoreConversationControllerDelegate {
-    func conversationDidLoad(_ fetchThreadList: [Thread], with error: Error?) {
-        if let safeError = error {
-            threadList = .error(safeError)
-        } else {
-            threadList = .loaded(fetchThreadList)
-        }
-    }
-}
