@@ -16,6 +16,7 @@
 		8A73193D260E74F50098FEAA /* FirestoreThreadListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */; };
 		8A731940260E75260098FEAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193F260E75260098FEAA /* Constant.swift */; };
 		8A731958260E7E640098FEAA /* ModelInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A731957260E7E640098FEAA /* ModelInit.swift */; };
+		8A7742C2261CBF5D0015966B /* FirestoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7742C1261CBF5D0015966B /* FirestoreController.swift */; };
 		8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28125FB69CE006480BB /* AppDelegate.swift */; };
 		8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28325FB69CE006480BB /* SceneDelegate.swift */; };
 		8A94A28625FB69CE006480BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28525FB69CE006480BB /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		8A73193C260E74F50098FEAA /* FirestoreThreadListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreThreadListController.swift; sourceTree = "<group>"; };
 		8A73193F260E75260098FEAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		8A731957260E7E640098FEAA /* ModelInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInit.swift; sourceTree = "<group>"; };
+		8A7742C1261CBF5D0015966B /* FirestoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreController.swift; sourceTree = "<group>"; };
 		8A94A27E25FB69CE006480BB /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A94A28125FB69CE006480BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A94A28325FB69CE006480BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,8 +82,6 @@
 		8AB7FF02260511AB007343D1 /* ReplyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyView.xib; sourceTree = "<group>"; };
 		8AB7FF0526051770007343D1 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
 		8ACCDF3526132647000C2E67 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
-		B981C761151B2C08DA9D7273 /* Pods-Mail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.release.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.release.xcconfig"; sourceTree = "<group>"; };
-		D853291E2BCA207BBA86AAEB /* Pods-Mail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.debug.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,15 +96,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5AD6CF9ED9F4C4C81A0BD7E9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D853291E2BCA207BBA86AAEB /* Pods-Mail.debug.xcconfig */,
-				B981C761151B2C08DA9D7273 /* Pods-Mail.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		8A164B832603CDA4002DE9B1 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +164,6 @@
 			children = (
 				8A94A28025FB69CE006480BB /* Mail */,
 				8A94A27F25FB69CE006480BB /* Products */,
-				5AD6CF9ED9F4C4C81A0BD7E9 /* Pods */,
 				D703F71CB0E59E5951B5BCE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -248,6 +238,7 @@
 				8A94A2B125FE4763006480BB /* DateExtension.swift */,
 				8A73193F260E75260098FEAA /* Constant.swift */,
 				8ACCDF3526132647000C2E67 /* Loadable.swift */,
+				8A7742C1261CBF5D0015966B /* FirestoreController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -400,6 +391,7 @@
 				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
 				8A94A29A25FB761C006480BB /* ThreadListCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
+				8A7742C2261CBF5D0015966B /* FirestoreController.swift in Sources */,
 				8A731940260E75260098FEAA /* Constant.swift in Sources */,
 				8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */,
 				8A94A29D25FB76A4006480BB /* Thread.swift in Sources */,
@@ -547,7 +539,6 @@
 		};
 		8A94A29325FB69D1006480BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D853291E2BCA207BBA86AAEB /* Pods-Mail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -567,7 +558,6 @@
 		};
 		8A94A29425FB69D1006480BB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B981C761151B2C08DA9D7273 /* Pods-Mail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

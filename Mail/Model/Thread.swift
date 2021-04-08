@@ -13,7 +13,5 @@ struct Thread: Hashable {
     var title: String
     var userIdList: [String]
     var modifiedDate: Date
-    var isNew: Bool
-    var isFlagged: Bool
     var mailList: [Mail]
 }

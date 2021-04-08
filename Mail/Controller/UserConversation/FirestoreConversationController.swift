@@ -5,6 +5,7 @@
 //  Created by Mael Romanin Bluteau on 05/04/2021.
 //
 
+
 import Foundation
 import Firebase
 
@@ -12,15 +13,20 @@ protocol FirestoreConversationControllerDelegate {
     func conversationDidLoad(_ fetchThreadList: [Thread], with error: Error?)
 }
 
-class FirestoreConversationController {
+class FirestoreConversationController: FirestoreController {
     
     // MARK: Properties
-    
-    private let db = Firestore.firestore()
     
     var delegate: FirestoreConversationControllerDelegate?
     
     private let bgQueue = DispatchQueue.init(label: "firestoreConversation", qos: .userInitiated)
+    
+    override init() {
+        super.init()
+        onError = { err in
+            self.threadListretrieved([], with: err)
+        }
+    }
     
     // MARK: - Public methods
     
@@ -50,22 +56,6 @@ class FirestoreConversationController {
         }
     }
     
-    private func fetchDatabase(for collection: String, where field: String, isEqualTo value: Any, completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
-        db.collection(collection).whereField(field, isEqualTo: value).getDocuments { (querySnap, err) in
-            if let error = err {
-                self.threadListretrieved([], with: error)
-            } else {
-                completion(querySnap!.documents)
-            }
-        }
-    }
-    
-    private func getLogUserThreadList(completion: @escaping ([String]) -> Void) {
-        fetchDatabase(for: Constant.Firestore.userCollectionName, where: "uid", isEqualTo: Auth.auth().currentUser!.uid) { (documentSnapshot) in
-            completion(documentSnapshot.first!.data()["threads"] as! [String])
-        }
-    }
-    
     private func getThread(with user: User, in threadList: [String], completion: @escaping ([Thread]) -> Void) {
         var newThreadList = [Thread]()
         db.collection(Constant.Firestore.threadCollectionName).whereField("id", in: threadList).whereField("members", arrayContains: user.uid).getDocuments { (querySnap, err) in
@@ -82,12 +72,13 @@ class FirestoreConversationController {
     }
     
     private func fetchMail(for threadList: [Thread], _ user: User, completion: @escaping ([Thread]) -> Void) {
-        var newThreadList = threadList
-        for index in 0..<newThreadList.count {
-            db.collection(Constant.Firestore.mailCollectionName).document(newThreadList[index].id).collection("mails").getDocuments { (querySnap, err) in
+        var newThreadList = [Thread]()
+        for thread in threadList {
+            db.collection(Constant.Firestore.mailCollectionName).document(thread.id).collection("mails").getDocuments { (querySnap, err) in
                 if let error = err {
                     self.threadListretrieved([], with: error)
                 } else {
+                    var newThread = thread
                     let documents = querySnap!.documents
                     for doc in documents {
                         var mail = Mail(doc.data())
@@ -96,11 +87,12 @@ class FirestoreConversationController {
                         } else {
                             mail.sender = user
                         }
-                        newThreadList[0].mailList.append(mail)
+                        newThread.mailList.append(mail)
                     }
+                    newThreadList.append(newThread)
                     
                     // If last id it should return the list
-                    if  index == newThreadList.count - 1 {
+                    if  newThreadList.count == threadList.count {
                         completion(newThreadList)
                     }
                 }
@@ -115,12 +107,11 @@ class FirestoreConversationController {
     private func updateMail(_ mail: Mail, _ thread: Thread) {
         let docRef = db.collection(Constant.Firestore.mailCollectionName).document(thread.id).collection("mails").addDocument(data:
             [
-                "isFlagged": mail.isFlagged,
-                "isRead": mail.isRead,
-                "mailboxes": "inbox",
                 "messageText": mail.message,
                 "sentAt": Timestamp(date: mail.date),
-                "sentBy": mail.sender.uid
+                "sentBy": mail.sender.uid,
+                "readBy": [mail.sender.uid],
+                "flagBy": []
             ])
         
         db.collection(Constant.Firestore.mailCollectionName).document(thread.id).collection("mails").document(docRef.documentID).setData(["id": docRef.documentID], merge: true)

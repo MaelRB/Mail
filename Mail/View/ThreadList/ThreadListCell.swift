@@ -30,8 +30,8 @@ class ThreadListCell: UICollectionViewCell {
         sender.text = model.mailList.first!.sender.name
         
         // TODO: - Hide flag or new indicator
-        newIndicator.isHidden = !model.isNew
-        flag.isHidden = !model.isFlagged
+        newIndicator.isHidden = model.mailList.first!.isRead
+        flag.isHidden = !model.mailList.first!.isFlagged
         
         imageView.layer.cornerRadius = imageView.frame.width / 2
     }

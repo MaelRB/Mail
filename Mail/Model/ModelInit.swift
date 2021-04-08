@@ -13,21 +13,31 @@ extension Thread {
         self.id = dict["id"] as! String
         self.title = dict["title"] as! String
         self.modifiedDate = (dict["modifiedAt"] as! Timestamp).dateValue()
-        self.isNew = dict["isNew"] as! Bool
-        self.isFlagged = dict["isFlagged"] as! Bool
         self.mailList = []
         self.userIdList = dict["members"] as! [String]
-    
     }
 }
 
 extension Mail {
     init(_ dict: [String: Any]) {
-        self.isRead = dict["isRead"] as! Bool
-        self.isFlagged = dict["isFlagged"] as! Bool
         self.message = dict["messageText"] as! String
         self.date = (dict["sentAt"] as! Timestamp).dateValue()
-        self.sender = User(uid: "1", name: "", mail: "", profilePicture: UIImage(), threadIdList: []) // TODO: - Fetch sender info
+        self.sender = User(uid: "1", name: "", mail: "", profilePicture: UIImage(), threadIdList: []) 
+        self.isFlagged = false
+        for id in dict["flagBy"] as! [String] {
+            if Constant.logUser!.uid == id {
+                self.isFlagged = true
+                break
+            }
+        }
+        
+        self.isRead = false
+        for id in dict["readBy"] as! [String] {
+            if Constant.logUser!.uid == id {
+                self.isRead = true
+                break
+            }
+        }
     }
 }
 

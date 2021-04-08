@@ -8,12 +8,12 @@
 import UIKit
 
 extension Thread {
-    static var mockedData = Thread(id: "1", title: "MVP docs", userIdList: [], modifiedDate: Date(), isNew: false, isFlagged: false, mailList: Mail.mockedDataArray)
+    static var mockedData = Thread(id: "1", title: "MVP docs", userIdList: [], modifiedDate: Date(), mailList: Mail.mockedDataArray)
     
     static var mockedDataArray = [
-        Thread(id: "1", title: "MVP docs", userIdList: [], modifiedDate: Date().addingTimeInterval(-10000), isNew: true, isFlagged: true, mailList: Mail.mockedDataArray),
-        Thread(id: "2", title: "Meetings", userIdList: [], modifiedDate: Date(), isNew: false, isFlagged: true, mailList: Mail.mockedDataArray),
-        Thread(id: "3", title: "2021 Goals", userIdList: [], modifiedDate: Date().addingTimeInterval(-3000), isNew: false, isFlagged: false, mailList: Mail.mockedDataArray)
+        Thread(id: "1", title: "MVP docs", userIdList: [], modifiedDate: Date().addingTimeInterval(-10000), mailList: Mail.mockedDataArray),
+        Thread(id: "2", title: "Meetings", userIdList: [], modifiedDate: Date(), mailList: Mail.mockedDataArray),
+        Thread(id: "3", title: "2021 Goals", userIdList: [], modifiedDate: Date().addingTimeInterval(-3000), mailList: Mail.mockedDataArray)
     ]
 }
 

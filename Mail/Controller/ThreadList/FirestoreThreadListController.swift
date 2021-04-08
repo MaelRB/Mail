@@ -12,15 +12,20 @@ protocol FirestoreThreadListControllerDelegate {
     func newMailsRetrieved(_ fetchThreadList: [Thread], _ error: Error?)
 }
 
-class FirestoreThreadListController {
+class FirestoreThreadListController: FirestoreController {
     
     // MARK: Properties
-    
-    private let db = Firestore.firestore()
     
     var delegate: FirestoreThreadListControllerDelegate?
     
     private let bgQueue = DispatchQueue.init(label: "firestoreThreadList", qos: .userInitiated)
+    
+    override init() {
+        super.init()
+        onError = { err in
+            self.mailsRetrieved([], with: err)
+        }
+    }
     
     // MARK: - Public methods
     
@@ -52,22 +57,6 @@ class FirestoreThreadListController {
     private func mailsRetrieved(_ list: [Thread], with error: Error?) {
         DispatchQueue.main.async {
             self.delegate?.newMailsRetrieved(list, error)
-        }
-    }
-    
-    private func fetchDatabase(for collection: String, where field: String, isEqualTo value: Any, completion: @escaping ([QueryDocumentSnapshot]) -> Void) {
-        db.collection(collection).whereField(field, isEqualTo: value).getDocuments { (querySnap, err) in
-            if let error = err {
-                self.mailsRetrieved([], with: error)
-            } else {
-                completion(querySnap!.documents)
-            }
-        }
-    }
-    
-    private func getLogUserThreadList(completion: @escaping ([String]) -> Void) {
-        fetchDatabase(for: Constant.Firestore.userCollectionName, where: "uid", isEqualTo: Auth.auth().currentUser!.uid) { (documentSnapshot) in
-            completion(documentSnapshot.first!.data()["threads"] as! [String])
         }
     }
     
