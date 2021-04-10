@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign View Controller-->
+        <!--Loging View Controller-->
         <scene sceneID="ZPe-Yn-k5e">
             <objects>
-                <viewController id="eDB-Am-3dO" customClass="SignViewController" customModule="Mail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eDB-Am-3dO" customClass="LogingViewController" customModule="Mail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5v6-nA-d0n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="-765" y="94"/>
         </scene>
-        <!--UINavigationController-vUI-um-X65-->
+        <!--mailListVC-->
         <scene sceneID="Qwm-ge-pUD">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UINavigationController-vUI-um-X65" id="528-1B-eiS" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MailListVC" referencedIdentifier="mailListVC" id="528-1B-eiS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhq-sf-hx5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>

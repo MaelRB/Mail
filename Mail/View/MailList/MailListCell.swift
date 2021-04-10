@@ -8,7 +8,7 @@
 import UIKit
 import MSGraphClientModels
 
-class ThreadListCell: UICollectionViewCell {
+class MailListCell: UICollectionViewCell {
 
     @IBOutlet var title: UILabel!
     @IBOutlet var mail: UILabel!

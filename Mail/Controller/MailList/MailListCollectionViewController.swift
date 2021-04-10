@@ -8,7 +8,7 @@
 import UIKit
 import MSGraphClientModels
 
-class ThreadListCollectionViewController {
+class MailListCollectionViewController {
     
     private enum Section {
         case main
@@ -44,10 +44,10 @@ class ThreadListCollectionViewController {
     
     private func setDatasource() {
         
-        collectionView.register(UINib.init(nibName: "ThreadListCell", bundle: nil), forCellWithReuseIdentifier: "ThreadList")
+        collectionView.register(UINib.init(nibName: "MailListCell", bundle: nil), forCellWithReuseIdentifier: "MailList")
         
         dataSource = UICollectionViewDiffableDataSource<Section, MSGraphMessage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThreadList", for: indexPath) as! ThreadListCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MailList", for: indexPath) as! MailListCell
             cell.configure(with: identifier)
             return cell
         })

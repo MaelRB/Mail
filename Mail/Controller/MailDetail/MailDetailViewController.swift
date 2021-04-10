@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserConversationViewController: UIViewController {
+class MailDetailViewController: UIViewController {
     
     // User
     var user: User!
@@ -143,7 +143,7 @@ class UserConversationViewController: UIViewController {
 }
 
 // MARK: - Table view data source methods
-extension UserConversationViewController: UITableViewDataSource {
+extension MailDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return threadList.value![section].mailList.count
@@ -162,7 +162,7 @@ extension UserConversationViewController: UITableViewDataSource {
 }
 
 // MARK: - Tbale view delegate methods
-extension UserConversationViewController: UITableViewDelegate {
+extension MailDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -202,7 +202,7 @@ extension UserConversationViewController: UITableViewDelegate {
 
 // MARK: - Reply view delegate methods
 
-extension UserConversationViewController: ReplyViewDelegate {
+extension MailDetailViewController: ReplyViewDelegate {
 
     func replyDidTap() {
         replyViewHeightConstraint.constant = 200
@@ -244,7 +244,7 @@ extension UserConversationViewController: ReplyViewDelegate {
 }
 
 // MARK : - Image picker methods
-extension UserConversationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MailDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }

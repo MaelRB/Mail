@@ -8,7 +8,7 @@
 import UIKit
 import MSGraphClientModels
 
-class ViewController: UIViewController {
+class MailListViewController: UIViewController {
     
     
     // MARK: - Properties
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     // Collection view
     @IBOutlet weak var collectionView: UICollectionView!
-    private var collectionViewController: ThreadListCollectionViewController!
+    private var collectionViewController: MailListCollectionViewController!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        collectionViewController = ThreadListCollectionViewController(collectionView: collectionView)
+        collectionViewController = MailListCollectionViewController(collectionView: collectionView)
         collectionView.delegate = self
         
         getMe()
@@ -181,10 +181,10 @@ class ViewController: UIViewController {
 
 // MARK: - Collection view delegate methods
 
-extension ViewController: UICollectionViewDelegate {
+extension MailListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! UserConversationViewController
+        let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! MailDetailViewController
 //        threadVC.user = messagesList.value![indexPath.row].mailList.first!.sender
         self.navigationController!.pushViewController(threadVC, animated: true)
     }

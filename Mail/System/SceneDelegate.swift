@@ -30,7 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let storyboard = UIStoryboard(name: "MailListVC", bundle: nil)
                     viewController = storyboard.instantiateViewController(withIdentifier: "mailListVC")
                 } else {
-                    viewController = SignViewController(nibName: "SignVC", bundle: nil)
+                    let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)
+                    viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
                 }
                 
                 let navigation = UINavigationController(rootViewController: viewController)
