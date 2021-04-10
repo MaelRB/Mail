@@ -110,10 +110,6 @@ class MailListViewController: UIViewController {
         mailboxesButton.showsMenuAsPrimaryAction = true
     }
     
-    @IBAction func signIn(_ sender: Any) {
-    
-    }
-    
     // MARK: - Graph manager methods
     
     private func getMe() {

@@ -28,18 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 var viewController: UIViewController
                 if let _ = token, error == nil {
                     let storyboard = UIStoryboard(name: "MailListVC", bundle: nil)
-                    viewController = storyboard.instantiateViewController(withIdentifier: "mailListVC")
+                    viewController = storyboard.instantiateViewController(withIdentifier: "mailListNavController")
                 } else {
                     let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)
                     viewController = storyboard.instantiateViewController(withIdentifier: "loginVC")
                 }
-                
-                let navigation = UINavigationController(rootViewController: viewController)
-                
-                /// 4. Set the root view controller of the window with your view controller
-                window.rootViewController = navigation
-                
-                /// 5. Set the window and call makeKeyAndVisible()
+
+                window.rootViewController = viewController
                 self.window = window
                 window.makeKeyAndVisible()
                 

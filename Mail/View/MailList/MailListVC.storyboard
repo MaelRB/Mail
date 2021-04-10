@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -14,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="mailListVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MailListViewController" customModule="Mail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="V1i-QJ-kGH">
-                                <rect key="frame" x="241.5" y="60" width="117.5" height="95"/>
+                                <rect key="frame" x="148.5" y="148" width="117.5" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-Vs-Tm2">
                                         <rect key="frame" x="0.0" y="0.0" width="117.5" height="40"/>
@@ -57,7 +58,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-Fj-UOK">
-                                <rect key="frame" x="0.0" y="215" width="600" height="385"/>
+                                <rect key="frame" x="0.0" y="303" width="414" height="593"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nIY-g3-VXH">
                                     <size key="itemSize" width="256" height="256"/>
@@ -68,7 +69,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewMail" id="czK-pi-fYm">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                        <rect key="frame" x="79" y="0.0" width="256" height="256"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0YX-e4-keZ">
                                             <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -78,7 +79,7 @@
                                 </cells>
                             </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-cV-oHZ">
-                                <rect key="frame" x="280" y="215" width="40" height="40"/>
+                                <rect key="frame" x="187" y="303" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="1ZP-cb-sT8"/>
                                     <constraint firstAttribute="height" constant="40" id="lKf-Ov-1fN"/>
@@ -99,9 +100,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vdS-Vd-0sR">
-                        <barButtonItem key="leftBarButtonItem" image="sidebar.left" catalog="system" id="cUj-9r-Bdj">
+                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="cUj-9r-Bdj">
                             <connections>
-                                <action selector="signIn:" destination="BYZ-38-t0r" id="lR7-Mn-JNT"/>
+                                <action selector="signOut:" destination="BYZ-38-t0r" id="WDr-Ob-XaI"/>
+                                <segue destination="TPK-cn-Uz8" kind="presentation" modalPresentationStyle="fullScreen" id="BTk-jr-11W"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="FuS-Um-NWJ"/>
@@ -116,11 +118,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="93.75"/>
+            <point key="canvasLocation" x="3675.36231884058" y="93.75"/>
+        </scene>
+        <!--loginVC-->
+        <scene sceneID="JhS-YD-dpd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginVC" referencedIdentifier="loginVC" id="TPK-cn-Uz8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ggv-vn-deO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4450" y="94"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SoU-0Q-ugq">
+            <objects>
+                <navigationController storyboardIdentifier="mailListNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PbD-rb-uMF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wzc-B0-aHJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2f0-fY-zLd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejP-sd-HSJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2765.217391304348" y="93.75"/>
         </scene>
     </scenes>
     <resources>
-        <image name="sidebar.left" catalog="system" width="128" height="93"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>
         <systemColor name="secondaryLabelColor">

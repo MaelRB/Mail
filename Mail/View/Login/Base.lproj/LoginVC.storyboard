@@ -41,12 +41,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ta-5K-Yjb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-765" y="94"/>
+            <point key="canvasLocation" x="-601" y="94"/>
         </scene>
-        <!--mailListVC-->
+        <!--mailListNavController-->
         <scene sceneID="Qwm-ge-pUD">
             <objects>
-                <viewControllerPlaceholder storyboardName="MailListVC" referencedIdentifier="mailListVC" id="528-1B-eiS" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MailListVC" referencedIdentifier="mailListNavController" id="528-1B-eiS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhq-sf-hx5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
