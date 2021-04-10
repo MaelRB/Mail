@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MSGraphClientModels
 
 class ThreadListCollectionViewController {
     
@@ -21,7 +22,7 @@ class ThreadListCollectionViewController {
     var kind: Kind
     
     var collectionView: UICollectionView
-    private var dataSource: UICollectionViewDiffableDataSource<Section, Thread>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
     
     init(collectionView: UICollectionView, kind: Kind = .list) {
         self.kind = kind
@@ -45,7 +46,7 @@ class ThreadListCollectionViewController {
         
         collectionView.register(UINib.init(nibName: "ThreadListCell", bundle: nil), forCellWithReuseIdentifier: "ThreadList")
         
-        dataSource = UICollectionViewDiffableDataSource<Section, Thread>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, MSGraphMessage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThreadList", for: indexPath) as! ThreadListCell
             cell.configure(with: identifier)
             return cell
@@ -53,8 +54,8 @@ class ThreadListCollectionViewController {
         
     }
     
-    func addThread(_ threadList: [Thread]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Thread>()
+    func addThread(_ threadList: [MSGraphMessage]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MSGraphMessage>()
         snapshot.appendSections([.main])
         snapshot.appendItems(threadList)
         dataSource.apply(snapshot)

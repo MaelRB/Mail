@@ -6,10 +6,10 @@
 //
 
 import UIKit
+import MSGraphClientModels
 
 class ThreadListCell: UICollectionViewCell {
 
-    @IBOutlet var imageView: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var mail: UILabel!
     @IBOutlet var date: UILabel!
@@ -22,18 +22,16 @@ class ThreadListCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configure(with model: Thread) {
-        imageView.image = model.mailList.first!.sender.profilePicture
-        title.text = model.title
-        mail.text = model.mailList.first!.message
-        date.text = model.modifiedDate.relativeDate()
-        sender.text = model.mailList.first!.sender.name
+    func configure(with model: MSGraphMessage) {
+        
+        title.text = model.subject!
+        mail.text = model.bodyPreview!
+        date.text = model.sentDateTime!.relativeDate()
+        sender.text = model.sender!.emailAddress!.name
         
         // TODO: - Hide flag or new indicator
-        newIndicator.isHidden = model.mailList.first!.isRead
-        flag.isHidden = !model.mailList.first!.isFlagged
-        
-        imageView.layer.cornerRadius = imageView.frame.width / 2
+        newIndicator.isHidden = model.isRead
+        flag.isHidden = true
     }
 
 }

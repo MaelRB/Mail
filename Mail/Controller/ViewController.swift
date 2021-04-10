@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MSGraphClientModels
 
 class ViewController: UIViewController {
     
@@ -23,8 +24,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    private var mailBoxes = [MSGraphMailFolder]() {
+        didSet {
+            addButtonMenu();
+        }
+    }
     
-    private var threadList: Loadable<[Thread]> = .notRequested {
+    
+    private var messagesList: Loadable<[MSGraphMessage]> = .notRequested {
         didSet {
             updateViewState()
         }
@@ -36,20 +43,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        addButtonMenu()
         collectionViewController = ThreadListCollectionViewController(collectionView: collectionView)
         collectionView.delegate = self
+        
+        getMe()
+        getMailFolder()
+        
+        updateViewState()
     }
     
     // MARK: - View state
     
     private func updateViewState() {
-        switch threadList {
+        switch messagesList {
             case .notRequested:
-                threadList = .loading
+                messagesList = .loading
             case .loading:
                 loadingView()
-                
+                getUserInbox()
             case .loaded(let value):
                 presentationView(with: value)
             case .error(let err):
@@ -65,11 +76,10 @@ class ViewController: UIViewController {
         activityIndicator.startAnimating()
     }
     
-    private func presentationView(with value: [Thread]) {
+    private func presentationView(with value: [MSGraphMessage]) {
         activityIndicator.stopAnimating()
         collectionView.isHidden = false
         collectionViewController.addThread(value)
-        mailboxesInfo.text = "\(value.count) new messages"
     }
     
     
@@ -81,11 +91,14 @@ class ViewController: UIViewController {
     private func addButtonMenu() {
         var actionList = [UIAction]()
         
-        for mailbox in Mailboxes.allCases {
-            let action = UIAction(title: mailbox.rawValue, image: UIImage(systemName: mailbox.symbol)) { _ in
-                self.mailboxesTitle.text = mailbox.rawValue
+        print(mailBoxes)
+        
+        for mailbox in mailBoxes {
+            let action = UIAction(title: mailbox.displayName!) { _ in
+                self.mailboxesTitle.text = mailbox.displayName!
                 let conifg = UIImage.SymbolConfiguration(scale: .large)
-                self.mailboxesButton.setImage(UIImage(systemName: mailbox.symbol, withConfiguration: conifg), for: .normal)
+                self.mailboxesButton.setImage(UIImage(systemName: "tray.fill", withConfiguration: conifg), for: .normal)
+                self.mailboxesInfo.text = "\(mailbox.unreadItemCount) new messages"
             }
             actionList.append(action)
         }
@@ -96,6 +109,74 @@ class ViewController: UIViewController {
         mailboxesButton.menu = menu
         mailboxesButton.showsMenuAsPrimaryAction = true
     }
+    
+    @IBAction func signIn(_ sender: Any) {
+    
+    }
+    
+    // MARK: - Graph manager methods
+    
+    private func getMe() {
+        GraphManager.instance.getMe {
+            (user: MSGraphUser?, error: Error?) in
+            
+            DispatchQueue.main.async {
+                
+                guard let currentUser = user, error == nil else {
+                    print("Error getting user: \(String(describing: error))")
+                    return
+                }
+                
+                self.title = currentUser.displayName ?? "Unknown"
+                
+                // Save the user's time zone
+                GraphManager.instance.userTimeZone = currentUser.mailboxSettings?.timeZone ?? "UTC"
+            }
+        }
+    }
+    
+    private func getMailFolder() {
+        GraphManager.instance.getMailFolders { (foldersArray, error) in
+            DispatchQueue.main.async {
+                
+                guard let foldersArray = foldersArray, error == nil else {
+                    print("Error getting user: \(String(describing: error))")
+                    return
+                }
+                
+                self.mailBoxes = foldersArray
+                
+            }
+        }
+    }
+    
+    private func getUserInbox() {
+        GraphManager.instance.getMailInbox { (messages, error) in
+            DispatchQueue.main.async {
+                
+                guard let messages = messages, error == nil else {
+                    print("Error getting user: \(String(describing: error))")
+                    return
+                }
+                
+                self.messagesList = .loaded(messages)
+            }
+        }
+    }
+    
+    private func getInboxNextPage() {
+        GraphManager.instance.getNextInboxPage { (messages, error) in
+            DispatchQueue.main.async {
+                
+                guard let messages = messages, error == nil else {
+                    print("Error getting user: \(String(describing: error))")
+                    return
+                }
+                
+                self.messagesList = .loaded(self.messagesList.value! + messages)
+            }
+        }
+    }
 }
 
 // MARK: - Collection view delegate methods
@@ -104,8 +185,15 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! UserConversationViewController
-        threadVC.user = threadList.value![indexPath.row].mailList.first!.sender
+//        threadVC.user = messagesList.value![indexPath.row].mailList.first!.sender
         self.navigationController!.pushViewController(threadVC, animated: true)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == messagesList.value!.count - 2 {
+            getInboxNextPage()
+        }
+    }
+    
 }
 

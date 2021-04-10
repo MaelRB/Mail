@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16946A9C2EC40D20CABD67E7 /* Pods_Mail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE43A998C7C1E415BA0D9354 /* Pods_Mail.framework */; };
 		8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B7026035176002DE9B1 /* MuseoSans_500.otf */; };
+		8A18B9BA2620E5760052ACD4 /* SignVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A18B9B82620E5760052ACD4 /* SignVC.storyboard */; };
+		8A18B9BD2621E0890052ACD4 /* MailListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A18B9BC2621E0890052ACD4 /* MailListVC.storyboard */; };
 		8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */; };
 		8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */; };
 		8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */; };
@@ -16,7 +19,6 @@
 		8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28125FB69CE006480BB /* AppDelegate.swift */; };
 		8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28325FB69CE006480BB /* SceneDelegate.swift */; };
 		8A94A28625FB69CE006480BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28525FB69CE006480BB /* ViewController.swift */; };
-		8A94A28925FB69CE006480BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28725FB69CE006480BB /* Main.storyboard */; };
 		8A94A28B25FB69D1006480BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28A25FB69D1006480BB /* Assets.xcassets */; };
 		8A94A28E25FB69D1006480BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */; };
 		8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29625FB6DE7006480BB /* Mailboxes.swift */; };
@@ -36,11 +38,30 @@
 		8AB7FEF42604D848007343D1 /* MuseoSansRounded-700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */; };
 		8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FF02260511AB007343D1 /* ReplyView.xib */; };
 		8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7FF0526051770007343D1 /* ReplyView.swift */; };
+		8AC08755261F628700479830 /* AuthSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC08754261F628700479830 /* AuthSettings.plist */; };
+		8AC0877A261F66E100479830 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC08779261F66E100479830 /* AuthenticationManager.swift */; };
+		8AC0877F261F6A4400479830 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0877E261F6A4400479830 /* SignViewController.swift */; };
+		8AC08783261F6C7D00479830 /* GraphManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC08782261F6C7D00479830 /* GraphManager.swift */; };
 		8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCDF3526132647000C2E67 /* Loadable.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8AC0876C261F645C00479830 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8A164B7026035176002DE9B1 /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
+		8A18B9B92620E5760052ACD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignVC.storyboard; sourceTree = "<group>"; };
+		8A18B9BC2621E0890052ACD4 /* MailListVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MailListVC.storyboard; sourceTree = "<group>"; };
 		8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewController.swift; sourceTree = "<group>"; };
 		8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -71,7 +92,19 @@
 		8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSansRounded-700.ttf"; sourceTree = "<group>"; };
 		8AB7FF02260511AB007343D1 /* ReplyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyView.xib; sourceTree = "<group>"; };
 		8AB7FF0526051770007343D1 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
+		8AC08754261F628700479830 /* AuthSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AuthSettings.plist; sourceTree = "<group>"; };
+		8AC0875D261F645C00479830 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		8AC08760261F645C00479830 /* AccountAuthenticationModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAuthenticationModificationViewController.swift; sourceTree = "<group>"; };
+		8AC08763261F645C00479830 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8AC08765261F645C00479830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AC08779261F66E100479830 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		8AC0877E261F6A4400479830 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
+		8AC08782261F6C7D00479830 /* GraphManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphManager.swift; sourceTree = "<group>"; };
+		8AC08785261F6E2000479830 /* Mail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mail.entitlements; sourceTree = "<group>"; };
 		8ACCDF3526132647000C2E67 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		911C9AA330FD821E36F53D7F /* Pods-Mail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.debug.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.debug.xcconfig"; sourceTree = "<group>"; };
+		AE43A998C7C1E415BA0D9354 /* Pods_Mail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3F8DC0F816CBDFB8BD0BA45 /* Pods-Mail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.release.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,18 +112,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16946A9C2EC40D20CABD67E7 /* Pods_Mail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18819BC4B8FEECF10A7CEE44 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				911C9AA330FD821E36F53D7F /* Pods-Mail.debug.xcconfig */,
+				F3F8DC0F816CBDFB8BD0BA45 /* Pods-Mail.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8A164B832603CDA4002DE9B1 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
 				8A94A28A25FB69D1006480BB /* Assets.xcassets */,
 				8A94A28F25FB69D1006480BB /* Info.plist */,
 				8A164B842603CDB1002DE9B1 /* Font */,
+				8AC08754261F628700479830 /* AuthSettings.plist */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -149,7 +193,10 @@
 			isa = PBXGroup;
 			children = (
 				8A94A28025FB69CE006480BB /* Mail */,
+				8AC0875F261F645C00479830 /* test */,
+				8AC0875C261F645C00479830 /* Frameworks */,
 				8A94A27F25FB69CE006480BB /* Products */,
+				18819BC4B8FEECF10A7CEE44 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +211,7 @@
 		8A94A28025FB69CE006480BB /* Mail */ = {
 			isa = PBXGroup;
 			children = (
+				8AC08785261F6E2000479830 /* Mail.entitlements */,
 				8A94A2AC25FD3E8F006480BB /* Controller */,
 				8A94A2A925FD3E7C006480BB /* Model */,
 				8A164B832603CDA4002DE9B1 /* Ressources */,
@@ -190,6 +238,8 @@
 		8A94A2AB25FD3E8C006480BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A18B9BC2621E0890052ACD4 /* MailListVC.storyboard */,
+				8A18B9B82620E5760052ACD4 /* SignVC.storyboard */,
 				8A164B912603D022002DE9B1 /* UserConversation */,
 				8A164B902603CFA3002DE9B1 /* ThreadList */,
 				8A94A28725FB69CE006480BB /* Main.storyboard */,
@@ -201,6 +251,7 @@
 		8A94A2AC25FD3E8F006480BB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8AC0877C261F699400479830 /* SignPage */,
 				8A164B962603D0C4002DE9B1 /* UserConversation */,
 				8A164B952603D0B3002DE9B1 /* ThreadList */,
 				8A94A28525FB69CE006480BB /* ViewController.swift */,
@@ -223,8 +274,37 @@
 				8A94A2B125FE4763006480BB /* DateExtension.swift */,
 				8A73193F260E75260098FEAA /* Constant.swift */,
 				8ACCDF3526132647000C2E67 /* Loadable.swift */,
+				8AC08779261F66E100479830 /* AuthenticationManager.swift */,
+				8AC08782261F6C7D00479830 /* GraphManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8AC0875C261F645C00479830 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AC0875D261F645C00479830 /* AuthenticationServices.framework */,
+				AE43A998C7C1E415BA0D9354 /* Pods_Mail.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8AC0875F261F645C00479830 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				8AC08760261F645C00479830 /* AccountAuthenticationModificationViewController.swift */,
+				8AC08762261F645C00479830 /* MainInterface.storyboard */,
+				8AC08765261F645C00479830 /* Info.plist */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		8AC0877C261F699400479830 /* SignPage */ = {
+			isa = PBXGroup;
+			children = (
+				8AC0877E261F6A4400479830 /* SignViewController.swift */,
+			);
+			path = SignPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,9 +314,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A94A29225FB69D1006480BB /* Build configuration list for PBXNativeTarget "Mail" */;
 			buildPhases = (
+				5A0E3E34ACED1EB153E96A9B /* [CP] Check Pods Manifest.lock */,
 				8A94A27A25FB69CE006480BB /* Sources */,
 				8A94A27B25FB69CE006480BB /* Frameworks */,
 				8A94A27C25FB69CE006480BB /* Resources */,
+				8AC0876C261F645C00479830 /* Embed App Extensions */,
+				FF02C3BA9C82D5E9CDAB3824 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,10 +370,12 @@
 				8A94A28E25FB69D1006480BB /* LaunchScreen.storyboard in Resources */,
 				8A94A28B25FB69D1006480BB /* Assets.xcassets in Resources */,
 				8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */,
-				8A94A28925FB69CE006480BB /* Main.storyboard in Resources */,
+				8AC08755261F628700479830 /* AuthSettings.plist in Resources */,
 				8A94A2E1260215C3006480BB /* MailTableViewCell.xib in Resources */,
+				8A18B9BA2620E5760052ACD4 /* SignVC.storyboard in Resources */,
 				8A94A2BC25FE5926006480BB /* UserConversationNavigationItem.xib in Resources */,
 				8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */,
+				8A18B9BD2621E0890052ACD4 /* MailListVC.storyboard in Resources */,
 				8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */,
 				8A94A2A425FB7AEF006480BB /* ThreadListCell.xib in Resources */,
 				8AB7FEF42604D848007343D1 /* MuseoSansRounded-700.ttf in Resources */,
@@ -298,6 +383,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5A0E3E34ACED1EB153E96A9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mail-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF02C3BA9C82D5E9CDAB3824 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mail/Pods-Mail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A94A27A25FB69CE006480BB /* Sources */ = {
@@ -307,12 +434,14 @@
 				8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */,
 				8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */,
 				8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */,
+				8AC0877F261F6A4400479830 /* SignViewController.swift in Sources */,
 				8A94A2E0260215C3006480BB /* MailTableViewCell.swift in Sources */,
 				8A94A2A325FB7AEF006480BB /* ThreadListCell.swift in Sources */,
 				8A94A2B625FE5022006480BB /* UserConversationViewController.swift in Sources */,
 				8A94A2BF25FE5B60006480BB /* UserConversationNavigationItem.swift in Sources */,
 				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
 				8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */,
+				8AC0877A261F66E100479830 /* AuthenticationManager.swift in Sources */,
 				8A94A28625FB69CE006480BB /* ViewController.swift in Sources */,
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
 				8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */,
@@ -320,6 +449,7 @@
 				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
 				8A94A29A25FB761C006480BB /* ThreadListCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
+				8AC08783261F6C7D00479830 /* GraphManager.swift in Sources */,
 				8A731940260E75260098FEAA /* Constant.swift in Sources */,
 				8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */,
 				8A94A29D25FB76A4006480BB /* Thread.swift in Sources */,
@@ -330,6 +460,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8A18B9B82620E5760052ACD4 /* SignVC.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A18B9B92620E5760052ACD4 /* Base */,
+			);
+			name = SignVC.storyboard;
+			sourceTree = "<group>";
+		};
 		8A94A28725FB69CE006480BB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -344,6 +482,14 @@
 				8A94A28D25FB69D1006480BB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8AC08762261F645C00479830 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AC08763261F645C00479830 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -467,9 +613,12 @@
 		};
 		8A94A29325FB69D1006480BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 911C9AA330FD821E36F53D7F /* Pods-Mail.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mail/Mail.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WY266AH6T6;
 				INFOPLIST_FILE = Mail/Ressources/Info.plist;
@@ -486,9 +635,12 @@
 		};
 		8A94A29425FB69D1006480BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3F8DC0F816CBDFB8BD0BA45 /* Pods-Mail.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Mail/Mail.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WY266AH6T6;
 				INFOPLIST_FILE = Mail/Ressources/Info.plist;
