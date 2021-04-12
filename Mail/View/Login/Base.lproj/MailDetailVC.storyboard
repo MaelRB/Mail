@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,19 +11,11 @@
         <!--Mail Detail View Controller-->
         <scene sceneID="HbL-HH-pb7">
             <objects>
-                <viewController storyboardIdentifier="ThreadVC" id="Ya4-yY-oux" customClass="MailDetailViewController" customModule="Mail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mailDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ya4-yY-oux" customClass="MailDetailViewController" customModule="Mail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6y9-T7-IUH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="medium" id="RIm-C9-mRt">
-                                <rect key="frame" x="0.0" y="428" width="414" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="GvD-Hr-2Bb"/>
-                                    <constraint firstAttribute="width" constant="40" id="VRC-e3-C6G"/>
-                                </constraints>
-                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-8E-VvE" customClass="ReplyView" customModule="Mail" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="824" width="414" height="38"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -30,36 +23,48 @@
                                     <constraint firstAttribute="height" constant="38" id="Utd-Wg-rRh"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3EI-by-73z">
-                                <rect key="frame" x="0.0" y="44" width="414" height="779"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Ya4-yY-oux" id="WYj-nD-7m0"/>
-                                    <outlet property="delegate" destination="Ya4-yY-oux" id="hPa-cV-qPL"/>
-                                </connections>
-                            </tableView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgv-4f-ZS5">
+                                <rect key="frame" x="20" y="106" width="374" height="718"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5A-8V-25k">
+                                <rect key="frame" x="20" y="64" width="374" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Eh1-fX-MGQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4lF-jZ-6Oe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3EI-by-73z" firstAttribute="top" secondItem="4lF-jZ-6Oe" secondAttribute="top" id="CBS-3h-qSo"/>
+                            <constraint firstItem="tgv-4f-ZS5" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="20" id="IaI-R7-TqP"/>
+                            <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="tgv-4f-ZS5" secondAttribute="trailing" constant="20" id="JCf-IZ-Ccp"/>
+                            <constraint firstItem="tgv-4f-ZS5" firstAttribute="top" secondItem="O5A-8V-25k" secondAttribute="bottom" constant="10" id="KqB-7a-7gy"/>
+                            <constraint firstItem="O5A-8V-25k" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="20" id="VaK-kV-hPU"/>
                             <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="b7d-8E-VvE" secondAttribute="trailing" id="X6P-NJ-Lic"/>
-                            <constraint firstItem="3EI-by-73z" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" id="YeR-od-lNO"/>
+                            <constraint firstItem="O5A-8V-25k" firstAttribute="top" secondItem="4lF-jZ-6Oe" secondAttribute="top" constant="20" id="k5z-UA-mhC"/>
                             <constraint firstItem="4lF-jZ-6Oe" firstAttribute="bottom" secondItem="b7d-8E-VvE" secondAttribute="bottom" id="l9K-kj-mAr"/>
-                            <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="3EI-by-73z" secondAttribute="trailing" id="sh1-uZ-ZDK"/>
+                            <constraint firstItem="b7d-8E-VvE" firstAttribute="top" secondItem="tgv-4f-ZS5" secondAttribute="bottom" id="qFu-am-a84"/>
+                            <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="O5A-8V-25k" secondAttribute="trailing" constant="20" id="vSJ-uU-Ec3"/>
                             <constraint firstItem="b7d-8E-VvE" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" id="y8l-g8-L7j"/>
-                            <constraint firstItem="b7d-8E-VvE" firstAttribute="top" secondItem="3EI-by-73z" secondAttribute="bottom" constant="1" id="zqs-aI-5z1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eH2-NK-d7h">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="pas-L9-tpB"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="RIm-C9-mRt" id="tsD-bV-ses"/>
                         <outlet property="keyboardHeightConstraint" destination="l9K-kj-mAr" id="jun-RK-bbD"/>
                         <outlet property="replyView" destination="b7d-8E-VvE" id="s6C-ng-m9m"/>
                         <outlet property="replyViewHeightConstraint" destination="Utd-Wg-rRh" id="Ty5-Hp-qRg"/>
-                        <outlet property="tableView" destination="3EI-by-73z" id="Ffm-wr-HNn"/>
+                        <outlet property="titleLabel" destination="O5A-8V-25k" id="1sl-jW-AlQ"/>
+                        <outlet property="webView" destination="tgv-4f-ZS5" id="LDb-Ax-lvG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5o-VT-fNt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

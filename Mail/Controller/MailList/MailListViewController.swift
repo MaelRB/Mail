@@ -180,9 +180,10 @@ class MailListViewController: UIViewController {
 extension MailListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let threadVC = self.storyboard!.instantiateViewController(withIdentifier: "ThreadVC") as! MailDetailViewController
-//        threadVC.user = messagesList.value![indexPath.row].mailList.first!.sender
-        self.navigationController!.pushViewController(threadVC, animated: true)
+        let storyboard = UIStoryboard(name: "MailDetailVC", bundle: nil )
+        let mailDetail = storyboard.instantiateViewController(withIdentifier: "mailDetailVC") as! MailDetailViewController
+        mailDetail.mail = messagesList.value![indexPath.row]
+        self.navigationController!.pushViewController(mailDetail, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
