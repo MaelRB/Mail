@@ -79,7 +79,7 @@ class MailListViewController: UIViewController {
     private func presentationView(with value: [MSGraphMessage]) {
         activityIndicator.stopAnimating()
         collectionView.isHidden = false
-        collectionViewController.addThread(value)
+        collectionViewController.addMessages(value)
     }
     
     
@@ -191,7 +191,7 @@ extension MailListViewController: UICollectionViewDelegate {
                 }
                 
                 self.messagesList.value![indexPath.row].isRead = true
-                self.collectionViewController.addThread(self.messagesList.value!)
+                self.collectionViewController.updateMessages([self.messagesList.value![indexPath.row]])
             }
         }
     }

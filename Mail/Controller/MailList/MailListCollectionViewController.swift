@@ -14,18 +14,11 @@ class MailListCollectionViewController {
         case main
     }
     
-    enum Kind {
-        case list
-        case grid
-    }
-    
-    var kind: Kind
-    
     var collectionView: UICollectionView
     private var dataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
+    private var snapshot = NSDiffableDataSourceSnapshot<Section, MSGraphMessage>()
     
-    init(collectionView: UICollectionView, kind: Kind = .list) {
-        self.kind = kind
+    init(collectionView: UICollectionView) {
         self.collectionView = collectionView
         
         setup()
@@ -51,13 +44,17 @@ class MailListCollectionViewController {
             cell.configure(with: identifier)
             return cell
         })
-        
+        snapshot.appendSections([.main])
     }
     
-    func addThread(_ threadList: [MSGraphMessage]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, MSGraphMessage>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(threadList)
+    func addMessages(_ messageList: [MSGraphMessage]) {
+        snapshot.appendItems(messageList)
         dataSource.apply(snapshot)
     }
+    
+    func updateMessages(_ messageList: [MSGraphMessage]) {
+        snapshot.reloadItems(messageList)
+        dataSource.apply(snapshot)
+    }
+    
 }
