@@ -33,8 +33,13 @@ class MailDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         setup()
         
-//        self.title = user.name
+        self.title = mail.sender?.emailAddress?.name
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = false
     }
     
     deinit {
@@ -44,19 +49,9 @@ class MailDetailViewController: UIViewController {
     // MARK: - Setup methods
     
     private func setup() {
-        navItemSetup()
-//        tableViewSetup()
         replyViewSetup()
         webView.loadHTMLString(mail.body!.content!, baseURL: nil)
         titleLabel.text = mail.subject
-    }
-    
-    fileprivate func navItemSetup() {
-        let navigationItemView = UserConversationNavigationItem()
-//        navigationItemView.imageView.image = user.profilePicture
-        navigationItemView.name.text = mail.sender?.emailAddress?.name
-//        navigationItemView.info.text = "\(mail.value!.count) threads"
-        navigationItem.titleView = navigationItemView
     }
     
     fileprivate func replyViewSetup() {
@@ -91,9 +86,6 @@ class MailDetailViewController: UIViewController {
             options: animationCurve,
             animations: { self.view.layoutIfNeeded() },
             completion: nil)
-    }
-    
-    @IBAction func paperclipTapped(_ sender: Any) {
     }
     
 }

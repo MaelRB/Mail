@@ -13,23 +13,26 @@ class MailListViewController: UIViewController {
     
     // MARK: - Properties
     
-    // Title view
+    // Title
     @IBOutlet var mailboxesButton: UIButton!
     
     // Collection view
     @IBOutlet weak var collectionView: UICollectionView!
     private var collectionViewController: MailListCollectionViewController!
     
+    // Loading
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    
+    // Tab bar
     @IBOutlet weak var blurEffectView: UIVisualEffectView!
+    @IBOutlet weak var createMailButton: UIButton!
+    
     
     private var mailBoxes = [MSGraphMailFolder]() {
         didSet {
             addButtonMenu();
         }
     }
-    
     
     private var messagesList: Loadable<[MSGraphMessage]> = .notRequested {
         didSet {
@@ -41,18 +44,17 @@ class MailListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        collectionViewController = MailListCollectionViewController(collectionView: collectionView)
-        collectionView.delegate = self
+        setupUI()
         
-        getMe()
         getMailFolder()
-        
-        blurEffectView.effect = UIBlurEffect(style: .systemMaterial)
-        blurEffectView.alpha = 0.8
-        
+
         updateViewState()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - View state
@@ -65,7 +67,7 @@ class MailListViewController: UIViewController {
                 loadingView()
                 getUserInbox()
             case .loaded(let value):
-                presentationView(with: value)
+                presentView(with: value)
             case .error(let err):
                 // TODO: - Handle error
                 print(err)
@@ -79,39 +81,64 @@ class MailListViewController: UIViewController {
         activityIndicator.startAnimating()
     }
     
-    private func presentationView(with value: [MSGraphMessage]) {
+    private func presentView(with value: [MSGraphMessage]) {
         activityIndicator.stopAnimating()
         collectionView.isHidden = false
         collectionViewController.addMessages(value)
     }
     
+    // MARK: - Setup methods
     
-    // MARK: - Title view action
-
-    @IBAction func mailboxesButtonTapped(_ sender: Any) {
+    private func setupUI() {
+        setupCollectionView()
+        setupTabBar()
+        setupMailboxexButton()
     }
+    
+    private func setupCollectionView() {
+        collectionViewController = MailListCollectionViewController(collectionView: collectionView)
+        collectionView.delegate = self
+    }
+    
+    private func setupTabBar() {
+        blurEffectView.effect = UIBlurEffect(style: .systemMaterial)
+        blurEffectView.alpha = 0.8
+        
+        createMailButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        createMailButton.layer.shadowColor = createMailButton.tintColor.cgColor
+        createMailButton.layer.shadowRadius = 5
+        createMailButton.layer.shadowOpacity = 0.4
+    }
+    
+    private func setupMailboxexButton() {
+        mailboxesButton.role = .normal
+        mailboxesButton.showsMenuAsPrimaryAction = true
+        mailboxesButton.sizeToFit()
+    }
+    
+    
+    // MARK: - Title methods
     
     private func addButtonMenu() {
         var actionList = [UIAction]()
         
         for mailbox in mailBoxes {
             let action = UIAction(title: mailbox.displayName!) { _ in
-                let text = NSMutableAttributedString(string: "\(mailbox.displayName!)   \(mailbox.unreadItemCount)")
-                text.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 28),
-                                    NSAttributedString.Key.foregroundColor: UIColor.systemBlue],
-                                   range: NSMakeRange(0, mailbox.displayName!.count))
-                self.mailboxesButton.setAttributedTitle(text, for: .normal)
+                self.setTitle(mailbox)
             }
             actionList.append(action)
         }
         
         let menu = UIMenu(title: "Mailboxes", children: actionList)
-        
-        mailboxesButton.role = .normal
         mailboxesButton.menu = menu
-        mailboxesButton.showsMenuAsPrimaryAction = true
-        mailboxesButton.sizeToFit()
-        
+    }
+    
+    private func setTitle(_ mailbox: MSGraphMailFolder) {
+        let text = NSMutableAttributedString(string: "\(mailbox.displayName!)   \(mailbox.unreadItemCount)")
+        text.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30),
+                            NSAttributedString.Key.foregroundColor: UIColor.systemBlue],
+                           range: NSMakeRange(0, mailbox.displayName!.count))
+        self.mailboxesButton.setAttributedTitle(text, for: .normal)
     }
     
     // MARK: - Graph manager methods
@@ -145,7 +172,7 @@ class MailListViewController: UIViewController {
                 }
                 
                 self.mailBoxes = foldersArray
-                
+                self.setTitle(self.mailBoxes[1])
             }
         }
     }

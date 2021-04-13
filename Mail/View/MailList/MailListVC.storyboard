@@ -18,29 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-Vs-Tm2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-Rs-Z1v">
                                 <rect key="frame" x="20" y="118" width="374" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-Rs-Z1v">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="sxe-no-gMq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <state key="normal" title="Inbox">
-                                            <color key="titleColor" systemColor="labelColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="mailboxesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wZu-co-BnZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Ne8-Dh-9WN"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="ywb-GH-Hc6"/>
                                 </constraints>
-                            </stackView>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="mailboxesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wZu-co-BnZ"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-Fj-UOK">
-                                <rect key="frame" x="0.0" y="208" width="414" height="688"/>
+                                <rect key="frame" x="0.0" y="203" width="414" height="693"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nIY-g3-VXH">
                                     <size key="itemSize" width="256" height="256"/>
@@ -60,7 +52,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-cV-oHZ">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-cV-oHZ">
                                 <rect key="frame" x="187" y="248" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="1ZP-cb-sT8"/>
@@ -74,36 +66,75 @@
                                     <constraint firstAttribute="height" constant="80" id="OlH-f2-YC9"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkT-DQ-bi3">
-                                <rect key="frame" x="185" y="822" width="44" height="44"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="jEZ-Ni-8Sr">
+                                <rect key="frame" x="20" y="820" width="374" height="44"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgl-Ec-Muc">
+                                        <rect key="frame" x="0.0" y="0.0" width="1" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="hld-N3-aKn"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9r-AO-8E4">
+                                        <rect key="frame" x="61" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="6Sw-f0-WIy"/>
+                                        </constraints>
+                                        <state key="normal" image="gear" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkT-DQ-bi3">
+                                        <rect key="frame" x="165" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="5Et-3P-yyO"/>
+                                            <constraint firstAttribute="height" constant="44" id="OAn-lB-m5r"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="medium"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="large"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oW3-zR-cVA">
+                                        <rect key="frame" x="269" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="iiC-FM-VOr"/>
+                                        </constraints>
+                                        <state key="normal" image="line.horizontal.3.decrease.circle" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                        </state>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efr-PT-BU7">
+                                        <rect key="frame" x="373" y="0.0" width="1" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="iix-mT-ybM"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="5Et-3P-yyO"/>
-                                    <constraint firstAttribute="height" constant="44" id="OAn-lB-m5r"/>
+                                    <constraint firstAttribute="height" constant="44" id="MOW-wB-0qv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="medium"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="large"/>
-                                </state>
-                            </button>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PAf-Vs-Tm2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="0Tg-ON-8FK"/>
                             <constraint firstItem="Jyc-Fj-UOK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3Y5-69-GYX"/>
                             <constraint firstItem="uBc-cV-oHZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6DN-Yz-ZFZ"/>
                             <constraint firstItem="9wy-zV-V8I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6oe-au-Qwd"/>
                             <constraint firstAttribute="bottom" secondItem="Jyc-Fj-UOK" secondAttribute="bottom" id="6xh-y0-nYq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u0o-Rs-Z1v" secondAttribute="trailing" constant="20" id="8BJ-tP-QQg"/>
                             <constraint firstAttribute="bottom" secondItem="9wy-zV-V8I" secondAttribute="bottom" id="BaP-3y-GqN"/>
+                            <constraint firstItem="u0o-Rs-Z1v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="EER-ml-DtD"/>
                             <constraint firstItem="Jyc-Fj-UOK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GWX-dc-uDU"/>
-                            <constraint firstAttribute="bottom" secondItem="RkT-DQ-bi3" secondAttribute="bottom" constant="30" id="HeJ-sO-Vka"/>
-                            <constraint firstItem="RkT-DQ-bi3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L2i-06-EtL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PAf-Vs-Tm2" secondAttribute="trailing" constant="20" id="RXm-Zi-62m"/>
-                            <constraint firstItem="PAf-Vs-Tm2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TOC-Vk-VoW"/>
-                            <constraint firstItem="uBc-cV-oHZ" firstAttribute="top" secondItem="PAf-Vs-Tm2" secondAttribute="bottom" constant="70" id="Uoi-Zf-EEm"/>
-                            <constraint firstItem="Jyc-Fj-UOK" firstAttribute="top" secondItem="PAf-Vs-Tm2" secondAttribute="bottom" constant="30" id="Uy0-uR-JQz"/>
+                            <constraint firstItem="Jyc-Fj-UOK" firstAttribute="top" secondItem="u0o-Rs-Z1v" secondAttribute="bottom" constant="25" id="LBi-Bw-xVt"/>
+                            <constraint firstAttribute="bottom" secondItem="jEZ-Ni-8Sr" secondAttribute="bottom" constant="32" id="TUn-hf-aIg"/>
+                            <constraint firstItem="jEZ-Ni-8Sr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Z55-VI-NOd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9wy-zV-V8I" secondAttribute="trailing" id="edd-qe-hg3"/>
+                            <constraint firstItem="u0o-Rs-Z1v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nyB-Fi-onL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vdS-Vd-0sR">
@@ -119,6 +150,7 @@
                         <outlet property="activityIndicator" destination="uBc-cV-oHZ" id="R4e-8H-8nP"/>
                         <outlet property="blurEffectView" destination="9wy-zV-V8I" id="egQ-zD-sse"/>
                         <outlet property="collectionView" destination="Jyc-Fj-UOK" id="Lnx-7n-XFM"/>
+                        <outlet property="createMailButton" destination="RkT-DQ-bi3" id="Czu-lD-0mE"/>
                         <outlet property="mailboxesButton" destination="u0o-Rs-Z1v" id="QdO-AK-pSX"/>
                     </connections>
                 </viewController>
@@ -154,6 +186,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
