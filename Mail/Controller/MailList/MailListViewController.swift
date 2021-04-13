@@ -21,6 +21,8 @@ class MailListViewController: UIViewController {
     private var collectionViewController: MailListCollectionViewController!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
+    @IBOutlet weak var blurEffectView: UIVisualEffectView!
     
     private var mailBoxes = [MSGraphMailFolder]() {
         didSet {
@@ -46,6 +48,9 @@ class MailListViewController: UIViewController {
         
         getMe()
         getMailFolder()
+        
+        blurEffectView.effect = UIBlurEffect(style: .systemMaterial)
+        blurEffectView.alpha = 0.8
         
         updateViewState()
     }

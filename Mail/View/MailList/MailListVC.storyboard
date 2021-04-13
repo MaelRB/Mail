@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -17,34 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-Fj-UOK">
-                                <rect key="frame" x="0.0" y="208" width="414" height="688"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nIY-g3-VXH">
-                                    <size key="itemSize" width="256" height="256"/>
-                                    <size key="estimatedItemSize" width="256" height="256"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewMail" id="czK-pi-fYm">
-                                        <rect key="frame" x="79" y="0.0" width="256" height="256"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0YX-e4-keZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-cV-oHZ">
-                                <rect key="frame" x="187" y="248" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="1ZP-cb-sT8"/>
-                                    <constraint firstAttribute="height" constant="40" id="lKf-Ov-1fN"/>
-                                </constraints>
-                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-Vs-Tm2">
                                 <rect key="frame" x="20" y="118" width="374" height="60"/>
                                 <subviews>
@@ -66,6 +39,53 @@
                                     <constraint firstAttribute="height" constant="60" id="Ne8-Dh-9WN"/>
                                 </constraints>
                             </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-Fj-UOK">
+                                <rect key="frame" x="0.0" y="208" width="414" height="688"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nIY-g3-VXH">
+                                    <size key="itemSize" width="256" height="256"/>
+                                    <size key="estimatedItemSize" width="256" height="256"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewMail" id="czK-pi-fYm">
+                                        <rect key="frame" x="79" y="0.0" width="256" height="256"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0YX-e4-keZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-cV-oHZ">
+                                <rect key="frame" x="187" y="248" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1ZP-cb-sT8"/>
+                                    <constraint firstAttribute="height" constant="40" id="lKf-Ov-1fN"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wy-zV-V8I" customClass="UIVisualEffectView">
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="OlH-f2-YC9"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkT-DQ-bi3">
+                                <rect key="frame" x="185" y="822" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="5Et-3P-yyO"/>
+                                    <constraint firstAttribute="height" constant="44" id="OAn-lB-m5r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="medium"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="large"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -73,11 +93,17 @@
                             <constraint firstItem="PAf-Vs-Tm2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="0Tg-ON-8FK"/>
                             <constraint firstItem="Jyc-Fj-UOK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3Y5-69-GYX"/>
                             <constraint firstItem="uBc-cV-oHZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6DN-Yz-ZFZ"/>
+                            <constraint firstItem="9wy-zV-V8I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6oe-au-Qwd"/>
+                            <constraint firstAttribute="bottom" secondItem="Jyc-Fj-UOK" secondAttribute="bottom" id="6xh-y0-nYq"/>
+                            <constraint firstAttribute="bottom" secondItem="9wy-zV-V8I" secondAttribute="bottom" id="BaP-3y-GqN"/>
                             <constraint firstItem="Jyc-Fj-UOK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GWX-dc-uDU"/>
+                            <constraint firstAttribute="bottom" secondItem="RkT-DQ-bi3" secondAttribute="bottom" constant="30" id="HeJ-sO-Vka"/>
+                            <constraint firstItem="RkT-DQ-bi3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L2i-06-EtL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PAf-Vs-Tm2" secondAttribute="trailing" constant="20" id="RXm-Zi-62m"/>
-                            <constraint firstAttribute="bottom" secondItem="Jyc-Fj-UOK" secondAttribute="bottom" id="T2B-iF-BCp"/>
                             <constraint firstItem="PAf-Vs-Tm2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TOC-Vk-VoW"/>
+                            <constraint firstItem="uBc-cV-oHZ" firstAttribute="top" secondItem="PAf-Vs-Tm2" secondAttribute="bottom" constant="70" id="Uoi-Zf-EEm"/>
                             <constraint firstItem="Jyc-Fj-UOK" firstAttribute="top" secondItem="PAf-Vs-Tm2" secondAttribute="bottom" constant="30" id="Uy0-uR-JQz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9wy-zV-V8I" secondAttribute="trailing" id="edd-qe-hg3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vdS-Vd-0sR">
@@ -91,6 +117,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="uBc-cV-oHZ" id="R4e-8H-8nP"/>
+                        <outlet property="blurEffectView" destination="9wy-zV-V8I" id="egQ-zD-sse"/>
                         <outlet property="collectionView" destination="Jyc-Fj-UOK" id="Lnx-7n-XFM"/>
                         <outlet property="mailboxesButton" destination="u0o-Rs-Z1v" id="QdO-AK-pSX"/>
                     </connections>
@@ -127,6 +154,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
