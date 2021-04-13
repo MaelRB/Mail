@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Mail Detail View Controller-->
         <scene sceneID="HbL-HH-pb7">
             <objects>
                 <viewController storyboardIdentifier="mailDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ya4-yY-oux" customClass="MailDetailViewController" customModule="Mail" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,6 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQE-X9-paV">
+                                <rect key="frame" x="20" y="106" width="374" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="ZIB-gE-CRz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-8E-VvE" customClass="ReplyView" customModule="Mail" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="824" width="414" height="38"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -24,17 +33,16 @@
                                 </constraints>
                             </view>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgv-4f-ZS5">
-                                <rect key="frame" x="20" y="106" width="374" height="718"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="20" y="141" width="374" height="683"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5A-8V-25k">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5A-8V-25k">
                                 <rect key="frame" x="20" y="64" width="374" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Eh1-fX-MGQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Eh1-fX-MGQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -46,22 +54,23 @@
                         <constraints>
                             <constraint firstItem="tgv-4f-ZS5" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="20" id="IaI-R7-TqP"/>
                             <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="tgv-4f-ZS5" secondAttribute="trailing" constant="20" id="JCf-IZ-Ccp"/>
-                            <constraint firstItem="tgv-4f-ZS5" firstAttribute="top" secondItem="O5A-8V-25k" secondAttribute="bottom" constant="10" id="KqB-7a-7gy"/>
+                            <constraint firstItem="uQE-X9-paV" firstAttribute="top" secondItem="O5A-8V-25k" secondAttribute="bottom" constant="10" id="R2P-48-NEQ"/>
+                            <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="uQE-X9-paV" secondAttribute="trailing" constant="20" id="RgS-zA-7cR"/>
                             <constraint firstItem="O5A-8V-25k" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="20" id="VaK-kV-hPU"/>
                             <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="b7d-8E-VvE" secondAttribute="trailing" id="X6P-NJ-Lic"/>
+                            <constraint firstItem="uQE-X9-paV" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="20" id="gG3-PR-12D"/>
                             <constraint firstItem="O5A-8V-25k" firstAttribute="top" secondItem="4lF-jZ-6Oe" secondAttribute="top" constant="20" id="k5z-UA-mhC"/>
                             <constraint firstItem="4lF-jZ-6Oe" firstAttribute="bottom" secondItem="b7d-8E-VvE" secondAttribute="bottom" id="l9K-kj-mAr"/>
                             <constraint firstItem="b7d-8E-VvE" firstAttribute="top" secondItem="tgv-4f-ZS5" secondAttribute="bottom" id="qFu-am-a84"/>
                             <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="O5A-8V-25k" secondAttribute="trailing" constant="20" id="vSJ-uU-Ec3"/>
                             <constraint firstItem="b7d-8E-VvE" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" id="y8l-g8-L7j"/>
+                            <constraint firstItem="tgv-4f-ZS5" firstAttribute="top" secondItem="uQE-X9-paV" secondAttribute="bottom" constant="20" id="zlY-nf-QmE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="PoU-Ot-r1D"/>
-                    <navigationItem key="navigationItem" id="eH2-NK-d7h">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="pas-L9-tpB"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="eH2-NK-d7h"/>
                     <connections>
                         <outlet property="keyboardHeightConstraint" destination="l9K-kj-mAr" id="jun-RK-bbD"/>
+                        <outlet property="mailInfoLabel" destination="uQE-X9-paV" id="K4V-zG-yJG"/>
                         <outlet property="replyView" destination="b7d-8E-VvE" id="s6C-ng-m9m"/>
                         <outlet property="replyViewHeightConstraint" destination="Utd-Wg-rRh" id="Ty5-Hp-qRg"/>
                         <outlet property="titleLabel" destination="O5A-8V-25k" id="1sl-jW-AlQ"/>
@@ -74,7 +83,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

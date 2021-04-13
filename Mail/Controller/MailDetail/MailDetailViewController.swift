@@ -25,6 +25,8 @@ class MailDetailViewController: UIViewController {
     
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var mailInfoLabel: UILabel!
+    
     // MARK: - Object life cycle
     
     override func viewDidLoad() {
@@ -35,6 +37,9 @@ class MailDetailViewController: UIViewController {
         
         self.title = mail.sender?.emailAddress?.name
         
+        mailInfoLabel.text = mail.receivedDateTime!.relativeDate()
+        
+        webView.scrollView.showsVerticalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -52,7 +52,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-cV-oHZ">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uBc-cV-oHZ">
                                 <rect key="frame" x="187" y="248" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="1ZP-cb-sT8"/>
@@ -135,6 +135,7 @@
                             <constraint firstItem="jEZ-Ni-8Sr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Z55-VI-NOd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9wy-zV-V8I" secondAttribute="trailing" id="edd-qe-hg3"/>
                             <constraint firstItem="u0o-Rs-Z1v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nyB-Fi-onL"/>
+                            <constraint firstItem="uBc-cV-oHZ" firstAttribute="top" secondItem="u0o-Rs-Z1v" secondAttribute="bottom" constant="70" id="wC4-SY-IOU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vdS-Vd-0sR">
