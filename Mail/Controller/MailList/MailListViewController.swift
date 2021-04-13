@@ -15,8 +15,6 @@ class MailListViewController: UIViewController {
     
     // Title view
     @IBOutlet var mailboxesButton: UIButton!
-    @IBOutlet var mailboxesTitle: UILabel!
-    @IBOutlet var mailboxesInfo: UILabel!
     
     // Collection view
     @IBOutlet weak var collectionView: UICollectionView!
@@ -93,10 +91,11 @@ class MailListViewController: UIViewController {
         
         for mailbox in mailBoxes {
             let action = UIAction(title: mailbox.displayName!) { _ in
-                self.mailboxesTitle.text = mailbox.displayName!
-                let conifg = UIImage.SymbolConfiguration(scale: .large)
-                self.mailboxesButton.setImage(UIImage(systemName: "tray.fill", withConfiguration: conifg), for: .normal)
-                self.mailboxesInfo.text = "\(mailbox.unreadItemCount) new messages"
+                let text = NSMutableAttributedString(string: "\(mailbox.displayName!)   \(mailbox.unreadItemCount)")
+                text.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 28),
+                                    NSAttributedString.Key.foregroundColor: UIColor.systemBlue],
+                                   range: NSMakeRange(0, mailbox.displayName!.count))
+                self.mailboxesButton.setAttributedTitle(text, for: .normal)
             }
             actionList.append(action)
         }
@@ -106,6 +105,8 @@ class MailListViewController: UIViewController {
         mailboxesButton.role = .normal
         mailboxesButton.menu = menu
         mailboxesButton.showsMenuAsPrimaryAction = true
+        mailboxesButton.sizeToFit()
+        
     }
     
     // MARK: - Graph manager methods
@@ -185,7 +186,7 @@ extension MailListViewController: UICollectionViewDelegate {
         GraphManager.instance.markAsRead(messagesList.value![indexPath.row]) { (message, error) in
             DispatchQueue.main.async {
                 
-                guard let message = message, error == nil else {
+                guard error == nil else {
                     print("Error getting user: \(String(describing: error))")
                     return
                 }
