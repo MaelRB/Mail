@@ -91,8 +91,6 @@ class MailListViewController: UIViewController {
     private func addButtonMenu() {
         var actionList = [UIAction]()
         
-        print(mailBoxes)
-        
         for mailbox in mailBoxes {
             let action = UIAction(title: mailbox.displayName!) { _ in
                 self.mailboxesTitle.text = mailbox.displayName!
@@ -184,6 +182,18 @@ extension MailListViewController: UICollectionViewDelegate {
         let mailDetail = storyboard.instantiateViewController(withIdentifier: "mailDetailVC") as! MailDetailViewController
         mailDetail.mail = messagesList.value![indexPath.row]
         self.navigationController!.pushViewController(mailDetail, animated: true)
+        GraphManager.instance.markAsRead(messagesList.value![indexPath.row]) { (message, error) in
+            DispatchQueue.main.async {
+                
+                guard let message = message, error == nil else {
+                    print("Error getting user: \(String(describing: error))")
+                    return
+                }
+                
+                self.messagesList.value![indexPath.row].isRead = true
+                self.collectionViewController.addThread(self.messagesList.value!)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

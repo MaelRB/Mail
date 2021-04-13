@@ -145,4 +145,34 @@ class GraphManager {
             completion(messages, error)
         }
     }
+    
+    public func markAsRead(_ message: MSGraphMessage, completion: @escaping(MSGraphMessage?, Error?) -> Void) {
+        let updateMessageDict: [String: Any] = [
+            "isRead": true
+        ]
+        
+        let updateData = try? JSONSerialization.data(withJSONObject: updateMessageDict)
+         
+        let request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/messages/\(message.entityId)")!)
+        request.httpMethod = "PATCH"
+        request.httpBody = updateData
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let dataTask = MSURLSessionDataTask(request: request, client: self.client, completion: {
+            (data: Data?, response: URLResponse?, graphError: Error?) in
+            guard let data = data, graphError == nil else {
+                completion(nil, graphError)
+                return
+            }
+            
+            do {
+                let message = try MSGraphMessage(data: data)
+                completion(message, nil)
+            } catch {
+                completion(nil, error)
+            }
+        })
+        
+        dataTask?.execute()
+    }
 }
