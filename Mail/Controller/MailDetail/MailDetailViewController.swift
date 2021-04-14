@@ -23,6 +23,7 @@ class MailDetailViewController: UIViewController {
     @IBOutlet weak var replyViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var tabBarView: UIVisualEffectView!
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var mailInfoLabel: UILabel!
@@ -40,6 +41,9 @@ class MailDetailViewController: UIViewController {
         mailInfoLabel.text = mail.receivedDateTime!.relativeDate()
         
         webView.scrollView.showsVerticalScrollIndicator = false
+        
+        tabBarView.effect = UIBlurEffect(style: .systemMaterial)
+        tabBarView.alpha = 0.8
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +96,19 @@ class MailDetailViewController: UIViewController {
             animations: { self.view.layoutIfNeeded() },
             completion: nil)
     }
+    
+    @IBAction func replyButtonDidTap(_ sender: Any) {
+    }
+    
+    @IBAction func trashButtonDidTap(_ sender: Any) {
+    }
+    
+    @IBAction func shareButtonDidTap(_ sender: Any) {
+    }
+    
+    @IBAction func moreButtonDidTap(_ sender: Any) {
+    }
+    
     
 }
 
