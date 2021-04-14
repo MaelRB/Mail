@@ -17,6 +17,7 @@ class MailListCollectionViewController {
     var collectionView: UICollectionView
     private var dataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
     private var snapshot = NSDiffableDataSourceSnapshot<Section, MSGraphMessage>()
+    private var messageList = [MSGraphMessage]()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -31,8 +32,47 @@ class MailListCollectionViewController {
     }
     
     private func createListLayout() -> UICollectionViewLayout {
-        let config = UICollectionLayoutListConfiguration(appearance: .plain)
+        var config = UICollectionLayoutListConfiguration(appearance: .plain)
+        
+        config.trailingSwipeActionsConfigurationProvider = { [weak self] indexPath in
+            guard let self = self else { return nil }
+            
+            let message = self.messageList[indexPath.row]
+            
+            let actionHandler: UIContextualAction.Handler = { action, view, completion in
+                
+                completion(true)
+                self.collectionView.reloadItems(at: [indexPath])
+            }
+            
+            let delete = UIContextualAction(style: .destructive, title: "Delete", handler: actionHandler)
+//            delete.image = UIImage(systemName: "trash")
+
+            let more = UIContextualAction(style: .normal, title: "More", handler: actionHandler)
+            more.image = UIImage(systemName: "ellipsis")
+
+            return UISwipeActionsConfiguration(actions: [delete, more])
+        }
+        
+        config.leadingSwipeActionsConfigurationProvider = { [weak self] indexPath in
+            guard let self = self else { return nil }
+            
+            let message = self.messageList[indexPath.row]
+            
+            let actionHandler: UIContextualAction.Handler = { action, view, completion in
+                
+                completion(true)
+                self.collectionView.reloadItems(at: [indexPath])
+            }
+            
+            let read = UIContextualAction(style: .normal, title: message.isRead ? "Unread" : "Read", handler: actionHandler)
+            read.backgroundColor = .systemBlue
+            
+            return UISwipeActionsConfiguration(actions: [read])
+        }
+        
         return UICollectionViewCompositionalLayout.list(using: config)
+        
     }
     
     private func setDatasource() {
@@ -44,10 +84,13 @@ class MailListCollectionViewController {
             cell.configure(with: identifier)
             return cell
         })
+        
+        
         snapshot.appendSections([.main])
     }
     
     func addMessages(_ messageList: [MSGraphMessage]) {
+        self.messageList.append(contentsOf: messageList)
         snapshot.appendItems(messageList)
         dataSource.apply(snapshot)
     }
