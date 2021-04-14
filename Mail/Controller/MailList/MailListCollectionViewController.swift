@@ -15,9 +15,10 @@ class MailListCollectionViewController {
     }
     
     var collectionView: UICollectionView
-    private var dataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
+    private(set) var dataSource = [MSGraphMessage]()
+    
+    private var diffableDataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
     private var snapshot = NSDiffableDataSourceSnapshot<Section, MSGraphMessage>()
-    private var messageList = [MSGraphMessage]()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -37,12 +38,12 @@ class MailListCollectionViewController {
         config.trailingSwipeActionsConfigurationProvider = { [weak self] indexPath in
             guard let self = self else { return nil }
             
-            let message = self.messageList[indexPath.row]
+            let message = self.dataSource[indexPath.row]
             
             let actionHandler: UIContextualAction.Handler = { action, view, completion in
                 
                 completion(true)
-                self.collectionView.reloadItems(at: [indexPath])
+//                self.updateMessages(new: [], [message])
             }
             
             let delete = UIContextualAction(style: .destructive, title: "Delete", handler: actionHandler)
@@ -57,15 +58,25 @@ class MailListCollectionViewController {
         config.leadingSwipeActionsConfigurationProvider = { [weak self] indexPath in
             guard let self = self else { return nil }
             
-            let message = self.messageList[indexPath.row]
+            let selectedMessage = self.dataSource[indexPath.row]
             
-            let actionHandler: UIContextualAction.Handler = { action, view, completion in
-                
-                completion(true)
-                self.collectionView.reloadItems(at: [indexPath])
+            let readHandler: UIContextualAction.Handler = { action, view, completion in
+                GraphManager.instance.updateRead(for: selectedMessage, newValue: !selectedMessage.isRead) { (message, error) in
+                    DispatchQueue.main.async {
+                        guard let message = message, error == nil else {
+                            print("Error getting user: \(String(describing: error))")
+                            completion(false)
+                            return
+                        }
+                        
+                        self.dataSource[indexPath.row] = message
+                        self.updateMessages(new: [message], selectedMessage)
+                        completion(true)
+                    }
+                }
             }
             
-            let read = UIContextualAction(style: .normal, title: message.isRead ? "Unread" : "Read", handler: actionHandler)
+            let read = UIContextualAction(style: .normal, title: selectedMessage.isRead ? "Unread" : "Read", handler: readHandler)
             read.backgroundColor = .systemBlue
             
             return UISwipeActionsConfiguration(actions: [read])
@@ -79,7 +90,7 @@ class MailListCollectionViewController {
         
         collectionView.register(UINib.init(nibName: "MailListCell", bundle: nil), forCellWithReuseIdentifier: "MailList")
         
-        dataSource = UICollectionViewDiffableDataSource<Section, MSGraphMessage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
+        diffableDataSource = UICollectionViewDiffableDataSource<Section, MSGraphMessage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MailList", for: indexPath) as! MailListCell
             cell.configure(with: identifier)
             return cell
@@ -90,14 +101,21 @@ class MailListCollectionViewController {
     }
     
     func addMessages(_ messageList: [MSGraphMessage]) {
-        self.messageList.append(contentsOf: messageList)
-        snapshot.appendItems(messageList)
-        dataSource.apply(snapshot)
+        self.dataSource.append(contentsOf: messageList)
+        snapshot.appendItems(dataSource)
+        diffableDataSource.apply(snapshot)
     }
     
-    func updateMessages(_ messageList: [MSGraphMessage]) {
-        snapshot.reloadItems(messageList)
-        dataSource.apply(snapshot)
+    private func updateMessages(new updateMessage: [MSGraphMessage], _ selectedMessage: MSGraphMessage) {
+        snapshot.insertItems(updateMessage, beforeItem: selectedMessage)
+        snapshot.deleteItems([selectedMessage])
+        diffableDataSource.apply(snapshot)
+    }
+    
+    func updateMessage(at row: Int, _ message: MSGraphMessage) {
+        let oldMessage = dataSource[row]
+        dataSource[row] = message
+        updateMessages(new: [message], oldMessage)
     }
     
 }

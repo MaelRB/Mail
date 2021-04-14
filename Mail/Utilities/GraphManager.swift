@@ -146,9 +146,9 @@ class GraphManager {
         }
     }
     
-    public func markAsRead(_ message: MSGraphMessage, completion: @escaping(MSGraphMessage?, Error?) -> Void) {
+    public func updateRead(for message: MSGraphMessage, newValue: Bool, completion: @escaping(MSGraphMessage?, Error?) -> Void) {
         let updateMessageDict: [String: Any] = [
-            "isRead": true
+            "isRead": newValue
         ]
         
         let updateData = try? JSONSerialization.data(withJSONObject: updateMessageDict)

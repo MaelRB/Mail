@@ -200,7 +200,7 @@ class MailListViewController: UIViewController {
                     return
                 }
                 
-                self.messagesList = .loaded(self.messagesList.value! + messages)
+                self.collectionViewController.addMessages(messages)
             }
         }
     }
@@ -211,26 +211,27 @@ class MailListViewController: UIViewController {
 extension MailListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let message = collectionViewController.dataSource[indexPath.row]
         let storyboard = UIStoryboard(name: "MailDetailVC", bundle: nil )
         let mailDetail = storyboard.instantiateViewController(withIdentifier: "mailDetailVC") as! MailDetailViewController
-        mailDetail.mail = messagesList.value![indexPath.row]
+        mailDetail.mail = message
         self.navigationController!.pushViewController(mailDetail, animated: true)
-        GraphManager.instance.markAsRead(messagesList.value![indexPath.row]) { (message, error) in
+        
+        GraphManager.instance.updateRead(for: message, newValue: true) { (message, error) in
             DispatchQueue.main.async {
                 
-                guard error == nil else {
+                guard let message = message, error == nil else {
                     print("Error getting user: \(String(describing: error))")
                     return
                 }
                 
-                self.messagesList.value![indexPath.row].isRead = true
-                self.collectionViewController.updateMessages([self.messagesList.value![indexPath.row]])
+                self.collectionViewController.updateMessage(at: indexPath.row, message)
             }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == messagesList.value!.count - 2 {
+        if indexPath.item == collectionViewController.dataSource.count - 2 {
             getInboxNextPage()
         }
     }
