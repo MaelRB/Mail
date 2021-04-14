@@ -11,8 +11,7 @@ import WebKit
 
 class MailDetailViewController: UIViewController {
     
-    // User
-//    var user: User!
+   // MARK: Properties
     
     var mail: MSGraphMessage!
 
@@ -34,16 +33,8 @@ class MailDetailViewController: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        setup()
         
-        self.title = mail.sender?.emailAddress?.name
-        
-        mailInfoLabel.text = mail.receivedDateTime!.relativeDate()
-        
-        webView.scrollView.showsVerticalScrollIndicator = false
-        
-        tabBarView.effect = UIBlurEffect(style: .systemMaterial)
-        tabBarView.alpha = 0.8
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,16 +48,34 @@ class MailDetailViewController: UIViewController {
     
     // MARK: - Setup methods
     
-    private func setup() {
+    private func setupUI() {
         replyViewSetup()
-        webView.loadHTMLString(mail.body!.content!, baseURL: nil)
-        titleLabel.text = mail.subject
+        webViewSetup()
+        tabBarSetup()
+        textSetup()
     }
     
     fileprivate func replyViewSetup() {
         replyView.delegate = self
-//        replyView.threadList = mail.value!
     }
+    
+    private func webViewSetup() {
+        webView.loadHTMLString(mail.body!.content!, baseURL: nil)
+        webView.scrollView.showsVerticalScrollIndicator = false
+    }
+    
+    private func tabBarSetup() {
+        tabBarView.effect = UIBlurEffect(style: .systemMaterial)
+        tabBarView.alpha = 0.8
+    }
+    
+    private func textSetup() {
+        self.title = mail.sender?.emailAddress?.name
+        mailInfoLabel.text = mail.receivedDateTime!.relativeDate()
+        titleLabel.text = mail.subject
+    }
+    
+    // MARK: - Keyboard methods
     
     @objc func keyboardNotification(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
@@ -97,6 +106,18 @@ class MailDetailViewController: UIViewController {
             completion: nil)
     }
     
+    private func changeKeyBoardheight(_ height: CGFloat) {
+        replyViewHeightConstraint.constant = height
+        UIView.animate(
+            withDuration: 0.15,
+            delay: TimeInterval(0),
+            options: [.curveEaseOut],
+            animations: { self.view.layoutIfNeeded() },
+            completion: nil)
+    }
+    
+    // MARK: - Action methods
+    
     @IBAction func replyButtonDidTap(_ sender: Any) {
     }
     
@@ -117,34 +138,15 @@ class MailDetailViewController: UIViewController {
 extension MailDetailViewController: ReplyViewDelegate {
 
     func replyDidTap() {
-        replyViewHeightConstraint.constant = 200
-        UIView.animate(
-            withDuration: 0.15,
-            delay: TimeInterval(0),
-            options: [.curveEaseOut],
-            animations: { self.view.layoutIfNeeded() },
-            completion: nil)
+        changeKeyBoardheight(200)
     }
     
     func sendDidTap(_ mail: Mail, to thread: Thread) {
-        
-        replyViewHeightConstraint.constant = 38
-        UIView.animate(
-            withDuration: 0.15,
-            delay: TimeInterval(0),
-            options: [.curveEaseOut],
-            animations: { self.view.layoutIfNeeded() },
-            completion: nil)
+        changeKeyBoardheight(38)
     }
     
     func closeDidTap() {
-        replyViewHeightConstraint.constant = 38
-        UIView.animate(
-            withDuration: 0.15,
-            delay: TimeInterval(0),
-            options: [.curveEaseOut],
-            animations: { self.view.layoutIfNeeded() },
-            completion: nil)
+        changeKeyBoardheight(38)
     }
     
     func documentDitTap() {
