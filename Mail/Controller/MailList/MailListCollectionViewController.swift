@@ -40,13 +40,27 @@ class MailListCollectionViewController {
             
             let message = self.dataSource[indexPath.row]
             
+            let deleteHandler: UIContextualAction.Handler = { action, view, completion in
+                GraphManager.instance.delete(message: message) { (error) in
+                    DispatchQueue.main.async {
+                        guard error == nil else {
+                            print("Error getting user: \(String(describing: error))")
+                            completion(false)
+                            return
+                        }
+                        self.deleteMessages([message])
+                        completion(true)
+                    }
+                }
+            }
+            
             let actionHandler: UIContextualAction.Handler = { action, view, completion in
                 
                 completion(true)
 //                self.updateMessages(new: [], [message])
             }
             
-            let delete = UIContextualAction(style: .destructive, title: "Delete", handler: actionHandler)
+            let delete = UIContextualAction(style: .destructive, title: "Delete", handler: deleteHandler)
 //            delete.image = UIImage(systemName: "trash")
 
             let more = UIContextualAction(style: .normal, title: "More", handler: actionHandler)
@@ -109,6 +123,14 @@ class MailListCollectionViewController {
     private func updateMessages(new updateMessage: [MSGraphMessage], _ selectedMessage: MSGraphMessage) {
         snapshot.insertItems(updateMessage, beforeItem: selectedMessage)
         snapshot.deleteItems([selectedMessage])
+        diffableDataSource.apply(snapshot)
+    }
+    
+    private func deleteMessages(_ messages: [MSGraphMessage]) {
+        snapshot.deleteItems(messages)
+        for message in messages {
+            dataSource.removeAll { $0 == message }
+        }
         diffableDataSource.apply(snapshot)
     }
     

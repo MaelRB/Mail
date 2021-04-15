@@ -175,4 +175,21 @@ class GraphManager {
         
         dataTask?.execute()
     }
+    
+    public func delete(message: MSGraphMessage, completion: @escaping(Error?) -> Void) {
+        
+        let request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/messages/\(message.entityId)")!)
+        request.httpMethod = "DELETE"
+        
+        let dataTask = MSURLSessionDataTask(request: request, client: self.client, completion: {
+            (data: Data?, response: URLResponse?, graphError: Error?) in
+            guard graphError == nil else {
+                completion(graphError)
+                return
+            }
+            completion(nil)
+        })
+        
+        dataTask?.execute()
+    }
 }
