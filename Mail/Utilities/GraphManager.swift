@@ -19,7 +19,7 @@ class GraphManager {
     public var userTimeZone: String
     
     // Next link : pagination
-    private var nextLink: URL? = nil
+    var nextLink: URL? = nil
     
     private init() {
         client = MSClientFactory.createHTTPClient(with: AuthenticationManager.instance)

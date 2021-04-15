@@ -11,6 +11,7 @@ import MSGraphClientModels
 class MailController {
     
     private var mailCache = Cache<MSGraphMailFolder, [MSGraphMessage]>()
+    private var nextLinkCache = Cache<MSGraphMailFolder, URL>()
     
     private(set) var mailFolder = [MSGraphMailFolder]()
     
@@ -35,6 +36,7 @@ class MailController {
     
     func switchFolder(_ newFolder: MSGraphMailFolder, completion: @escaping (Error?) -> Void) {
         mailCache[selectedFolder] = mailList
+        nextLinkCache[selectedFolder] = GraphManager.instance.nextLink
         selectedFolder = newFolder
         mailList = []
         getMessages { error in
@@ -92,6 +94,7 @@ extension MailController {
     private func getMessages(completion: @escaping (Error?) -> Void) {
         guard mailCache[selectedFolder] == nil else {
             mailList = mailCache[selectedFolder]!
+            GraphManager.instance.nextLink = nextLinkCache[selectedFolder]
             completion(nil)
             return
         }
