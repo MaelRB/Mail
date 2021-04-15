@@ -8,7 +8,7 @@
 import UIKit
 import MSGraphClientModels
 
-class MailListCollectionViewController {
+class MailCollectionViewController {
     
     private enum Section {
         case main
@@ -25,7 +25,6 @@ class MailListCollectionViewController {
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
-        
         setup()
     }
     

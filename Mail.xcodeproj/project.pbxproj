@@ -23,7 +23,7 @@
 		8A94A28B25FB69D1006480BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28A25FB69D1006480BB /* Assets.xcassets */; };
 		8A94A28E25FB69D1006480BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */; };
 		8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29625FB6DE7006480BB /* Mailboxes.swift */; };
-		8A94A29A25FB761C006480BB /* MailListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29925FB761C006480BB /* MailListCollectionViewController.swift */; };
+		8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29925FB761C006480BB /* MailCollectionViewController.swift */; };
 		8A94A29D25FB76A4006480BB /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29C25FB76A4006480BB /* Thread.swift */; };
 		8A94A2A325FB7AEF006480BB /* MailListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A125FB7AEF006480BB /* MailListCell.swift */; };
 		8A94A2A425FB7AEF006480BB /* MailListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2A225FB7AEF006480BB /* MailListCell.xib */; };
@@ -42,6 +42,8 @@
 		8AC0877F261F6A4400479830 /* LogingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0877E261F6A4400479830 /* LogingViewController.swift */; };
 		8AC08783261F6C7D00479830 /* GraphManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC08782261F6C7D00479830 /* GraphManager.swift */; };
 		8ACCDF3626132647000C2E67 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCDF3526132647000C2E67 /* State.swift */; };
+		8AF84FE72628748200300B99 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF84FE62628748200300B99 /* Cache.swift */; };
+		8AF84FEA262876CB00300B99 /* MailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF84FE9262876CB00300B99 /* MailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,7 +77,7 @@
 		8A94A28D25FB69D1006480BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A94A28F25FB69D1006480BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A94A29625FB6DE7006480BB /* Mailboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mailboxes.swift; sourceTree = "<group>"; };
-		8A94A29925FB761C006480BB /* MailListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListCollectionViewController.swift; sourceTree = "<group>"; };
+		8A94A29925FB761C006480BB /* MailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailCollectionViewController.swift; sourceTree = "<group>"; };
 		8A94A29C25FB76A4006480BB /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		8A94A2A125FB7AEF006480BB /* MailListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListCell.swift; sourceTree = "<group>"; };
 		8A94A2A225FB7AEF006480BB /* MailListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MailListCell.xib; sourceTree = "<group>"; };
@@ -99,6 +101,8 @@
 		8AC08782261F6C7D00479830 /* GraphManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphManager.swift; sourceTree = "<group>"; };
 		8AC08785261F6E2000479830 /* Mail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mail.entitlements; sourceTree = "<group>"; };
 		8ACCDF3526132647000C2E67 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		8AF84FE62628748200300B99 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		8AF84FE9262876CB00300B99 /* MailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailController.swift; sourceTree = "<group>"; };
 		911C9AA330FD821E36F53D7F /* Pods-Mail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.debug.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.debug.xcconfig"; sourceTree = "<group>"; };
 		AE43A998C7C1E415BA0D9354 /* Pods_Mail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F8DC0F816CBDFB8BD0BA45 /* Pods-Mail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.release.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,8 +177,9 @@
 		8A164B952603D0B3002DE9B1 /* MailList */ = {
 			isa = PBXGroup;
 			children = (
-				8A94A29925FB761C006480BB /* MailListCollectionViewController.swift */,
+				8A94A29925FB761C006480BB /* MailCollectionViewController.swift */,
 				8A94A28525FB69CE006480BB /* MailListViewController.swift */,
+				8AF84FE9262876CB00300B99 /* MailController.swift */,
 			);
 			path = MailList;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				8ACCDF3526132647000C2E67 /* State.swift */,
 				8AC08779261F66E100479830 /* AuthenticationManager.swift */,
 				8AC08782261F6C7D00479830 /* GraphManager.swift */,
+				8AF84FE62628748200300B99 /* Cache.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF84FE72628748200300B99 /* Cache.swift in Sources */,
 				8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */,
 				8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */,
 				8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */,
@@ -447,9 +454,10 @@
 				8A94A28625FB69CE006480BB /* MailListViewController.swift in Sources */,
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
 				8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */,
+				8AF84FEA262876CB00300B99 /* MailController.swift in Sources */,
 				8A731958260E7E640098FEAA /* ModelInit.swift in Sources */,
 				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
-				8A94A29A25FB761C006480BB /* MailListCollectionViewController.swift in Sources */,
+				8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
 				8AC08783261F6C7D00479830 /* GraphManager.swift in Sources */,
 				8A731940260E75260098FEAA /* Constant.swift in Sources */,

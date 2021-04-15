@@ -18,7 +18,6 @@ class MailListViewController: UIViewController {
     
     // Collection view
     @IBOutlet weak var collectionView: UICollectionView!
-    private var collectionViewController: MailListCollectionViewController!
     
     // Loading
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -27,12 +26,7 @@ class MailListViewController: UIViewController {
     @IBOutlet weak var blurEffectView: UIVisualEffectView!
     @IBOutlet weak var createMailButton: UIButton!
     
-    
-    private var mailBoxes = [MSGraphMailFolder]() {
-        didSet {
-            addButtonMenu();
-        }
-    }
+    private var mailController: MailController!
     
     private var viewSate: State = .notRequested {
         didSet {
@@ -46,9 +40,16 @@ class MailListViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        getMailFolder()
         updateViewState()
-        getUserInbox()
+        mailController = MailController(collectionView: collectionView) { error in
+            guard error == nil else {
+                self.viewSate = .error(error!)
+                return
+            }
+            self.viewSate = .loaded
+            self.addButtonMenu()
+            self.setTitle(self.mailController.selectedFolder)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +78,7 @@ class MailListViewController: UIViewController {
         collectionView.isHidden = true
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        collectionViewController.clearDataSource()
+        //collectionViewController.clearDataSource()
     }
     
     private func presentView() {
@@ -94,7 +95,6 @@ class MailListViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        collectionViewController = MailListCollectionViewController(collectionView: collectionView)
         collectionView.delegate = self
     }
     
@@ -120,11 +120,17 @@ class MailListViewController: UIViewController {
     private func addButtonMenu() {
         var actionList = [UIAction]()
         
-        for mailbox in mailBoxes {
+        for mailbox in mailController.mailFolder {
             let action = UIAction(title: mailbox.displayName!) { _ in
                 self.setTitle(mailbox)
                 self.viewSate = .loading
-                self.getMessages(for: mailbox)
+                self.mailController.switchFolder(mailbox) {  error in
+                    guard error == nil else {
+                        self.viewSate = .error(error!)
+                        return
+                    }
+                    self.viewSate = .loaded
+                }
             }
             actionList.append(action)
         }
@@ -162,66 +168,6 @@ class MailListViewController: UIViewController {
         }
     }
     
-    private func getMailFolder() {
-        GraphManager.instance.getMailFolders { (foldersArray, error) in
-            DispatchQueue.main.async {
-                
-                guard let foldersArray = foldersArray, error == nil else {
-                    print("Error getting user: \(String(describing: error))")
-                    return
-                }
-                
-                self.mailBoxes = foldersArray
-                self.setTitle(self.mailBoxes[1])
-            }
-        }
-    }
-    
-    private func getUserInbox() {
-        GraphManager.instance.getMailInbox { (messages, error) in
-            DispatchQueue.main.async {
-                
-                guard let messages = messages, error == nil else {
-                    print("Error getting user: \(String(describing: error))")
-                    self.viewSate = .error(error!)
-                    return
-                }
-                
-                self.viewSate = .loaded
-                self.collectionViewController.addMessages(messages)
-            }
-        }
-    }
-    
-    private func getMessages(for folder: MSGraphMailFolder) {
-        GraphManager.instance.getMail(from: folder) { (messages, error) in
-            DispatchQueue.main.async {
-                
-                guard let messages = messages, error == nil else {
-                    print("Error getting user: \(String(describing: error))")
-                    self.viewSate = .error(error!)
-                    return
-                }
-                
-                self.viewSate = .loaded
-                self.collectionViewController.addMessages(messages)
-            }
-        }
-    }
-    
-    private func getNextPage() {
-        GraphManager.instance.getNextPage { (messages, error) in
-            DispatchQueue.main.async {
-                
-                guard let messages = messages, error == nil else {
-                    print("Error getting user: \(String(describing: error))")
-                    return
-                }
-                
-                self.collectionViewController.addMessages(messages)
-            }
-        }
-    }
 }
 
 // MARK: - Collection view delegate methods
@@ -229,7 +175,7 @@ class MailListViewController: UIViewController {
 extension MailListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let message = collectionViewController.dataSource[indexPath.row]
+        guard let message = mailController[indexPath.row] else { return }
         let storyboard = UIStoryboard(name: "MailDetailVC", bundle: nil )
         let mailDetail = storyboard.instantiateViewController(withIdentifier: "mailDetailVC") as! MailDetailViewController
         mailDetail.mail = message
@@ -243,14 +189,14 @@ extension MailListViewController: UICollectionViewDelegate {
                     return
                 }
                 
-                self.collectionViewController.updateMessage(at: indexPath.row, message)
+                self.mailController.updateMessage(at: indexPath, message)
             }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == collectionViewController.dataSource.count - 2 {
-            getNextPage()
+        if indexPath.item == mailController[mailController.selectedFolder].count - 2 {
+            mailController.getNextPage()
         }
     }
     
