@@ -15,36 +15,33 @@ class MailController {
     private(set) var mailFolder = [MSGraphMailFolder]()
     
     var selectedFolder: MSGraphMailFolder!
+    var mailList = [MSGraphMessage]() {
+        didSet {
+            mailCollectionViewController.dataSource = mailList
+        }
+    }
     
     private var mailCollectionViewController: MailCollectionViewController
     
     init(collectionView: UICollectionView, completion: @escaping (Error?) -> Void) {
         mailCollectionViewController = MailCollectionViewController(collectionView: collectionView)
         getUserMailContext(completion: completion)
-    }
-    
-    subscript(key: MSGraphMailFolder) -> [MSGraphMessage] {
-        get { return mailCache[key] ?? [] }
-    }
-    
-    subscript(key: Int) -> MSGraphMessage? {
-        get { return mailCache[selectedFolder]?[key]}
+        mailCollectionViewController.mailController = self
     }
     
     func updateMessage(at indexPath: IndexPath, _ message: MSGraphMessage) {
-        mailCache[selectedFolder]![indexPath.row] = message
-        mailCollectionViewController.updateMessage(at: indexPath.row, message)
+        mailList[indexPath.row] = message
     }
     
     func switchFolder(_ newFolder: MSGraphMailFolder, completion: @escaping (Error?) -> Void) {
+        mailCache[selectedFolder] = mailList
         selectedFolder = newFolder
-        mailCollectionViewController.clearDataSource()
+        mailList = []
         getMessages { error in
             guard error == nil else {
                 completion(error)
                 return
             }
-            self.mailCollectionViewController.addMessages(self.mailCache[self.selectedFolder]!)
             completion(error)
         }
     }
@@ -86,8 +83,7 @@ extension MailController {
                     return
                 }
                 
-                self.mailCache[self.selectedFolder] = messages
-                self.mailCollectionViewController.addMessages(self.mailCache[self.selectedFolder]!)
+                self.mailList = messages
                 completion(nil)
             }
         }
@@ -95,6 +91,7 @@ extension MailController {
     
     private func getMessages(completion: @escaping (Error?) -> Void) {
         guard mailCache[selectedFolder] == nil else {
+            mailList = mailCache[selectedFolder]!
             completion(nil)
             return
         }
@@ -108,7 +105,7 @@ extension MailController {
                     return
                 }
                 
-                self.mailCache.insert(messages, forKey: self.selectedFolder)
+                self.mailList = messages
                 completion(nil)
             }
         }
@@ -123,8 +120,7 @@ extension MailController {
                     return
                 }
                 
-                self.mailCache.insert(messages, forKey: self.selectedFolder)
-                self.mailCollectionViewController.addMessages(self.mailCache[self.selectedFolder]!)
+                self.mailList.append(contentsOf: messages)
             }
         }
     }

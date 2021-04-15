@@ -15,13 +15,15 @@ class MailCollectionViewController {
     }
     
     var collectionView: UICollectionView
-    private(set) var dataSource = [MSGraphMessage]() {
+    var dataSource = [MSGraphMessage]() {
         didSet {
             updateDiffableDataSource()
         }
     }
     
     private var diffableDataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
+    
+    weak var mailController: MailController?
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -50,7 +52,9 @@ class MailCollectionViewController {
                             completion(false)
                             return
                         }
-                        self.deleteMessages([message])
+                        if let mailController = self.mailController {
+                            mailController.mailList.removeAll { $0 == message }
+                        }
                         completion(true)
                     }
                 }
@@ -118,24 +122,6 @@ class MailCollectionViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(dataSource)
         diffableDataSource.apply(snapshot)
-    }
-    
-    func addMessages(_ messageList: [MSGraphMessage]) {
-        self.dataSource.append(contentsOf: messageList)
-    }
-    
-    private func deleteMessages(_ messages: [MSGraphMessage]) {
-        for message in messages {
-            dataSource.removeAll { $0 == message }
-        }
-    }
-    
-    func updateMessage(at row: Int, _ message: MSGraphMessage) {
-        dataSource[row] = message
-    }
-    
-    func clearDataSource() {
-        dataSource.removeAll()
     }
     
 }

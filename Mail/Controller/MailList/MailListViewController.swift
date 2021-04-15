@@ -78,7 +78,6 @@ class MailListViewController: UIViewController {
         collectionView.isHidden = true
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        //collectionViewController.clearDataSource()
     }
     
     private func presentView() {
@@ -175,7 +174,7 @@ class MailListViewController: UIViewController {
 extension MailListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let message = mailController[indexPath.row] else { return }
+        let message = mailController.mailList[indexPath.row]
         let storyboard = UIStoryboard(name: "MailDetailVC", bundle: nil )
         let mailDetail = storyboard.instantiateViewController(withIdentifier: "mailDetailVC") as! MailDetailViewController
         mailDetail.mail = message
@@ -195,7 +194,7 @@ extension MailListViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == mailController[mailController.selectedFolder].count - 2 {
+        if indexPath.item == mailController.mailList.count - 2 {
             mailController.getNextPage()
         }
     }
