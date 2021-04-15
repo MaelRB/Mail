@@ -41,7 +41,7 @@
 		8AC0877A261F66E100479830 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC08779261F66E100479830 /* AuthenticationManager.swift */; };
 		8AC0877F261F6A4400479830 /* LogingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0877E261F6A4400479830 /* LogingViewController.swift */; };
 		8AC08783261F6C7D00479830 /* GraphManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC08782261F6C7D00479830 /* GraphManager.swift */; };
-		8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCDF3526132647000C2E67 /* Loadable.swift */; };
+		8ACCDF3626132647000C2E67 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCDF3526132647000C2E67 /* State.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,7 +98,7 @@
 		8AC0877E261F6A4400479830 /* LogingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogingViewController.swift; sourceTree = "<group>"; };
 		8AC08782261F6C7D00479830 /* GraphManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphManager.swift; sourceTree = "<group>"; };
 		8AC08785261F6E2000479830 /* Mail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mail.entitlements; sourceTree = "<group>"; };
-		8ACCDF3526132647000C2E67 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		8ACCDF3526132647000C2E67 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		911C9AA330FD821E36F53D7F /* Pods-Mail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.debug.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.debug.xcconfig"; sourceTree = "<group>"; };
 		AE43A998C7C1E415BA0D9354 /* Pods_Mail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F8DC0F816CBDFB8BD0BA45 /* Pods-Mail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mail.release.xcconfig"; path = "Target Support Files/Pods-Mail/Pods-Mail.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 			children = (
 				8A94A2B125FE4763006480BB /* DateExtension.swift */,
 				8A73193F260E75260098FEAA /* Constant.swift */,
-				8ACCDF3526132647000C2E67 /* Loadable.swift */,
+				8ACCDF3526132647000C2E67 /* State.swift */,
 				8AC08779261F66E100479830 /* AuthenticationManager.swift */,
 				8AC08782261F6C7D00479830 /* GraphManager.swift */,
 			);
@@ -453,7 +453,7 @@
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
 				8AC08783261F6C7D00479830 /* GraphManager.swift in Sources */,
 				8A731940260E75260098FEAA /* Constant.swift in Sources */,
-				8ACCDF3626132647000C2E67 /* Loadable.swift in Sources */,
+				8ACCDF3626132647000C2E67 /* State.swift in Sources */,
 				8A94A29D25FB76A4006480BB /* Thread.swift in Sources */,
 				8A94A2B925FE55A2006480BB /* User.swift in Sources */,
 			);

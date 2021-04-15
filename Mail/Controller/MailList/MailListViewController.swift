@@ -34,7 +34,7 @@ class MailListViewController: UIViewController {
         }
     }
     
-    private var messagesList: Loadable<[MSGraphMessage]> = .notRequested {
+    private var viewSate: State = .notRequested {
         didSet {
             updateViewState()
         }
@@ -46,10 +46,9 @@ class MailListViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        
         getMailFolder()
-
         updateViewState()
+        getUserInbox()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,14 +59,13 @@ class MailListViewController: UIViewController {
     // MARK: - View state
     
     private func updateViewState() {
-        switch messagesList {
+        switch viewSate {
             case .notRequested:
-                messagesList = .loading
+                viewSate = .loading
             case .loading:
                 loadingView()
-                getUserInbox()
-            case .loaded(let value):
-                presentView(with: value)
+            case .loaded:
+                presentView()
             case .error(let err):
                 // TODO: - Handle error
                 print(err)
@@ -79,12 +77,12 @@ class MailListViewController: UIViewController {
         collectionView.isHidden = true
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
+        collectionViewController.clearDataSource()
     }
     
-    private func presentView(with value: [MSGraphMessage]) {
+    private func presentView() {
         activityIndicator.stopAnimating()
         collectionView.isHidden = false
-        collectionViewController.addMessages(value)
     }
     
     // MARK: - Setup methods
@@ -125,6 +123,8 @@ class MailListViewController: UIViewController {
         for mailbox in mailBoxes {
             let action = UIAction(title: mailbox.displayName!) { _ in
                 self.setTitle(mailbox)
+                self.viewSate = .loading
+                self.getMessages(for: mailbox)
             }
             actionList.append(action)
         }
@@ -183,16 +183,34 @@ class MailListViewController: UIViewController {
                 
                 guard let messages = messages, error == nil else {
                     print("Error getting user: \(String(describing: error))")
+                    self.viewSate = .error(error!)
                     return
                 }
                 
-                self.messagesList = .loaded(messages)
+                self.viewSate = .loaded
+                self.collectionViewController.addMessages(messages)
             }
         }
     }
     
-    private func getInboxNextPage() {
-        GraphManager.instance.getNextInboxPage { (messages, error) in
+    private func getMessages(for folder: MSGraphMailFolder) {
+        GraphManager.instance.getMail(from: folder) { (messages, error) in
+            DispatchQueue.main.async {
+                
+                guard let messages = messages, error == nil else {
+                    print("Error getting user: \(String(describing: error))")
+                    self.viewSate = .error(error!)
+                    return
+                }
+                
+                self.viewSate = .loaded
+                self.collectionViewController.addMessages(messages)
+            }
+        }
+    }
+    
+    private func getNextPage() {
+        GraphManager.instance.getNextPage { (messages, error) in
             DispatchQueue.main.async {
                 
                 guard let messages = messages, error == nil else {
@@ -232,7 +250,7 @@ extension MailListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == collectionViewController.dataSource.count - 2 {
-            getInboxNextPage()
+            getNextPage()
         }
     }
     

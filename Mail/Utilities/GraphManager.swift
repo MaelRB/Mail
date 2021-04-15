@@ -101,6 +101,23 @@ class GraphManager {
             request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/messages")!)
         }
         
+        getMailSessionDataTask(with: request, completion: completion)
+        
+    }
+    
+    public func getNextPage(completion: @escaping([MSGraphMessage]?, Error?) -> Void) {
+        guard let link = nextLink else { return }
+        getMailInbox(link) { (messages, error) in
+            completion(messages, error)
+        }
+    }
+    
+    public func getMail(from folder: MSGraphMailFolder, completion: @escaping([MSGraphMessage]?, Error?) -> Void) {
+        let request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/mailFolders/\(folder.entityId)/messages")!)
+        getMailSessionDataTask(with: request, completion: completion)
+    }
+    
+    private func getMailSessionDataTask(with request: NSMutableURLRequest, completion: @escaping([MSGraphMessage]?, Error?) -> Void) {
         let dataTask = MSURLSessionDataTask(request: request, client: self.client, completion: {
             (data: Data?, response: URLResponse?, graphError: Error?) in
             guard let data = data, graphError == nil else {
@@ -136,14 +153,6 @@ class GraphManager {
         
         // Execute the request
         dataTask?.execute()
-    }
-    
-    // Return true if there is a next link, false otherwise
-    public func getNextInboxPage(completion: @escaping([MSGraphMessage]?, Error?) -> Void) {
-        guard let link = nextLink else { return }
-        getMailInbox(link) { (messages, error) in
-            completion(messages, error)
-        }
     }
     
     public func updateRead(for message: MSGraphMessage, newValue: Bool, completion: @escaping(MSGraphMessage?, Error?) -> Void) {

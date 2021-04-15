@@ -140,4 +140,11 @@ class MailListCollectionViewController {
         updateMessages(new: [message], oldMessage)
     }
     
+    func clearDataSource() {
+        dataSource.removeAll()
+        snapshot.deleteAllItems()
+        snapshot.appendSections([.main])
+        diffableDataSource.apply(snapshot)
+    }
+    
 }
