@@ -123,7 +123,7 @@ class MailListCollectionViewController {
     private func updateMessages(new updateMessage: [MSGraphMessage], _ selectedMessage: MSGraphMessage) {
         snapshot.insertItems(updateMessage, beforeItem: selectedMessage)
         snapshot.deleteItems([selectedMessage])
-        diffableDataSource.apply(snapshot)
+        diffableDataSource.apply(snapshot, animatingDifferences: false)
     }
     
     private func deleteMessages(_ messages: [MSGraphMessage]) {
