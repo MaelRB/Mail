@@ -15,10 +15,13 @@ class MailListCollectionViewController {
     }
     
     var collectionView: UICollectionView
-    private(set) var dataSource = [MSGraphMessage]()
+    private(set) var dataSource = [MSGraphMessage]() {
+        didSet {
+            updateDiffableDataSource()
+        }
+    }
     
     private var diffableDataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
-    private var snapshot = NSDiffableDataSourceSnapshot<Section, MSGraphMessage>()
     
     init(collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -84,7 +87,6 @@ class MailListCollectionViewController {
                         }
                         
                         self.dataSource[indexPath.row] = message
-                        self.updateMessages(new: [message], selectedMessage)
                         completion(true)
                     }
                 }
@@ -109,42 +111,32 @@ class MailListCollectionViewController {
             cell.configure(with: identifier)
             return cell
         })
-        
-        
-        snapshot.appendSections([.main])
+
     }
     
-    func addMessages(_ messageList: [MSGraphMessage]) {
-        self.dataSource.append(contentsOf: messageList)
+    private func updateDiffableDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MSGraphMessage>()
+        snapshot.appendSections([.main])
         snapshot.appendItems(dataSource)
         diffableDataSource.apply(snapshot)
     }
     
-    private func updateMessages(new updateMessage: [MSGraphMessage], _ selectedMessage: MSGraphMessage) {
-        snapshot.insertItems(updateMessage, beforeItem: selectedMessage)
-        snapshot.deleteItems([selectedMessage])
-        diffableDataSource.apply(snapshot, animatingDifferences: false)
+    func addMessages(_ messageList: [MSGraphMessage]) {
+        self.dataSource.append(contentsOf: messageList)
     }
     
     private func deleteMessages(_ messages: [MSGraphMessage]) {
-        snapshot.deleteItems(messages)
         for message in messages {
             dataSource.removeAll { $0 == message }
         }
-        diffableDataSource.apply(snapshot)
     }
     
     func updateMessage(at row: Int, _ message: MSGraphMessage) {
-        let oldMessage = dataSource[row]
         dataSource[row] = message
-        updateMessages(new: [message], oldMessage)
     }
     
     func clearDataSource() {
         dataSource.removeAll()
-        snapshot.deleteAllItems()
-        snapshot.appendSections([.main])
-        diffableDataSource.apply(snapshot)
     }
     
 }
