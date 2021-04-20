@@ -33,7 +33,6 @@ class MailCollectionViewController {
     private func setup() {
         collectionView.collectionViewLayout = createListLayout()
         setDatasource()
-        // TODO: - Create a grid layout for grid kind collection view
     }
     
     private func createListLayout() -> UICollectionViewLayout {

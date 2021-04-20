@@ -14,6 +14,7 @@ class MailDetailViewController: UIViewController {
    // MARK: Properties
     
     var mail: MSGraphMessage!
+    weak var mailController: MailController!
 
     // Outlets
     
@@ -122,12 +123,24 @@ class MailDetailViewController: UIViewController {
     }
     
     @IBAction func trashButtonDidTap(_ sender: Any) {
+        showAlert()
     }
     
     @IBAction func shareButtonDidTap(_ sender: Any) {
     }
     
     @IBAction func moreButtonDidTap(_ sender: Any) {
+    }
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: "Are you sure ?", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+            self.mailController.deleteMessage(self.mail)
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
     

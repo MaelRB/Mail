@@ -24,7 +24,7 @@ class MailListCell: UICollectionViewCell {
     
     func configure(with model: MSGraphMessage) {
         
-        title.text = model.subject!
+        title.text = model.subject ?? ""
         mail.text = model.bodyPreview!
         date.text = model.sentDateTime!.relativeDate()
         sender.text = model.sender!.emailAddress!.name

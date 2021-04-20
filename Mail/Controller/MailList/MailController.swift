@@ -47,6 +47,18 @@ class MailController {
             completion(error)
         }
     }
+    
+    func deleteMessage(_ message: MSGraphMessage) {
+        GraphManager.instance.delete(message: message) { (error) in
+            DispatchQueue.main.async { [self] in
+                guard error == nil else {
+                    print("Error getting user: \(String(describing: error))")
+                    return
+                }
+                mailList.removeAll { $0.entityId == message.entityId }
+            }
+        }
+    }
 
 }
 

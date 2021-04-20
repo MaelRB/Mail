@@ -178,6 +178,7 @@ extension MailListViewController: UICollectionViewDelegate {
         let storyboard = UIStoryboard(name: "MailDetailVC", bundle: nil )
         let mailDetail = storyboard.instantiateViewController(withIdentifier: "mailDetailVC") as! MailDetailViewController
         mailDetail.mail = message
+        mailDetail.mailController = mailController
         self.navigationController!.pushViewController(mailDetail, animated: true)
         
         GraphManager.instance.updateRead(for: message, newValue: true) { (message, error) in
