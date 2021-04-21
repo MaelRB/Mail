@@ -179,7 +179,6 @@
 			children = (
 				8A94A29925FB761C006480BB /* MailCollectionViewController.swift */,
 				8A94A28525FB69CE006480BB /* MailListViewController.swift */,
-				8AF84FE9262876CB00300B99 /* MailController.swift */,
 			);
 			path = MailList;
 			sourceTree = "<group>";
@@ -260,6 +259,7 @@
 		8A94A2AC25FD3E8F006480BB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8AF84FE9262876CB00300B99 /* MailController.swift */,
 				8AC0877C261F699400479830 /* Loging */,
 				8A164B962603D0C4002DE9B1 /* MailDetail */,
 				8A164B952603D0B3002DE9B1 /* MailList */,

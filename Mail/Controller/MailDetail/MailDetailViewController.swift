@@ -35,6 +35,7 @@ class MailDetailViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
+        mail = mailController.selectedMail!
         setupUI()
     }
     

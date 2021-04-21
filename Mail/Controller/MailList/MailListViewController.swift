@@ -26,6 +26,7 @@ class MailListViewController: UIViewController {
     @IBOutlet weak var blurEffectView: UIVisualEffectView!
     @IBOutlet weak var createMailButton: UIButton!
     
+    private var mailCollectionVC: MailCollectionViewController!
     private var mailController: MailController!
     
     private var viewSate: State = .notRequested {
@@ -41,15 +42,7 @@ class MailListViewController: UIViewController {
         
         setupUI()
         updateViewState()
-        mailController = MailController(collectionView: collectionView) { error in
-            guard error == nil else {
-                self.viewSate = .error(error!)
-                return
-            }
-            self.viewSate = .loaded
-            self.addButtonMenu()
-            self.setTitle(self.mailController.selectedFolder)
-        }
+        setupController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,37 +106,39 @@ class MailListViewController: UIViewController {
         mailboxesButton.sizeToFit()
     }
     
+    private func setupController() {
+        setupMailCollectionVC()
+        setupMailController()
+        mailCollectionVC.mailController = mailController
+    }
+    
+    private func setupMailController() {
+        mailController = MailController()
+        mailController.mailListDelegate = self
+        mailController.dataSource = mailCollectionVC
+        mailController.getUserMailContext()
+    }
+    
+    private func setupMailCollectionVC() {
+        mailCollectionVC = MailCollectionViewController(collectionView: collectionView)
+    }
+    
     
     // MARK: - Title methods
     
-    private func addButtonMenu() {
+    private func addButtonMenu(_ mailFolderList: [MSGraphMailFolder]) {
         var actionList = [UIAction]()
         
-        for mailbox in mailController.mailFolder {
+        for mailbox in mailFolderList {
             let action = UIAction(title: mailbox.displayName!) { _ in
-                self.setTitle(mailbox)
                 self.viewSate = .loading
-                self.mailController.switchFolder(mailbox) {  error in
-                    guard error == nil else {
-                        self.viewSate = .error(error!)
-                        return
-                    }
-                    self.viewSate = .loaded
-                }
+                self.mailController.switchFolder(mailbox)
             }
             actionList.append(action)
         }
         
         let menu = UIMenu(title: "Mailboxes", children: actionList)
         mailboxesButton.menu = menu
-    }
-    
-    private func setTitle(_ mailbox: MSGraphMailFolder) {
-        let text = NSMutableAttributedString(string: "\(mailbox.displayName!)   \(mailbox.unreadItemCount)")
-        text.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30),
-                            NSAttributedString.Key.foregroundColor: UIColor.systemBlue],
-                           range: NSMakeRange(0, mailbox.displayName!.count))
-        self.mailboxesButton.setAttributedTitle(text, for: .normal)
     }
     
     // MARK: - Graph manager methods
@@ -169,29 +164,32 @@ class MailListViewController: UIViewController {
     
 }
 
+// MARK: - Mail controller mail delegate methods
+
+extension MailListViewController: MailControllerMailListDelegate {
+    func updateFolderMenu(_ folderList: [MSGraphMailFolder]) {
+        addButtonMenu(folderList)
+    }
+    
+    func updateTitle(_ title: NSAttributedString) {
+        self.mailboxesButton.setAttributedTitle(title, for: .normal)
+    }
+    
+    func updateViewSate(_ state: State) {
+        viewSate = state
+    }
+}
+
 // MARK: - Collection view delegate methods
 
 extension MailListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let message = mailController.mailList[indexPath.row]
         let storyboard = UIStoryboard(name: "MailDetailVC", bundle: nil )
         let mailDetail = storyboard.instantiateViewController(withIdentifier: "mailDetailVC") as! MailDetailViewController
-        mailDetail.mail = message
+        mailController.setSelectedMail(indexPath)
         mailDetail.mailController = mailController
         self.navigationController!.pushViewController(mailDetail, animated: true)
-        
-        GraphManager.instance.updateRead(for: message, newValue: true) { (message, error) in
-            DispatchQueue.main.async {
-                
-                guard let message = message, error == nil else {
-                    print("Error getting user: \(String(describing: error))")
-                    return
-                }
-                
-                self.mailController.updateMessage(at: indexPath, message)
-            }
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

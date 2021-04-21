@@ -15,13 +15,8 @@ class MailCollectionViewController {
     }
     
     var collectionView: UICollectionView
-    var dataSource = [MSGraphMessage]() {
-        didSet {
-            updateDiffableDataSource()
-        }
-    }
     
-    private var diffableDataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, MSGraphMessage>!
     
     weak var mailController: MailController?
     
@@ -41,28 +36,13 @@ class MailCollectionViewController {
         config.trailingSwipeActionsConfigurationProvider = { [weak self] indexPath in
             guard let self = self else { return nil }
             
-            let message = self.dataSource[indexPath.row]
-            
             let deleteHandler: UIContextualAction.Handler = { action, view, completion in
-                GraphManager.instance.delete(message: message) { (error) in
-                    DispatchQueue.main.async {
-                        guard error == nil else {
-                            print("Error getting user: \(String(describing: error))")
-                            completion(false)
-                            return
-                        }
-                        if let mailController = self.mailController {
-                            mailController.mailList.removeAll { $0 == message }
-                        }
-                        completion(true)
-                    }
-                }
+                self.mailController?.deleteMessage(self.mailController!.mail(at: indexPath), completion: completion)
             }
             
             let actionHandler: UIContextualAction.Handler = { action, view, completion in
                 
                 completion(true)
-//                self.updateMessages(new: [], [message])
             }
             
             let delete = UIContextualAction(style: .destructive, title: "Delete", handler: deleteHandler)
@@ -77,21 +57,10 @@ class MailCollectionViewController {
         config.leadingSwipeActionsConfigurationProvider = { [weak self] indexPath in
             guard let self = self else { return nil }
             
-            let selectedMessage = self.dataSource[indexPath.row]
+            let selectedMessage = self.mailController!.mail(at: indexPath)
             
             let readHandler: UIContextualAction.Handler = { action, view, completion in
-                GraphManager.instance.updateRead(for: selectedMessage, newValue: !selectedMessage.isRead) { (message, error) in
-                    DispatchQueue.main.async {
-                        guard let message = message, error == nil else {
-                            print("Error getting user: \(String(describing: error))")
-                            completion(false)
-                            return
-                        }
-                        
-                        self.dataSource[indexPath.row] = message
-                        completion(true)
-                    }
-                }
+                self.mailController?.updateIsRead(for: selectedMessage, with: completion)
             }
             
             let read = UIContextualAction(style: .normal, title: selectedMessage.isRead ? "Unread" : "Read", handler: readHandler)
@@ -108,7 +77,7 @@ class MailCollectionViewController {
         
         collectionView.register(UINib.init(nibName: "MailListCell", bundle: nil), forCellWithReuseIdentifier: "MailList")
         
-        diffableDataSource = UICollectionViewDiffableDataSource<Section, MSGraphMessage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, MSGraphMessage>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MailList", for: indexPath) as! MailListCell
             cell.configure(with: identifier)
             return cell
@@ -116,11 +85,19 @@ class MailCollectionViewController {
 
     }
     
-    private func updateDiffableDataSource() {
+    private func updateDataSource(with mailList: [MSGraphMessage]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, MSGraphMessage>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(dataSource)
-        diffableDataSource.apply(snapshot)
+        snapshot.appendItems(mailList)
+        dataSource.apply(snapshot)
     }
+}
+
+// MARK: - MailController dataSource methods
+
+extension MailCollectionViewController: MailControllerMailCollectionDataSource {
     
+    func updateDataSource(_ mailList: [MSGraphMessage]) {
+        updateDataSource(with: mailList)
+    }
 }
