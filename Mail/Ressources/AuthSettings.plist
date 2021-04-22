@@ -4,6 +4,7 @@
 <dict>
 	<key>GraphScopes</key>
 	<array>
+		<string>Mail.Send</string>
 		<string>Mail.ReadWrite</string>
 		<string>Mail.Read</string>
 		<string>MailboxSettings.Read</string>

@@ -201,4 +201,26 @@ class GraphManager {
         
         dataTask?.execute()
     }
+    
+    public func reply(to message: MSGraphMessage, _ reply: Reply, completion: @escaping(MSGraphMessage?, Error?) -> Void) {
+        
+        let request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/messages/\(message.entityId)/reply")!)
+        request.httpMethod = "POST"
+        request.httpBody = reply.getJSON()
+        print(String(data: reply.getJSON()!, encoding: .utf8))
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let dataTask = MSURLSessionDataTask(request: request, client: self.client, completion: {
+            (data: Data?, response: URLResponse?, graphError: Error?) in
+            guard let response = response as? HTTPURLResponse, graphError == nil else {
+                completion(nil, graphError)
+                return
+            }
+            print(response.statusCode)
+        })
+        
+        dataTask?.execute()
+    }
+    
+    
 }

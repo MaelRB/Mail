@@ -9,7 +9,7 @@ import UIKit
 
 protocol ReplyViewDelegate {
     func replyDidTap()
-    func sendDidTap(_ mail: Mail, to thread: Thread)
+    func sendDidTap(_ comment: String)
     func closeDidTap()
     func documentDitTap()
 }
@@ -46,15 +46,15 @@ class ReplyView: UIView {
     
     private var documentCollectionViewController: DocumentCollectionViewController!
     
-    var threadList = [Thread]() {
-        didSet {
-            threadButton.setTitle(threadList.first?.title ?? "No thread", for: .normal)
-            currentThread = threadList.first!
-            addButtonMenu()
-        }
-    }
+//    var threadList = [Thread]() {
+//        didSet {
+//            threadButton.setTitle(threadList.first?.title ?? "No thread", for: .normal)
+//            currentThread = threadList.first!
+//            addButtonMenu()
+//        }
+//    }
     
-    private var currentThread: Thread!
+//    private var currentThread: Thread!
     
     private var isReplying = false
     
@@ -109,7 +109,7 @@ class ReplyView: UIView {
     }
     
     @IBAction func sendButtonTapped(_ sender: Any) {
-        delegate?.sendDidTap(getMail(), to: currentThread)
+        delegate?.sendDidTap(textView.text)
         closeReplyView()
     }
     
@@ -140,23 +140,23 @@ class ReplyView: UIView {
         downStackViewHeightConstraint.constant = 42
     }
     
-    private func addButtonMenu() {
-        var actionList = [UIAction]()
-        
-        for thread in threadList {
-            let action = UIAction(title: thread.title) { _ in
-                self.threadButton.setTitle(thread.title, for: .normal)
-                self.currentThread = thread
-            }
-            actionList.append(action)
-        }
-        
-        let menu = UIMenu(title: "Thread list", children: actionList)
-    
-        threadButton.role = .normal
-        threadButton.menu = menu
-        threadButton.showsMenuAsPrimaryAction = true
-    }
+//    private func addButtonMenu() {
+//        var actionList = [UIAction]()
+//
+//        for thread in threadList {
+//            let action = UIAction(title: thread.title) { _ in
+//                self.threadButton.setTitle(thread.title, for: .normal)
+//                self.currentThread = thread
+//            }
+//            actionList.append(action)
+//        }
+//
+//        let menu = UIMenu(title: "Thread list", children: actionList)
+//
+//        threadButton.role = .normal
+//        threadButton.menu = menu
+//        threadButton.showsMenuAsPrimaryAction = true
+//    }
     
     func addImage(_ imageList: [UIImage]) {
         documentImageList.append(contentsOf: imageList)
@@ -169,10 +169,6 @@ class ReplyView: UIView {
         self.notReplyingState()
         self.layoutIfNeeded()
         textView.text = ""
-    }
-    
-    private func getMail() -> Mail {
-        return Mail(sender: Constant.logUser!, message: textView.text, content: nil, date: Date(), isRead: false, isFlagged: false)
     }
     
 }

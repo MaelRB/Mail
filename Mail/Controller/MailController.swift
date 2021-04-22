@@ -128,23 +128,7 @@ extension MailController {
                 
                 self.mailFolder = foldersArray
                 self.selectedFolder = foldersArray[1] // The second folder refers to the inbox
-                self.getUserInbox()
-            }
-        }
-    }
-    
-    private func getUserInbox() {
-        GraphManager.instance.getMailInbox { (messages, error) in
-            DispatchQueue.main.async {
-                
-                guard let messages = messages, error == nil else {
-                    print("Error getting user: \(String(describing: error))")
-                    self.mailListDelegate?.updateViewSate(.error(error!))
-                    return
-                }
-                
-                self.mailList = messages
-                self.mailListDelegate?.updateViewSate(.loaded)
+                self.getMessages()
             }
         }
     }
