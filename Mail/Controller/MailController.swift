@@ -63,7 +63,7 @@ final class MailController {
         for (index, message) in mailList.enumerated() {
             if message.entityId == newMessage.entityId {
                 mailList[index] = newMessage
-                readFormeFolder(newMessage)
+                readFromFolder(newMessage)
                 break
             }
         }
@@ -101,7 +101,7 @@ final class MailController {
         updateTitle()
     }
     
-    private func readFormeFolder(_ message: MSGraphMessage) {
+    private func readFromFolder(_ message: MSGraphMessage) {
         selectedFolder.unreadItemCount += message.isRead ? -1 : 1
         updateTitle()
     }
@@ -173,7 +173,7 @@ extension MailController {
     }
     
     private func updateIsRead() {
-        guard let mail = selectedMail else { return }
+        guard let mail = selectedMail, mail.isRead == false else { return }
         GraphManager.instance.updateRead(for: mail, newValue: true) { (message, error) in
             DispatchQueue.main.async {
                 
