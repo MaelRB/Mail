@@ -16,25 +16,18 @@
 		8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */; };
 		8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */; };
 		8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */; };
-		8A731940260E75260098FEAA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73193F260E75260098FEAA /* Constant.swift */; };
-		8A731958260E7E640098FEAA /* ModelInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A731957260E7E640098FEAA /* ModelInit.swift */; };
 		8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28125FB69CE006480BB /* AppDelegate.swift */; };
 		8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28325FB69CE006480BB /* SceneDelegate.swift */; };
 		8A94A28625FB69CE006480BB /* MailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A28525FB69CE006480BB /* MailListViewController.swift */; };
 		8A94A28B25FB69D1006480BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28A25FB69D1006480BB /* Assets.xcassets */; };
 		8A94A28E25FB69D1006480BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */; };
-		8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29625FB6DE7006480BB /* Mailboxes.swift */; };
 		8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29925FB761C006480BB /* MailCollectionViewController.swift */; };
-		8A94A29D25FB76A4006480BB /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A29C25FB76A4006480BB /* Thread.swift */; };
 		8A94A2A325FB7AEF006480BB /* MailListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A125FB7AEF006480BB /* MailListCell.swift */; };
 		8A94A2A425FB7AEF006480BB /* MailListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2A225FB7AEF006480BB /* MailListCell.xib */; };
-		8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2A625FD38BD006480BB /* MockedData.swift */; };
 		8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B125FE4763006480BB /* DateExtension.swift */; };
 		8A94A2B625FE5022006480BB /* MailDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B525FE5022006480BB /* MailDetailViewController.swift */; };
-		8A94A2B925FE55A2006480BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2B825FE55A2006480BB /* User.swift */; };
 		8A94A2BC25FE5926006480BB /* UserConversationNavigationItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A94A2BB25FE5926006480BB /* UserConversationNavigationItem.xib */; };
 		8A94A2BF25FE5B60006480BB /* UserConversationNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2BE25FE5B60006480BB /* UserConversationNavigationItem.swift */; };
-		8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A94A2C925FF45B7006480BB /* Mail.swift */; };
 		8AB7FEF42604D848007343D1 /* MuseoSansRounded-700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */; };
 		8AB7FF03260511AB007343D1 /* ReplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB7FF02260511AB007343D1 /* ReplyView.xib */; };
 		8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB7FF0526051770007343D1 /* ReplyView.swift */; };
@@ -69,8 +62,6 @@
 		8A7318EB26072F670098FEAA /* DocumentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewController.swift; sourceTree = "<group>"; };
 		8A7318EE2607343A0098FEAA /* DocumentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A7318EF2607343A0098FEAA /* DocumentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCollectionViewCell.xib; sourceTree = "<group>"; };
-		8A73193F260E75260098FEAA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		8A731957260E7E640098FEAA /* ModelInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInit.swift; sourceTree = "<group>"; };
 		8A94A27E25FB69CE006480BB /* Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A94A28125FB69CE006480BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A94A28325FB69CE006480BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,18 +69,13 @@
 		8A94A28A25FB69D1006480BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A94A28D25FB69D1006480BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A94A28F25FB69D1006480BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A94A29625FB6DE7006480BB /* Mailboxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mailboxes.swift; sourceTree = "<group>"; };
 		8A94A29925FB761C006480BB /* MailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailCollectionViewController.swift; sourceTree = "<group>"; };
-		8A94A29C25FB76A4006480BB /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		8A94A2A125FB7AEF006480BB /* MailListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailListCell.swift; sourceTree = "<group>"; };
 		8A94A2A225FB7AEF006480BB /* MailListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MailListCell.xib; sourceTree = "<group>"; };
-		8A94A2A625FD38BD006480BB /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		8A94A2B125FE4763006480BB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		8A94A2B525FE5022006480BB /* MailDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailDetailViewController.swift; sourceTree = "<group>"; };
-		8A94A2B825FE55A2006480BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8A94A2BB25FE5926006480BB /* UserConversationNavigationItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserConversationNavigationItem.xib; sourceTree = "<group>"; };
 		8A94A2BE25FE5B60006480BB /* UserConversationNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConversationNavigationItem.swift; sourceTree = "<group>"; };
-		8A94A2C925FF45B7006480BB /* Mail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
 		8AB7FEF32604D848007343D1 /* MuseoSansRounded-700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSansRounded-700.ttf"; sourceTree = "<group>"; };
 		8AB7FF02260511AB007343D1 /* ReplyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyView.xib; sourceTree = "<group>"; };
 		8AB7FF0526051770007343D1 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
@@ -237,12 +223,6 @@
 		8A94A2A925FD3E7C006480BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8A94A29C25FB76A4006480BB /* Thread.swift */,
-				8A94A2B825FE55A2006480BB /* User.swift */,
-				8A94A2C925FF45B7006480BB /* Mail.swift */,
-				8A94A2A625FD38BD006480BB /* MockedData.swift */,
-				8A94A29625FB6DE7006480BB /* Mailboxes.swift */,
-				8A731957260E7E640098FEAA /* ModelInit.swift */,
 				8A13BC5726316ACD00AB1598 /* Reply.swift */,
 			);
 			path = Model;
@@ -283,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				8A94A2B125FE4763006480BB /* DateExtension.swift */,
-				8A73193F260E75260098FEAA /* Constant.swift */,
 				8ACCDF3526132647000C2E67 /* State.swift */,
 				8AC08779261F66E100479830 /* AuthenticationManager.swift */,
 				8AC08782261F6C7D00479830 /* GraphManager.swift */,
@@ -444,14 +423,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF84FE72628748200300B99 /* Cache.swift in Sources */,
-				8A94A2A725FD38BD006480BB /* MockedData.swift in Sources */,
 				8AB7FF0626051770007343D1 /* ReplyView.swift in Sources */,
 				8A7318F02607343A0098FEAA /* DocumentCollectionViewCell.swift in Sources */,
 				8AC0877F261F6A4400479830 /* LogingViewController.swift in Sources */,
 				8A94A2A325FB7AEF006480BB /* MailListCell.swift in Sources */,
 				8A94A2B625FE5022006480BB /* MailDetailViewController.swift in Sources */,
 				8A94A2BF25FE5B60006480BB /* UserConversationNavigationItem.swift in Sources */,
-				8A94A2CA25FF45B7006480BB /* Mail.swift in Sources */,
 				8A7318EC26072F670098FEAA /* DocumentCollectionViewController.swift in Sources */,
 				8AC0877A261F66E100479830 /* AuthenticationManager.swift in Sources */,
 				8A13BC5826316ACD00AB1598 /* Reply.swift in Sources */,
@@ -459,15 +436,10 @@
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
 				8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */,
 				8AF84FEA262876CB00300B99 /* MailController.swift in Sources */,
-				8A731958260E7E640098FEAA /* ModelInit.swift in Sources */,
-				8A94A29725FB6DE7006480BB /* Mailboxes.swift in Sources */,
 				8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
 				8AC08783261F6C7D00479830 /* GraphManager.swift in Sources */,
-				8A731940260E75260098FEAA /* Constant.swift in Sources */,
 				8ACCDF3626132647000C2E67 /* State.swift in Sources */,
-				8A94A29D25FB76A4006480BB /* Thread.swift in Sources */,
-				8A94A2B925FE55A2006480BB /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
