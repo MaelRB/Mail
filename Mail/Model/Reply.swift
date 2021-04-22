@@ -6,22 +6,15 @@
 //
 
 import Foundation
+import MSGraphClientModels
 
 struct Reply: Encodable {
     var message: Recipients
     var comment: String
     
-    struct Recipients: Encodable {
-        var toRecipients: [Address]
-    }
-    
-    struct Address: Encodable {
-        var emailAddress: EmailAddress
-    }
-    
-    struct EmailAddress: Encodable {
-        var address: String
-        var name: String
+    init(email: MSGraphEmailAddress, comment: String) {
+        self.comment = comment
+        self.message = Recipients(toRecipients: [Recipients.Address(emailAddress: Recipients.EmailAddress(address: email.address ?? "", name: email.name ?? ""))])
     }
 }
 

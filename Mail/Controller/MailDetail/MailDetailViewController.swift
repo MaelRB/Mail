@@ -157,7 +157,7 @@ extension MailDetailViewController: ReplyViewDelegate {
     
     func sendDidTap(_ comment: String) {
         changeKeyBoardheight(38)
-        let reply = Reply(message: Reply.Recipients(toRecipients: [Reply.Address(emailAddress: Reply.EmailAddress(address: mailController.selectedMail!.sender!.emailAddress!.address!, name: mailController.selectedMail!.sender!.emailAddress!.name!))]), comment: comment)
+        let reply = Reply(email: mailController.selectedMail!.sender!.emailAddress!, comment: comment)
         GraphManager.instance.reply(to: mailController.selectedMail!, reply) { (_, _) in
             
         }

@@ -162,6 +162,16 @@ class MailListViewController: UIViewController {
         }
     }
     
+    // MARK: - Action methods
+    
+    @IBAction func newMessageDidTap(_ sender: Any) {
+        let message = Message(to: "mael.rb@outlook.com", body: "Premier mail envoyer depuis mon app", subject: "First !!!!")
+        GraphManager.instance.sendMessage(message) { (_, _) in
+            
+        }
+    }
+    
+    
 }
 
 // MARK: - Mail controller mail delegate methods

@@ -27,7 +27,7 @@ class MailListCell: UICollectionViewCell {
         title.text = model.subject ?? ""
         mail.text = model.bodyPreview!
         date.text = model.sentDateTime!.relativeDate()
-        sender.text = model.sender!.emailAddress!.name
+        sender.text = model.sender?.emailAddress?.name ?? ""
         
         // TODO: - Hide flag or new indicator
         newIndicator.isHidden = model.isRead

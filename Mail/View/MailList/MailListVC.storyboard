@@ -96,6 +96,9 @@
                                             <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="medium"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="large"/>
                                         </state>
+                                        <connections>
+                                            <action selector="newMessageDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V1M-zo-0mb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oW3-zR-cVA">
                                         <rect key="frame" x="269" y="0.0" width="44" height="44"/>
