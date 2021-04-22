@@ -27,6 +27,7 @@ class MailDetailViewController: UIViewController {
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var mailInfoLabel: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     // MARK: - Object life cycle
     
@@ -53,6 +54,7 @@ class MailDetailViewController: UIViewController {
     private func setupUI() {
         replyViewSetup()
         webViewSetup()
+        textViewSetup()
         tabBarSetup()
         textSetup()
     }
@@ -62,8 +64,22 @@ class MailDetailViewController: UIViewController {
     }
     
     private func webViewSetup() {
-        webView.loadHTMLString(mail.body!.content!, baseURL: nil)
-        webView.scrollView.showsVerticalScrollIndicator = false
+        if mail.body!.contentType!.enumValue == .html {
+            webView.isHidden = false
+            webView.loadHTMLString(mail.body!.content!, baseURL: nil)
+            webView.scrollView.showsVerticalScrollIndicator = false
+        } else {
+            webView.isHidden = true
+        }
+    }
+    
+    private func textViewSetup() {
+        if mail.body!.contentType!.enumValue == .text {
+            textView.isHidden = false
+            textView.text = mail.body!.content!
+        } else {
+            textView.isHidden = true
+        }
     }
     
     private func tabBarSetup() {
