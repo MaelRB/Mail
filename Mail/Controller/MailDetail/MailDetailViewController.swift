@@ -38,6 +38,13 @@ class MailDetailViewController: UIViewController {
         
         mail = mailController.selectedMail!
         setupUI()
+        
+        if mail.hasAttachments {
+            /*GraphManager.instance.getAttachments(for: mail) { (_, _) in
+                
+            }*/
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -183,7 +190,7 @@ extension MailDetailViewController: ReplyViewDelegate {
         changeKeyBoardheight(38)
     }
     
-    func documentDitTap() {
+    func documentDidTap() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self

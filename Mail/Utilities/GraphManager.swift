@@ -69,6 +69,11 @@ class GraphManager {
                 let foldersCollection = try MSCollection(data: data)
                 var foldersArray: [MSGraphMailFolder] = []
                 
+                guard foldersCollection.value != nil else {
+                    completion(nil, graphError)
+                    return
+                }
+                
                 foldersCollection.value.forEach({
                     (rawFolder: Any) in
                     // Convert JSON to a dictionary
@@ -115,6 +120,30 @@ class GraphManager {
     public func getMail(from folder: MSGraphMailFolder, completion: @escaping([MSGraphMessage]?, Error?) -> Void) {
         let request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/mailFolders/\(folder.entityId)/messages")!)
         getMailSessionDataTask(with: request, completion: completion)
+    }
+    
+    public func getAttachments(for message: MSGraphMessage, completion: @escaping([MSGraphMessage]?, Error?) -> Void) {
+        let request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/messages/\(message.entityId)/attachments")!)
+        getMailSessionDataTask(with: request, completion: completion)
+        
+        let dataTask = MSURLSessionDataTask(request: request, client: self.client, completion: {
+            (data: Data?, response: URLResponse?, graphError: Error?) in
+            guard let response = response as? HTTPURLResponse, graphError == nil else {
+                completion(nil, graphError)
+                return
+            }
+           
+            do {
+                let att = try MSGraphFileAttachment(data: data)
+                //completion(att, nil)
+                
+            } catch {
+                completion(nil, error)
+            }
+            
+        })
+        
+        dataTask?.execute()
     }
     
     private func getMailSessionDataTask(with request: NSMutableURLRequest, completion: @escaping([MSGraphMessage]?, Error?) -> Void) {

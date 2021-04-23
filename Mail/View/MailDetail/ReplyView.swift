@@ -11,7 +11,7 @@ protocol ReplyViewDelegate {
     func replyDidTap()
     func sendDidTap(_ comment: String)
     func closeDidTap()
-    func documentDitTap()
+    func documentDidTap()
 }
 
 class ReplyView: UIView {
@@ -92,7 +92,7 @@ class ReplyView: UIView {
     // MARK: - Action methods
     
     @IBAction func documentButtonTapped(_ sender: Any) {
-        delegate?.documentDitTap()
+        delegate?.documentDidTap()
         if isReplying == false {
             isReplying = true
             replyState()
