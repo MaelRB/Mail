@@ -11,6 +11,10 @@ import MSGraphClientModels
 
 class GraphManager {
     
+    enum ResponseError: Error {
+        case badStatusCode
+    }
+    
     // Implement singleton pattern
     static let instance = GraphManager()
     
@@ -270,7 +274,7 @@ class GraphManager {
         dataTask?.execute()
     }
     
-    public func sendMessage(_ message: Message, completion: @escaping(MSGraphMessage?, Error?) -> Void) {
+    public func sendMessage(_ message: Message, completion: @escaping(Error?) -> Void) {
         
         let request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/sendMail")!)
         request.httpMethod = "POST"
@@ -280,10 +284,14 @@ class GraphManager {
         let dataTask = MSURLSessionDataTask(request: request, client: self.client, completion: {
             (data: Data?, response: URLResponse?, graphError: Error?) in
             guard let response = response as? HTTPURLResponse, graphError == nil else {
-                completion(nil, graphError)
+                completion(graphError)
                 return
             }
-            print(response.statusCode)
+            if response.statusCode != 202 {
+                completion(ResponseError.badStatusCode)
+            } else {
+                completion(nil)
+            }
         })
         
         dataTask?.execute()

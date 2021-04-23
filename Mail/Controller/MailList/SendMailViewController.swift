@@ -14,6 +14,7 @@ class SendMailViewController: UIViewController {
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var sendButton: UIButton!
     
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     
@@ -30,7 +31,10 @@ class SendMailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         documentCollectionViewController = DocumentCollectionViewController(collectionView: collectionView)
-
+        
+        textView.delegate = self
+        
+        toTextField.becomeFirstResponder()
     }
     
     @objc func keyboardNotification(notification: NSNotification) {
@@ -67,7 +71,7 @@ class SendMailViewController: UIViewController {
     }
     
     @IBAction func sendButtonDidTap(_ sender: Any) {
-        
+        sendMail()
     }
     
     @IBAction func documentButtonDidTap(_ sender: Any) {
@@ -77,14 +81,40 @@ class SendMailViewController: UIViewController {
         present(picker, animated: true)
     }
     
+    @IBAction func textDidChange(_ sender: UITextField) {
+        checkWetherSendEnable()
+    }
+    
+    private func checkWetherSendEnable() {
+        sendButton.isEnabled = textView.text != "" && toTextField.text != ""
+    }
+    
+    private func sendMail() {
+        let message = Message(to: toTextField.text!, body: textView.text, subject: subjectTextField.text ?? "", cc: ccTextField.text ?? "")
+        GraphManager.instance.sendMessage(message) { (error) in
+            print(error)
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
 }
 
-// MARK : - Image picker methods
+// MARK: - Image picker methods
 extension SendMailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
         imageList.append(image)
         dismiss(animated: true)
+    }
+}
+
+// MARK: - Text view delegate methods
+extension SendMailViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        checkWetherSendEnable()
     }
 }

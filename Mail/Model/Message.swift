@@ -12,11 +12,13 @@ struct Message: Encodable {
     var subject: String
     var body: Body
     var toRecipients: [Recipients.Address]
+    var ccRecipients: [Recipients.Address]
     
-    init(to: String, body: String, subject: String) {
+    init(to: String, body: String, subject: String, cc: String) {
         self.body = Body(content: body)
         self.subject = subject
         self.toRecipients = [Recipients.Address(emailAddress: Recipients.EmailAddress(address: to, name: ""))]
+        self.ccRecipients = [Recipients.Address(emailAddress: Recipients.EmailAddress(address: to, name: ""))]
     }
     
     struct Body: Encodable {

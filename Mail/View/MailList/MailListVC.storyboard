@@ -27,9 +27,6 @@
                                 <state key="normal">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="mailboxesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wZu-co-BnZ"/>
-                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-Fj-UOK">
                                 <rect key="frame" x="0.0" y="203" width="414" height="693"/>
@@ -97,7 +94,6 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="38" scale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="newMessageDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V1M-zo-0mb"/>
                                             <segue destination="iAt-rX-dFc" kind="presentation" id="aXd-5n-kFg"/>
                                         </connections>
                                     </button>
@@ -145,7 +141,6 @@
                     <navigationItem key="navigationItem" id="vdS-Vd-0sR">
                         <barButtonItem key="leftBarButtonItem" title="Sign out" id="cUj-9r-Bdj">
                             <connections>
-                                <action selector="signOut:" destination="BYZ-38-t0r" id="WDr-Ob-XaI"/>
                                 <segue destination="TPK-cn-Uz8" kind="presentation" modalPresentationStyle="fullScreen" id="BTk-jr-11W"/>
                             </connections>
                         </barButtonItem>
@@ -183,48 +178,51 @@
                                 <rect key="frame" x="20" y="76" width="374" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="yfX-ST-g1v">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="28.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-Kx-leu">
-                                                <rect key="frame" x="0.0" y="0.0" width="18.5" height="28.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="17" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oEx-8O-ejy">
-                                                <rect key="frame" x="22.5" y="0.0" width="351.5" height="28.5"/>
+                                                <rect key="frame" x="21" y="0.0" width="353" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                <connections>
+                                                    <action selector="textDidChange:" destination="iAt-rX-dFc" eventType="editingChanged" id="5S0-vM-DkV"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8oZ-uE-YhX">
-                                        <rect key="frame" x="0.0" y="33.5" width="374" height="29"/>
+                                        <rect key="frame" x="0.0" y="33" width="374" height="28.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nL-pf-Jaj">
-                                                <rect key="frame" x="0.0" y="0.0" width="21" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="19" height="28.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="De0-CE-Xug">
-                                                <rect key="frame" x="25" y="0.0" width="349" height="29"/>
+                                                <rect key="frame" x="23" y="0.0" width="351" height="28.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hGO-xq-Dok">
-                                        <rect key="frame" x="0.0" y="67.5" width="374" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="66.5" width="374" height="33.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYL-Xx-o7l">
-                                                <rect key="frame" x="0.0" y="0.0" width="58" height="32.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="54" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNK-dQ-lkV">
-                                                <rect key="frame" x="62" y="0.0" width="312" height="32.5"/>
+                                                <rect key="frame" x="58" y="0.0" width="316" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -248,7 +246,7 @@
                                     <action selector="closeButtonDidTap:" destination="iAt-rX-dFc" eventType="touchUpInside" id="mba-Sr-6vf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHl-TE-SgY">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHl-TE-SgY">
                                 <rect key="frame" x="358" y="20" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="GIN-GW-IW4"/>
@@ -326,6 +324,7 @@
                         <outlet property="ccTextField" destination="De0-CE-Xug" id="0vC-Ys-xIf"/>
                         <outlet property="collectionView" destination="jDn-4d-UEU" id="TFK-ho-Aie"/>
                         <outlet property="keyboardHeightConstraint" destination="efs-OV-SqS" id="twv-6s-uRu"/>
+                        <outlet property="sendButton" destination="IHl-TE-SgY" id="s9q-sM-YoJ"/>
                         <outlet property="subjectTextField" destination="UNK-dQ-lkV" id="VMt-QN-NHg"/>
                         <outlet property="textView" destination="wmQ-hu-VV1" id="xR9-Ru-asY"/>
                         <outlet property="toTextField" destination="oEx-8O-ejy" id="OWP-fN-wm7"/>
