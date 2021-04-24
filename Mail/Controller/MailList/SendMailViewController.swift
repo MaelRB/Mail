@@ -92,7 +92,6 @@ class SendMailViewController: UIViewController {
     private func sendMail() {
         let message = Message(to: toTextField.text!, body: textView.text, subject: subjectTextField.text ?? "", cc: ccTextField.text ?? "")
         GraphManager.instance.sendMessage(message) { (error) in
-            print(error)
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
             }

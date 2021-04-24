@@ -156,6 +156,24 @@ extension MailController {
         }
     }
     
+    func refreshMail() {
+        GraphManager.instance.getMail(from: selectedFolder) { (messages, error) in
+            DispatchQueue.main.async {
+                
+                guard let messages = messages, error == nil else {
+                    print("Error getting user: \(String(describing: error))")
+                    //self.mailListDelegate?.updateViewSate(.error(error!))
+                    return
+                }
+                
+                
+                let index = messages.firstIndex { $0.entityId == self.mailList.first!.entityId }
+                let newMessageList = messages.dropLast(10 - (index ?? 0))
+                self.mailList.insert(contentsOf: newMessageList, at: 0)
+            }
+        }
+    }
+    
     func getNextPage() {
         GraphManager.instance.getNextPage { (messages, error) in
             DispatchQueue.main.async {

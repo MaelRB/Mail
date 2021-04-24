@@ -197,5 +197,16 @@ extension MailListViewController: UICollectionViewDelegate {
         }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < -100 && activityIndicator.isHidden == true {
+            activityIndicator.isHidden = false
+        } else if scrollView.contentOffset.y < -170 && activityIndicator.isAnimating == false {
+            activityIndicator.startAnimating()
+            mailController.refreshMail()
+        } else if scrollView.contentOffset.y > -100 {
+            activityIndicator.isHidden = true
+            activityIndicator.stopAnimating()
+        }
+    }
 }
 
