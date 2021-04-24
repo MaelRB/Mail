@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,26 +17,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9S9-tB-cgk">
-                                <rect key="frame" x="184" y="403" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9S9-tB-cgk">
+                                <rect key="frame" x="40" y="429" width="334" height="38"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="nzy-4z-BzG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="signButtonTapped:" destination="eDB-Am-3dO" eventType="touchUpInside" id="KGR-od-3z9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feF-jw-vDy">
-                                <rect key="frame" x="162" y="148" width="91" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TCD-oI-tUt">
+                                <rect key="frame" x="125.5" y="174" width="163" height="62.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="daJ-IY-sNF">
+                                        <rect key="frame" x="0.0" y="11" width="55.5" height="41.5"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="42"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feF-jw-vDy">
+                                        <rect key="frame" x="63.5" y="0.0" width="99.5" height="62.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="52"/>
+                                        <color key="textColor" name="AccentColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GZG-ww-DzK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9S9-tB-cgk" firstAttribute="centerX" secondItem="5v6-nA-d0n" secondAttribute="centerX" id="QSh-Ez-ixz"/>
+                            <constraint firstItem="9S9-tB-cgk" firstAttribute="leading" secondItem="GZG-ww-DzK" secondAttribute="leading" constant="40" id="Sdi-dc-bCd"/>
+                            <constraint firstItem="TCD-oI-tUt" firstAttribute="centerX" secondItem="5v6-nA-d0n" secondAttribute="centerX" id="dSd-5b-8mC"/>
+                            <constraint firstItem="GZG-ww-DzK" firstAttribute="trailing" secondItem="9S9-tB-cgk" secondAttribute="trailing" constant="40" id="g8f-iS-SOu"/>
+                            <constraint firstItem="TCD-oI-tUt" firstAttribute="top" secondItem="GZG-ww-DzK" secondAttribute="top" constant="130" id="hEx-MA-St7"/>
+                            <constraint firstItem="9S9-tB-cgk" firstAttribute="centerY" secondItem="5v6-nA-d0n" secondAttribute="centerY" id="ipb-iE-C4x"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="signInButton" destination="9S9-tB-cgk" id="cZ7-MG-g0f"/>
                         <segue destination="528-1B-eiS" kind="presentation" identifier="userSignedIn" modalPresentationStyle="fullScreen" id="WsT-a4-vi6"/>
                     </connections>
                 </viewController>
@@ -53,6 +77,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
