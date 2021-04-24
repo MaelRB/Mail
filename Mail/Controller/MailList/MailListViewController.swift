@@ -141,6 +141,18 @@ class MailListViewController: UIViewController {
         mailboxesButton.menu = menu
     }
     
+    private func showLogOutAlert() {
+        let alertVC = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
+        alertVC.addAction(UIAlertAction(title: "Sign out", style: .destructive, handler: { _ in
+            AuthenticationManager.instance.signOut()
+            self.performSegue(withIdentifier: "goToLogin", sender: self)
+        }))
+        alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            
+        }))
+        present(alertVC, animated: true, completion: nil)
+    }
+    
     // MARK: - Graph manager methods
     
     private func getMe() {
@@ -160,6 +172,10 @@ class MailListViewController: UIViewController {
                 GraphManager.instance.userTimeZone = currentUser.mailboxSettings?.timeZone ?? "UTC"
             }
         }
+    }
+    
+    @IBAction func logOutButtonDidTap(_ sender: Any) {
+        showLogOutAlert()
     }
 }
 

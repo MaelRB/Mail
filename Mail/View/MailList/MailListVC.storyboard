@@ -81,6 +81,9 @@
                                         <state key="normal" image="gear" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                         </state>
+                                        <connections>
+                                            <action selector="logOutButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HSJ-j1-CsV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkT-DQ-bi3">
                                         <rect key="frame" x="165" y="0.0" width="44" height="44"/>
@@ -138,20 +141,14 @@
                             <constraint firstItem="uBc-cV-oHZ" firstAttribute="top" secondItem="u0o-Rs-Z1v" secondAttribute="bottom" constant="40" id="wC4-SY-IOU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vdS-Vd-0sR">
-                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="cUj-9r-Bdj">
-                            <connections>
-                                <segue destination="TPK-cn-Uz8" kind="presentation" modalPresentationStyle="fullScreen" id="BTk-jr-11W"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="FuS-Um-NWJ"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="vdS-Vd-0sR"/>
                     <connections>
                         <outlet property="activityIndicator" destination="uBc-cV-oHZ" id="R4e-8H-8nP"/>
                         <outlet property="blurEffectView" destination="9wy-zV-V8I" id="egQ-zD-sse"/>
                         <outlet property="collectionView" destination="Jyc-Fj-UOK" id="Lnx-7n-XFM"/>
                         <outlet property="createMailButton" destination="RkT-DQ-bi3" id="Czu-lD-0mE"/>
                         <outlet property="mailboxesButton" destination="u0o-Rs-Z1v" id="QdO-AK-pSX"/>
+                        <segue destination="TPK-cn-Uz8" kind="presentation" identifier="goToLogin" modalPresentationStyle="fullScreen" id="0Qn-FR-Ham"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -161,7 +158,9 @@
         <!--loginVC-->
         <scene sceneID="JhS-YD-dpd">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginVC" referencedIdentifier="loginVC" id="TPK-cn-Uz8" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginVC" referencedIdentifier="loginVC" id="TPK-cn-Uz8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ud8-f7-Ntd"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggv-vn-deO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4420" y="-177"/>
@@ -359,7 +358,6 @@
         <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
