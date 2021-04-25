@@ -14,6 +14,8 @@
 		8A13BC6326317B0C00AB1598 /* MessageSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13BC6226317B0C00AB1598 /* MessageSend.swift */; };
 		8A13BC662632B5C200AB1598 /* SendMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13BC652632B5C200AB1598 /* SendMailViewController.swift */; };
 		8A13BC692635A04D00AB1598 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13BC682635A04D00AB1598 /* Attachment.swift */; };
+		8A13BC702635AA0E00AB1598 /* AttachmentButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A13BC6F2635AA0E00AB1598 /* AttachmentButton.xib */; };
+		8A13BC732635AB3500AB1598 /* AttachmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13BC722635AB3500AB1598 /* AttachmentButton.swift */; };
 		8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B7026035176002DE9B1 /* MuseoSans_500.otf */; };
 		8A18B9BA2620E5760052ACD4 /* LoginVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A18B9B82620E5760052ACD4 /* LoginVC.storyboard */; };
 		8A18B9BD2621E0890052ACD4 /* MailListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A18B9BC2621E0890052ACD4 /* MailListVC.storyboard */; };
@@ -65,6 +67,8 @@
 		8A13BC6226317B0C00AB1598 /* MessageSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSend.swift; sourceTree = "<group>"; };
 		8A13BC652632B5C200AB1598 /* SendMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMailViewController.swift; sourceTree = "<group>"; };
 		8A13BC682635A04D00AB1598 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		8A13BC6F2635AA0E00AB1598 /* AttachmentButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentButton.xib; sourceTree = "<group>"; };
+		8A13BC722635AB3500AB1598 /* AttachmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentButton.swift; sourceTree = "<group>"; };
 		8A164B7026035176002DE9B1 /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
 		8A18B9B92620E5760052ACD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginVC.storyboard; sourceTree = "<group>"; };
 		8A18B9BC2621E0890052ACD4 /* MailListVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MailListVC.storyboard; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 				8A164B912603D022002DE9B1 /* MailDetail */,
 				8A164B902603CFA3002DE9B1 /* MailList */,
 				8A94A28C25FB69D1006480BB /* LaunchScreen.storyboard */,
+				8A13BC6F2635AA0E00AB1598 /* AttachmentButton.xib */,
+				8A13BC722635AB3500AB1598 /* AttachmentButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				8A94A28B25FB69D1006480BB /* Assets.xcassets in Resources */,
 				8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */,
 				8AC08755261F628700479830 /* AuthSettings.plist in Resources */,
+				8A13BC702635AA0E00AB1598 /* AttachmentButton.xib in Resources */,
 				8A18B9BA2620E5760052ACD4 /* LoginVC.storyboard in Resources */,
 				8A94A2BC25FE5926006480BB /* UserConversationNavigationItem.xib in Resources */,
 				8A7318F12607343A0098FEAA /* DocumentCollectionViewCell.xib in Resources */,
@@ -459,6 +466,7 @@
 				8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
 				8AC08783261F6C7D00479830 /* GraphManager.swift in Sources */,
+				8A13BC732635AB3500AB1598 /* AttachmentButton.swift in Sources */,
 				8ACCDF3626132647000C2E67 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

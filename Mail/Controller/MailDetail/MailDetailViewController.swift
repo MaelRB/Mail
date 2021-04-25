@@ -29,6 +29,8 @@ class MailDetailViewController: UIViewController {
     @IBOutlet weak var mailInfoLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     
+    
+    @IBOutlet weak var attachmentButton: AttachmentButton!
     // MARK: - Object life cycle
     
     override func viewDidLoad() {
@@ -45,7 +47,11 @@ class MailDetailViewController: UIViewController {
                     print(error!)
                     return
                 }
-                print(attachments)
+                DispatchQueue.main.async {
+                    self.attachmentButton.isHidden = false
+                    let att = attachments!.first!
+                    self.attachmentButton.attachment = att
+                }
             }
         }
         
@@ -159,6 +165,11 @@ class MailDetailViewController: UIViewController {
     }
     
     @IBAction func moreButtonDidTap(_ sender: Any) {
+    }
+    
+    @IBAction func attachmentButtonDidTap(_ sender: Any) {
+        print("did tap")
+        
     }
     
     private func showAlert() {
