@@ -68,6 +68,7 @@ class MailDetailViewController: UIViewController {
     
     fileprivate func replyViewSetup() {
         replyView.delegate = self
+        replyView.email = mail.sender!.emailAddress!.address!
     }
     
     private func webViewSetup() {

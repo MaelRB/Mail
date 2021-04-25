@@ -11,18 +11,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReplyView" customModule="Mail" customModuleProvider="target">
             <connections>
-                <outlet property="addPersonButton" destination="u8V-Ui-dbV" id="UzQ-1p-dAY"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="aie-fJ-goE"/>
                 <outlet property="documentCollectionView" destination="Dyw-qa-DCT" id="38R-EP-RDA"/>
                 <outlet property="downStackView" destination="kd3-nQ-HFq" id="1YM-C2-PUw"/>
                 <outlet property="downStackViewHeightConstraint" destination="jvd-2k-Wlu" id="nkv-PK-ON5"/>
-                <outlet property="forwardButton" destination="Xp4-GA-KGf" id="ceg-oj-M0q"/>
                 <outlet property="replyButton" destination="dvG-L3-Xnc" id="lsp-zd-idg"/>
                 <outlet property="sendButton" destination="wbR-1p-5x1" id="rlm-pz-uqR"/>
                 <outlet property="separator" destination="NgP-nM-FbN" id="Wqw-uL-wNQ"/>
                 <outlet property="seperatorHeightConstraint" destination="dzC-50-RuL" id="7cQ-kY-yQd"/>
                 <outlet property="textView" destination="ciN-S8-vmd" id="VJs-v0-GMT"/>
-                <outlet property="threadButton" destination="vVo-BP-NjQ" id="hbM-pe-xto"/>
+                <outlet property="toLabel" destination="wKZ-bX-HqS" id="Zk3-uW-66p"/>
                 <outlet property="upperStackView" destination="vUs-gK-1dN" id="npb-RG-Bbs"/>
             </connections>
         </placeholder>
@@ -97,37 +95,12 @@
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-gK-1dN">
                     <rect key="frame" x="20" y="11" width="374" height="22"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVo-BP-NjQ">
-                            <rect key="frame" x="0.0" y="0.0" width="281" height="22"/>
-                            <state key="normal" title="Button">
-                                <color key="titleColor" systemColor="secondaryLabelColor"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8V-Ui-dbV">
-                            <rect key="frame" x="286" y="0.0" width="26" height="22"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="26" id="oeG-1M-hfq"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                            <color key="tintColor" systemColor="secondaryLabelColor"/>
-                            <state key="normal">
-                                <color key="titleColor" systemColor="secondaryLabelColor"/>
-                                <imageReference key="image" image="person.fill.badge.plus" catalog="system" symbolScale="medium" renderingMode="template"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="medium"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xp4-GA-KGf">
-                            <rect key="frame" x="317" y="0.0" width="26" height="22"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="26" id="W26-tu-bCl"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                            <color key="tintColor" systemColor="secondaryLabelColor"/>
-                            <state key="normal">
-                                <imageReference key="image" image="arrowshape.turn.up.forward.fill" catalog="system" symbolScale="medium"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
-                            </state>
-                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKZ-bX-HqS">
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="22"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-Q2-hNB">
                             <rect key="frame" x="348" y="0.0" width="26" height="22"/>
                             <constraints>
@@ -175,9 +148,7 @@
     </objects>
     <resources>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="arrowshape.turn.up.forward.fill" catalog="system" width="128" height="106"/>
         <image name="paperclip" catalog="system" width="121" height="128"/>
-        <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

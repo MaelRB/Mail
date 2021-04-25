@@ -26,10 +26,7 @@ class ReplyView: UIView {
     @IBOutlet private weak var replyButton: UIButton!
     @IBOutlet private weak var textView: UITextView!
     
-    @IBOutlet weak var threadButton: UIButton!
-    
-    @IBOutlet private weak var addPersonButton: UIButton!
-    @IBOutlet private weak var forwardButton: UIButton!
+    @IBOutlet weak var toLabel: UILabel!
     
     @IBOutlet private weak var upperStackView: UIStackView!
     @IBOutlet private weak var downStackView: UIStackView!
@@ -46,19 +43,15 @@ class ReplyView: UIView {
     
     private var documentCollectionViewController: DocumentCollectionViewController!
     
-//    var threadList = [Thread]() {
-//        didSet {
-//            threadButton.setTitle(threadList.first?.title ?? "No thread", for: .normal)
-//            currentThread = threadList.first!
-//            addButtonMenu()
-//        }
-//    }
-    
-//    private var currentThread: Thread!
-    
     private var isReplying = false
     
     private var documentImageList = [UIImage]()
+    
+    var email: String = "" {
+        didSet {
+            setText()
+        }
+    }
     
     // MARK: - Init and setup methods
     
@@ -140,24 +133,6 @@ class ReplyView: UIView {
         downStackViewHeightConstraint.constant = 42
     }
     
-//    private func addButtonMenu() {
-//        var actionList = [UIAction]()
-//
-//        for thread in threadList {
-//            let action = UIAction(title: thread.title) { _ in
-//                self.threadButton.setTitle(thread.title, for: .normal)
-//                self.currentThread = thread
-//            }
-//            actionList.append(action)
-//        }
-//
-//        let menu = UIMenu(title: "Thread list", children: actionList)
-//
-//        threadButton.role = .normal
-//        threadButton.menu = menu
-//        threadButton.showsMenuAsPrimaryAction = true
-//    }
-    
     func addImage(_ imageList: [UIImage]) {
         documentImageList.append(contentsOf: imageList)
         documentCollectionViewController.addImage(imageList)
@@ -169,6 +144,13 @@ class ReplyView: UIView {
         self.notReplyingState()
         self.layoutIfNeeded()
         textView.text = ""
+    }
+    
+    private func setText() {
+        let text = NSMutableAttributedString(string: "To : \(email)")
+        text.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)],
+                           range: NSMakeRange(0, 4))
+        toLabel.attributedText = text
     }
     
 }
