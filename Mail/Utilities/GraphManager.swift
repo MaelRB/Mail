@@ -126,9 +126,8 @@ class GraphManager {
         getMailSessionDataTask(with: request, completion: completion)
     }
     
-    public func getAttachments(for message: MSGraphMessage, completion: @escaping([MSGraphMessage]?, Error?) -> Void) {
+    public func getAttachments(for message: MSGraphMessage, completion: @escaping([Attachment]?, Error?) -> Void) {
         let request = NSMutableURLRequest(url: URL(string: "\(MSGraphBaseURL)/me/messages/\(message.entityId)/attachments")!)
-        getMailSessionDataTask(with: request, completion: completion)
         
         let dataTask = MSURLSessionDataTask(request: request, client: self.client, completion: {
             (data: Data?, response: URLResponse?, graphError: Error?) in
@@ -136,11 +135,27 @@ class GraphManager {
                 completion(nil, graphError)
                 return
             }
-           
+            print(response.statusCode)
             do {
-                let att = try MSGraphFileAttachment(data: data)
-                //completion(att, nil)
+                let attCollection = try MSCollection(data: data)
+                var attArray: [Attachment] = []
                 
+                guard attCollection.value != nil else {
+                    completion(nil, graphError)
+                    return
+                }
+                
+                attCollection.value.forEach({
+                    (rawAtt: Any) in
+                    // Convert JSON to a dictionary
+                    guard let attDict = rawAtt as? [String: Any] else {
+                        return
+                    }
+                    
+                    attArray.append(Attachment(dict: attDict))
+                })
+                
+                completion(attArray, nil)
             } catch {
                 completion(nil, error)
             }

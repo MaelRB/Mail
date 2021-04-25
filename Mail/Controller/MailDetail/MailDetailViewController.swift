@@ -40,9 +40,13 @@ class MailDetailViewController: UIViewController {
         setupUI()
         
         if mail.hasAttachments {
-            /*GraphManager.instance.getAttachments(for: mail) { (_, _) in
-                
-            }*/
+            GraphManager.instance.getAttachments(for: mail) { (attachments, error) in
+                guard error == nil else {
+                    print(error!)
+                    return
+                }
+                print(attachments)
+            }
         }
         
     }

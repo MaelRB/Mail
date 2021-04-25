@@ -13,6 +13,7 @@
 		8A13BC60263176BC00AB1598 /* Reciepents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13BC5F263176BC00AB1598 /* Reciepents.swift */; };
 		8A13BC6326317B0C00AB1598 /* MessageSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13BC6226317B0C00AB1598 /* MessageSend.swift */; };
 		8A13BC662632B5C200AB1598 /* SendMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13BC652632B5C200AB1598 /* SendMailViewController.swift */; };
+		8A13BC692635A04D00AB1598 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13BC682635A04D00AB1598 /* Attachment.swift */; };
 		8A164B7126035177002DE9B1 /* MuseoSans_500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A164B7026035176002DE9B1 /* MuseoSans_500.otf */; };
 		8A18B9BA2620E5760052ACD4 /* LoginVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A18B9B82620E5760052ACD4 /* LoginVC.storyboard */; };
 		8A18B9BD2621E0890052ACD4 /* MailListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A18B9BC2621E0890052ACD4 /* MailListVC.storyboard */; };
@@ -63,6 +64,7 @@
 		8A13BC5F263176BC00AB1598 /* Reciepents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reciepents.swift; sourceTree = "<group>"; };
 		8A13BC6226317B0C00AB1598 /* MessageSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSend.swift; sourceTree = "<group>"; };
 		8A13BC652632B5C200AB1598 /* SendMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMailViewController.swift; sourceTree = "<group>"; };
+		8A13BC682635A04D00AB1598 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		8A164B7026035176002DE9B1 /* MuseoSans_500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_500.otf; sourceTree = "<group>"; };
 		8A18B9B92620E5760052ACD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginVC.storyboard; sourceTree = "<group>"; };
 		8A18B9BC2621E0890052ACD4 /* MailListVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MailListVC.storyboard; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				8A13BC5C2631763700AB1598 /* Message.swift */,
 				8A13BC5F263176BC00AB1598 /* Reciepents.swift */,
 				8A13BC6226317B0C00AB1598 /* MessageSend.swift */,
+				8A13BC682635A04D00AB1598 /* Attachment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				8A94A28225FB69CE006480BB /* AppDelegate.swift in Sources */,
 				8A13BC60263176BC00AB1598 /* Reciepents.swift in Sources */,
 				8A94A2B225FE4763006480BB /* DateExtension.swift in Sources */,
+				8A13BC692635A04D00AB1598 /* Attachment.swift in Sources */,
 				8AF84FEA262876CB00300B99 /* MailController.swift in Sources */,
 				8A94A29A25FB761C006480BB /* MailCollectionViewController.swift in Sources */,
 				8A94A28425FB69CE006480BB /* SceneDelegate.swift in Sources */,
