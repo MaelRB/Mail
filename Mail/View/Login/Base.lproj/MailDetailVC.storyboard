@@ -41,7 +41,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgv-4f-ZS5">
-                                <rect key="frame" x="20" y="141" width="374" height="507"/>
+                                <rect key="frame" x="20" y="141" width="374" height="617"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -176,12 +176,18 @@
                             <constraint firstItem="gnt-Av-eNw" firstAttribute="top" secondItem="tgv-4f-ZS5" secondAttribute="bottom" constant="20" id="eaF-ho-sfb"/>
                             <constraint firstItem="uQE-X9-paV" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="20" id="gG3-PR-12D"/>
                             <constraint firstItem="O5A-8V-25k" firstAttribute="top" secondItem="4lF-jZ-6Oe" secondAttribute="top" constant="20" id="k5z-UA-mhC"/>
+                            <constraint firstItem="b7d-8E-VvE" firstAttribute="top" secondItem="tgv-4f-ZS5" secondAttribute="bottom" constant="20" id="lPC-lG-s1o"/>
                             <constraint firstItem="3bF-PM-dbI" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="20" id="ro0-XY-2l5"/>
                             <constraint firstItem="b7d-8E-VvE" firstAttribute="top" secondItem="3bF-PM-dbI" secondAttribute="bottom" constant="2" id="tem-Xx-iTW"/>
                             <constraint firstItem="gnt-Av-eNw" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" constant="20" id="ufB-gl-XlC"/>
                             <constraint firstItem="4lF-jZ-6Oe" firstAttribute="trailing" secondItem="O5A-8V-25k" secondAttribute="trailing" constant="20" id="vSJ-uU-Ec3"/>
                             <constraint firstItem="b7d-8E-VvE" firstAttribute="leading" secondItem="4lF-jZ-6Oe" secondAttribute="leading" id="y8l-g8-L7j"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="gnt-Av-eNw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="eH2-NK-d7h"/>
                     <connections>
